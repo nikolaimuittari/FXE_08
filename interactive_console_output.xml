@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.14 on win32)" generated="20240830 13:19:37.009" rpa="false" schemaversion="4">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\USER\.vscode\extensions\robocorp.robotframework-lsp-1.12.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Close Opened Project With Saving">
+<msg timestamp="20240830 13:19:37.930" level="FAIL">No keyword with name 'Close Opened Project With Saving' found.</msg>
+<status status="FAIL" starttime="20240830 13:19:37.930" endtime="20240830 13:19:37.931"/>
+</kw>
+<kw name="Splash Screen Check">
+<status status="NOT RUN" starttime="20240830 13:19:37.934" endtime="20240830 13:19:37.935"/>
+</kw>
+<kw name="Current Window System Force Close X Button">
+<status status="NOT RUN" starttime="20240830 13:19:37.938" endtime="20240830 13:19:37.938"/>
+</kw>
+<kw name="Splash Screen Check">
+<status status="NOT RUN" starttime="20240830 13:19:37.941" endtime="20240830 13:19:37.941"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>FXE_main_tabs_others.robot is completed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20240830 13:19:37.942" endtime="20240830 13:19:37.942"/>
+</kw>
+<status status="PASS" starttime="20240830 13:19:37.057" endtime="20240830 13:19:40.787"/>
+</kw>
+<status status="PASS" starttime="20240830 13:19:37.056" endtime="20240830 13:19:40.787"/>
+</test>
+<status status="PASS" starttime="20240830 13:19:37.011" endtime="20240830 13:19:40.789"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
