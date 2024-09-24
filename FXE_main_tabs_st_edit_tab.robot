@@ -19,10 +19,10 @@ Resource            resources/st_edit_tab.resource
 *** Variables ***
 #${FXEditor_app}     c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe
 ${TEST_PROJECTS_PATH}    c:\\QA\\TestProjects\\
-${TEST_PROJECT_NAME}    Test-Project_1
+${TEST_PROJECT_NAME}    Test-Project_C
 
-${test_project_dir}    c:\\QA\\TestProjects\\Test-Project_1
-${backup_dir}    c:\\QA\\Backup\\Test-Project_1
+${test_project_dir}    c:\\QA\\TestProjects\\Test-Project_C
+${backup_dir}    c:\\QA\\Backup\\Test-Project_C
 
 
 
@@ -68,4 +68,4 @@ Test Finish Without Saving
     Current Window System Force Close X Button
     Splash Screen Check
 
-    Log To Console    FXE_main_tabs_others.robot is completed
+    Log To Console    FXE_main_tabs_st_edit_tab.robot is completed

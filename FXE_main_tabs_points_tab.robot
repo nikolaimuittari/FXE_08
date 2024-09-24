@@ -26,15 +26,25 @@ Resource            resources/st_edit_tab.resource
 *** Variables ***
 #${FXEditor_app}     c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe
 ${TEST_PROJECTS_PATH}    c:\\QA\\TestProjects\\
-${TEST_PROJECT_NAME}    Test-Project_1
+${TEST_PROJECT_NAME}    Test-Project_C_EMPTY
+
+${test_project_dir}    c:\\QA\\TestProjects\\Test-Project_C_EMPTY
+${backup_dir}    c:\\QA\\Backup\\Test-Project_C_EMPTY
+
 
 *** Test Cases ***
 Points Tab
 
     Check Projects Common Folder Exists
-    Recreate Test Projects folder    c:\\QA\\TestProjects\\
-    Open FXE
-    New Project Wizard    Test-Project_1    FX3000C
+    # Recreate Test Projects folder    c:\\QA\\TestProjects\\
+    # Open FXE
+    # New Project Wizard    Test-Project_1    FX3000C
+
+    Copy Test Project Folder From Backup    ${test_project_dir}    ${backup_dir}
+
+    # New Project Wizard    Test-Project_1    FX3000C
+    Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
+
 
     Points Tab Select
     Left Panel Resize

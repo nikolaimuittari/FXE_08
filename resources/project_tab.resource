@@ -69,46 +69,303 @@ Project Tab Project Information Subtab
     RPA.Desktop.Press Keys    tab
 
 Project Tab Communication Settings Subtab
+
+
+#	x		y		Description
+#
+#	-300	-160	Plus
+#	-270	-160	Delete
+#	-50		-130	IP ddwn	
+#	-50		-80		PLC model
+#	-250	-30		Connection name
+
+#	-200	+20		Selected IP
+#	-50		+20		Selected IP refresh btn
+
+#	-150	+175	Create netwrk btn
+#
+#	+20		-140	FTP usernm inp
+#	+20		-95		FTP passw inp
+#	+95		-95		FTP show btn	
+#	+120	-95		FTO default btn
+#	+150	-145	FTP port input
+#	+195	-145	FTP port refresh btn	
+#	+210	-145	FTP passive chkbx
+#	+150	-95		Telnet port inp
+#	+195	-95		Telnet refresh btn
+#	
+#	+250	-95		Connect btn
+#
+#	+25		-25		web username inp
+#	+150	-25		web port inp
+#	+200	-25		web refresh btn
+#	+25		+25		web passw inp
+#	+90		+25		web passw show
+#	+115	+25		web passw default
+#
+#	+150	+100	IEC port inp
+#	+195	+95		IEC refresh btn
+#	+25		+175	OPC passw inp
+#	+95		+175	OPC passw show
+#	+115	+175	OPC passw default
+#	+150	+175	OPC port inp
+#	+195	+175	OPC port refresh
+#
+
+
     RPA.Desktop.Wait For Element    alias:FXE_project_main_project_info_bar    timeout=5
     RPA.Desktop.Click    alias:FXE_main_project_tab
     # Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Click    alias:FXE_main_project_tab_comm_settings_subtab
     # Sleep    ${SLEEP_TIMEOUT_DEFAULT}
-    RPA.Desktop.Press Keys    tab    # IP connection drop-down
-    RPA.Desktop.Press Keys    tab    # Selected IP
-    RPA.Desktop.Type Text    10.100.1.198 
-    RPA.Desktop.Press Keys    tab    # PLC model
-    RPA.Desktop.Press Keys    tab    # Default IP button (space)
-    RPA.Desktop.Press Keys    tab    # (S)FTP Passive mode checkbox
-    RPA.Desktop.Press Keys    tab    # (S)FTP password show button (click)
-    RPA.Desktop.Press Keys    tab    # CONNECT button (space)
-    RPA.Desktop.Press Keys    tab    # (S)FTP Password field (selected)
+
+    RPA.Desktop.Wait For Element    alias:FXE_main_project_tab_comm_settings_subtab_form    timeout=5
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=-50
+    ...    y=-130
+    ...    action=Click    #	-50		-130	IP ddwn	
+
+    RPA.Desktop.Press Keys    down    # IP connection drop-down
+    Sleep    0.5s
+    RPA.Desktop.Press Keys    up    # IP connection drop-down
+    Sleep    0.5s
+    RPA.Desktop.Press Keys    esc    # IP connection drop-down
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=-50
+    ...    y=-130
+    ...    action=Click    #	-50		-130	IP ddwn	
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=-300
+    ...    y=-160
+    ...    action=Click    #	-300	-160	Plus
+
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=-250
+    ...    y=-30
+    ...    action=Click    #	-250	-30		Connection name
+
+    RPA.Desktop.Type Text    NEW Connection
     
-    RPA.Desktop.Press Keys    tab
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=-200
+    ...    y=20
+    ...    action=Click    #	-200	+20		Selected IP
+    
+    RPA.Desktop.Type Text    10.10.10.10 
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=-50
+    ...    y=20
+    ...    action=Click    #	-50		+20		Selected IP refresh btn
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=-50
+    ...    y=-130
+    ...    action=Click    #	-50		-130	IP ddwn	
+
+    Sleep    0.5s
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=-50
+    ...    y=-130
+    ...    action=Click    #	-50		-130	IP ddwn	
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=-270
+    ...    y=-160
+    ...    action=Click    #	-270	-160	Delete
+	
+
+    # RPA.Desktop.Click With Offset
+    # ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    # ...    x=-50
+    # ...    y=-80
+    # ...    action=Click    #	-50		-80		PLC model
+
+    # Sleep    1.5s
+
+    # RPA.Desktop.Click With Offset
+    # ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    # ...    x=-50
+    # ...    y=-80
+    # ...    action=Click    #	-50		-80		PLC model
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=210
+    ...    y=-145
+    ...    action=Click    #	+210	-145	FTP passive chkbx
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=210
+    ...    y=-145
+    ...    action=Click    #	+210	-145	FTP passive chkbx
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=95
+    ...    y=-95
+    ...    action=Click    #	+95		-95		FTP show btn	
+
+    Sleep    1s
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=120
+    ...    y=-95
+    ...    action=Click    #	+120	-95		FTO default btn
+
+
+    ${password_default_form}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_project_tab_comm_settings_subtab_default_password_form    timeout=30
+    IF    ${password_default_form}
+        Log To Console    Password default-empty form
+        RPA.Desktop.Click With Offset
+        ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_default_password_form
+        ...    x=0
+        ...    y=20
+        ...    action=Click    #	Password default SET DEFAULT button  (x=0  y=100  CANCEL button)
+    END
+    # Now FTP password is default
+
+
+    ${password_already_form}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_project_tab_comm_settings_subtab_password_already_form    timeout=30
+    IF    ${password_already_form}
+        Log To Console    Password is already default form
+        RPA.Desktop.Click With Offset
+        ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_password_already_form
+        ...    x=125
+        ...    y=40
+        ...    action=Click    #	OK button
+    END
+    
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=20
+    ...    y=-95
+    ...    action=doubleclick    #	+20		-95		FTP passw inp
+
     RPA.Desktop.Type Text    demodemo
 
-    RPA.Desktop.Press Keys    tab    # (S)FTP Port number (selected)
-    RPA.Desktop.Type Text    22
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=95
+    ...    y=-95
+    ...    action=Click    #	+95		-95		FTP show btn	
 
-    RPA.Desktop.Press Keys    tab    # Web server password show button (click)
-    RPA.Desktop.Press Keys    tab    # Web server port field (selected)
-    RPA.Desktop.Type Text    80
+    Sleep    1s
 
-    RPA.Desktop.Press Keys    tab    # Web server username field (selected)
-    RPA.Desktop.Type Text    SYSTEM
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=120
+    ...    y=-95
+    ...    action=Click    #	+120	-95		FTO default btn
+
+
+    ${password_default_form}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_project_tab_comm_settings_subtab_default_password_form    timeout=30
+    IF    ${password_default_form}
+        Log To Console    Password default-empty form
+        RPA.Desktop.Click With Offset
+        ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_default_password_form
+        ...    x=0
+        ...    y=20
+        ...    action=Click    #	Password default SET DEFAULT button  (x=0  y=100  CANCEL button)
+    END
+    # Now FTP password is default
+
+    RPA.Desktop.Click With Offset
+    ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    ...    x=120
+    ...    y=-95
+    ...    action=Click    #	+120	-95		FTO default btn
+
+
+    ${password_default_form}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_project_tab_comm_settings_subtab_default_password_form    timeout=30
+    IF    ${password_default_form}
+        Log To Console    Password default-empty form
+        RPA.Desktop.Click With Offset
+        ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_default_password_form
+        ...    x=0
+        ...    y=100
+        ...    action=Click    #	Password default CANCEL button  (x=0  y=100  CANCEL button)
+    END
+    # Now FTP password is default
+
+    ${password_already_form}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_project_tab_comm_settings_subtab_password_already_form    timeout=30
+    IF    ${password_already_form}
+        Log To Console    Password is already default form
+        RPA.Desktop.Click With Offset
+        ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_password_already_form
+        ...    x=125
+        ...    y=40
+        ...    action=Click    #	OK button
+    END
+
+
+    # RPA.Desktop.Click With Offset
+    # ...    locator=alias:FXE_main_project_tab_comm_settings_subtab_form
+    # ...    x=150
+    # ...    y=-145
+    # ...    action=doubleclick    #	+150	-145	FTP port input
+
+    # RPA.Desktop.Type Text    12345
+
+
+
+
+
+
+
+
+########## OLD PART #######
+    # RPA.Desktop.Press Keys    tab    # IP connection drop-down
+    # RPA.Desktop.Press Keys    tab    # Selected IP
+    # RPA.Desktop.Type Text    10.100.1.198 
+    # RPA.Desktop.Press Keys    tab    # PLC model
+    # RPA.Desktop.Press Keys    tab    # Default IP button (space)
+    # RPA.Desktop.Press Keys    tab    # (S)FTP Passive mode checkbox
+    # RPA.Desktop.Press Keys    tab    # (S)FTP password show button (click)
+    # RPA.Desktop.Press Keys    tab    # CONNECT button (space)
+    # RPA.Desktop.Press Keys    tab    # (S)FTP Password field (selected)
     
-    RPA.Desktop.Press Keys    tab    # Web server password field (selected)
-    RPA.Desktop.Type Text    24680
+    # RPA.Desktop.Press Keys    tab
+    # RPA.Desktop.Type Text    demodemo
 
-    RPA.Desktop.Press Keys    tab    # OPC password show button (click)
-    RPA.Desktop.Press Keys    tab    # OPC port field (selected)
-    RPA.Desktop.Type Text    FdxAuth
+    # RPA.Desktop.Press Keys    tab    # (S)FTP Port number (selected)
+    # RPA.Desktop.Type Text    22
 
-    RPA.Desktop.Press Keys    tab    # OPC password field (selected)
-    RPA.Desktop.Type Text    1235
+    # RPA.Desktop.Press Keys    tab    # Web server password show button (click)
+    # RPA.Desktop.Press Keys    tab    # Web server port field (selected)
+    # RPA.Desktop.Type Text    80
 
-    RPA.Desktop.Press Keys    tab    # OPENPCS IEC port field (selected)
-    RPA.Desktop.Type Text    23042
+    # RPA.Desktop.Press Keys    tab    # Web server username field (selected)
+    # RPA.Desktop.Type Text    SYSTEM
+    
+    # RPA.Desktop.Press Keys    tab    # Web server password field (selected)
+    # RPA.Desktop.Type Text    24680
+
+    # RPA.Desktop.Press Keys    tab    # OPC password show button (click)
+    # RPA.Desktop.Press Keys    tab    # OPC port field (selected)
+    # RPA.Desktop.Type Text    FdxAuth
+
+    # RPA.Desktop.Press Keys    tab    # OPC password field (selected)
+    # RPA.Desktop.Type Text    1235
+
+    # RPA.Desktop.Press Keys    tab    # OPENPCS IEC port field (selected)
+    # RPA.Desktop.Type Text    23042
 
 Project Tab Hardware Configuration Subtab
     RPA.Desktop.Wait For Element    alias:FXE_main_project_tab_hardware_conf_subtab    timeout=5

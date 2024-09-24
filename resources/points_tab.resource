@@ -33,7 +33,7 @@ Points Tab Select
     
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_add_btn    timeout=10    # Waiting for Points Tab Add+Upload butttons
-    RPA.Desktop.Highlight Elements    alias:FXE_main_points_tab_add_btn
+    # RPA.Desktop.Highlight Elements    alias:FXE_main_points_tab_add_btn
 
 Points Tab Select Filter Create All Kinds Of Points
     
@@ -794,8 +794,8 @@ Points Filter Name Filter Field Select Argument-1
     [Arguments]    ${text}
     RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_pointfilter_bar    timeout=10    # Ponts filter lower bar. Dims: 525*30 center: 263*15
     RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_pointfilter_bar
-    RPA.Desktop.Click With Offset    x=-200    y=0    action=click    # Name field
-    RPA.Desktop.Press Keys    ctrl   a     # Select all
+    RPA.Desktop.Click With Offset    x=-200    y=0    action=doubleclick    # Name field
+    # RPA.Desktop.Press Keys    ctrl   a     # Select all
     RPA.Desktop.Type Text    ${text}    # Name to filter
     
     #RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_pointfilter_bar    # Point filter bar

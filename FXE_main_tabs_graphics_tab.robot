@@ -33,15 +33,23 @@ Resource            resources/graphics_tab_objects.resource
 ${TEST_PROJECTS_PATH}    c:\\QA\\TestProjects\\
 ${TEST_PROJECT_NAME}    Test-Project_1
 
+${test_project_dir}    c:\\QA\\TestProjects\\Test-Project_C
+${backup_dir}    c:\\QA\\Backup\\Test-Project_C
+
 *** Test Cases ***
  
 # Open Existing Project
 #     Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
 
+Preparations
+    Check Projects Common Folder Exists
+    Copy Test Project Folder From Backup    ${test_project_dir}    ${backup_dir}
+    Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
+
 
 Graphics Tab Features
     # ${app_instance} =    Start Process    c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe
-    Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
+    # Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
 
     Graphics Tab Select
 

@@ -86,9 +86,28 @@ Template Selection And Import AHU
     RPA.Desktop.Click    alias:FXE_main_template_icon
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
-    ${add_form}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_template_new_modify_form    timeout=10
+    ${filter_form}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_template_filter_select_form    timeout=10
+    IF    $filter_form == ${TRUE}
+        RPA.Desktop.Click With Offset    
+        ...    alias:FXE_main_template_new_modify_form    
+        ...    x=50    
+        ...    y=40
+        ...    action=click    # OK button
+    END
+
+
+    ${add_form}=    Run Keyword And Return Status    
+    ...    Wait For Element    
+    ...    alias:FXE_main_template_new_modify_form    
+    ...    timeout=10
+
     IF    $add_form == ${TRUE}
-        RPA.Desktop.Click With Offset    alias:FXE_main_template_new_modify_form    x=0    y=150
+        RPA.Desktop.Click With Offset    
+        ...    alias:FXE_main_template_new_modify_form    
+        ...    x=0    
+        ...    y=150
+        ...    action=click
+
         RPA.Desktop.Click    alias:FXE_main_OK_noicon_active_form_btn
     END
 
@@ -99,12 +118,15 @@ Template Selection And Import AHU
     # RPA.Desktop.Press Keys    enter
     # RPA.Desktop.Click    alias:FXE_main_OK_form_btn
 
-    ${unused points}    Run Keyword And Return Status    Wait For Element    alias:FXE_main_template_unused_form_SAVE_inactive_btn    timeout=10
+    ${unused points}=    Run Keyword And Return Status    
+    ...    Wait For Element    
+    ...    alias:FXE_main_template_unused_form_SAVE_inactive_btn    
+    ...    timeout=10
+
     IF    ${unused points}
         Wait For Element    alias:FXE_main_CLOSE_points_form_btn    timeout=10
         RPA.Desktop.Click    alias:FXE_main_CLOSE_points_form_btn
     END
-
 
 
 

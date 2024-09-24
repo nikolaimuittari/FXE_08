@@ -25,9 +25,11 @@ Resource            resources/upper_menu.resource
 *** Variables ***
 #${FXEditor_app}     c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe
 ${TEST_PROJECTS_PATH}    c:\\QA\\TestProjects
-${TEST_PROJECT_NAME}    Test-Project_1
-${TEST_PROJECT_NAME_2}    Test-Project_2
+${TEST_PROJECT_NAME}    Test-Project_C
+${TEST_PROJECT_NAME_2}    Test-Project_X
 ${TEST_GROUP_NAME}    Test-Group_1
+${test_project_dir}    c:\\QA\\TestProjects\\Test-Project_C
+${backup_dir}    c:\\QA\\Backup\\Test-Project_C
 
 *** Test Cases ***
 
@@ -38,14 +40,33 @@ Upper Menu Walkthrough
     # OperatingSystem.Should Not Exist    ${TEST_PROJECTS_PATH}\\${TEST_PROJECT_NAME_2}\\
     #    Log To Console    ${TEST_PROJECTS_PATH}\\${TEST_PROJECT_NAME_2}\\
     # Delete Group    ${TEST_PROJECTS_PATH}    ${TEST_GROUP_NAME}
+    Recreate Test Projects folder    ${TEST_PROJECTS_PATH}
+    Copy Test Project Folder From Backup    
+    ...    c:\\QA\\TestProjects\\Test-Project_C    
+    ...    c:\\QA\\Backup\\Test-Project_C
+
+    Copy Test Project Folder From Backup    
+    ...    c:\\QA\\TestProjects\\Test-Project_1    
+    ...    c:\\QA\\Backup\\Test-Project_1
+
+    Copy Test Project Folder From Backup    
+    ...    c:\\QA\\TestProjects\\Test-Project_X    
+    ...    c:\\QA\\Backup\\Test-Project_X
     
     Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
 
-    Upper Menu File Submenu Walkthrough
-    Upper Menu Edit Submenu Walkthrough
-    Upper Menu Fidelix Submenu Walkthrough
-    Upper Menu Points Submenu Walkthrough
-    Upper Menu Tools Submenu Walkthrough
+    Upper Menu File Submenu Open Template
+    # Upper Menu File Submenu Save
+    Upper Menu File Submenu Save As    Test-Project_Saved_As
+    Upper Menu File Submenu Save Selected Points    Test-Project_Saved_As
+    Upper Menu File Submenu Load Points    Test-Project_Saved_As
+
+
+    # Upper Menu File Submenu Walkthrough
+    # Upper Menu Edit Submenu Walkthrough
+    # Upper Menu Fidelix Submenu Walkthrough
+    # Upper Menu Points Submenu Walkthrough
+    # Upper Menu Tools Submenu Walkthrough
 
     # Upper Menu File New Project    2    ${TEST_PROJECT_NAME_2}
     # Upper Menu File New Group    2    ${TEST_PROJECTS_PATH}    ${TEST_GROUP_NAME}    

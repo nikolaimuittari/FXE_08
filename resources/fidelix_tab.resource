@@ -143,11 +143,14 @@ Fidelix Tab Left Panel Backup PLC Argument-1
     
     IF    ${backup}==5    # All checkboxes + OK button
         RPA.Desktop.Wait For Element    alias:FXE_main_fidelix_tab_backup_form    timeout=10    # Backup form dims: 414*300    center:207*150
-        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=-83    action=click   # Include BIN + subfolders
-        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=-53    action=click   # Include DATA + subfolders
-        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=-23    action=click   # Include WWW
-        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=13    action=click   # Include Symbol + subfolders
-        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=43    action=click   # Stop substation
+        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=-95    action=click   # Select All
+        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=-95    action=click   # Deselect all
+
+        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=-75    action=click   # Include BIN + subfolders
+        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=-45    action=click   # Include DATA + subfolders
+        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=-15    action=click   # Include WWW
+        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=15    action=click   # Include Symbol + subfolders
+        RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=-175    y=45    action=click   # Stop substation
         
         RPA.Desktop.Click With Offset    alias:FXE_main_fidelix_tab_backup_form     x=153    y=111    action=click   # OK button
         ${working_status}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element   alias:FXE_main_WORKING_status_bar    timeout=5    # WORKING status

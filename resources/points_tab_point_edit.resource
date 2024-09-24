@@ -231,22 +231,28 @@ Points Tab Point Edit Form History Section Arguments-6
         RPA.Desktop.Press Keys    tab
         RPA.Desktop.Press Keys    tab
 
-        IF    ${Energy_Channel}=="Day"
-            RPA.Desktop.Press Keys    down
-            RPA.Desktop.Press Keys    tab
+        # IF    ${Energy_Channel}=="Day"
+        #     RPA.Desktop.Press Keys    down
+        #     RPA.Desktop.Press Keys    tab
 
-            IF   ${Energy_Channel_Type}=="Consumption"
-                RPA.Desktop.Press Keys    down
-                RPA.Desktop.Press Keys    tab
-            END
+        #     IF   ${Energy_Channel_Type}=="Consumption"
+        #         RPA.Desktop.Press Keys    down
+        #         RPA.Desktop.Press Keys    tab
+        #     END
 
-        ELSE IF   ${Energy_Channel}=="Hour"
-            RPA.Desktop.Press Keys    down
-            RPA.Desktop.Press Keys    tab  
-        ELSE
-            RPA.Desktop.Press Keys    tab
-        END
+        # ELSE IF   ${Energy_Channel}=="Hour"
+        #     RPA.Desktop.Press Keys    down
+        #     RPA.Desktop.Press Keys    tab  
+        # ELSE
+        #     RPA.Desktop.Press Keys    tab
+        # END
 
+        RPA.Desktop.Press Keys    down
+        RPA.Desktop.Press Keys    down
+
+        RPA.Desktop.Press Keys    up
+        RPA.Desktop.Press Keys    up
+        
     END
 
 
@@ -728,8 +734,11 @@ Points Tab Left Panel AI Right Button Edit Arguments-2
     RPA.Desktop.Press Keys    tab    # Point text field
  
     #RPA.Desktop.Press Keys    ctrl    a    # Point text field
-    RPA.Desktop.Type Text    ${pointname} text Field    
+    RPA.Desktop.Type Text    ${pointname} text Field
+        
     RPA.Desktop.Press Keys    tab    # Picture field
+    RPA.Desktop.Type Text    new.htm
+
     RPA.Desktop.Press Keys    tab    # Auto checkbox
     RPA.Desktop.Press Keys    space    # Auto checkbox select
    
@@ -964,14 +973,15 @@ Points Tab Left Panel CONTROL Right Button Edit Argument-1
     
     # RPA.Desktop.Wait For Element    alias:alias:FXE_main_points_tab_POINTNAME_txt    timeout=5
     # RPA.Desktop.Click With Offset    alias:alias:FXE_main_points_tab_POINTNAME_txt    x=0    y=10    action=click    
-    RPA.Desktop.Click With Offset    alias:FXE_main_points_tab_CONTROL_edit_form    x=-400    y=-250    action=click    # Pointname field   
+    RPA.Desktop.Click With Offset    alias:FXE_main_points_tab_CONTROL_edit_form    x=-400    y=-235    action=click    # Pointname field   
     RPA.Desktop.Press Keys    ctrl    a
     RPA.Desktop.Type Text    ${pointname}  # Point name field
     RPA.Desktop.Press Keys    tab    # View
     RPA.Desktop.Press Keys    tab    # Manual
     RPA.Desktop.Press Keys    tab    # Prog
     RPA.Desktop.Press Keys    tab    # Point text field
- 
+
+    RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_CONTROL_edit_form    timeout=10    # CONTROL point edit form   Dims: 959*578  center:480*290
     #RPA.Desktop.Press Keys    ctrl    a    # Point text field
     RPA.Desktop.Type Text    ${pointname} text Field    
     RPA.Desktop.Press Keys    tab    # Picture field
@@ -991,7 +1001,8 @@ Points Tab Left Panel CONTROL Right Button Edit Argument-1
     #Points Tab Point Edit Form Modbus Point Select    # Checkbox deselect
 
     #RPA.Desktop.Press Keys    tab    # Modbus point checkbox
-    
+    RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_CONTROL_edit_form    timeout=10    # CONTROL point edit form   Dims: 959*578  center:480*290
+
     RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_CONTROL_edit_form_main_measurement_ddwn    timeout=10    #  Main measurement  drop-down 
     RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_CONTROL_edit_form_main_measurement_ddwn       # Main measurement drop-down
     RPA.Desktop.Click With Offset    x=0    y=0    action=click

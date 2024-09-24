@@ -26,10 +26,10 @@ Resource            resources/st_edit_tab.resource
 *** Variables ***
 #${FXEditor_app}     c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe
 ${TEST_PROJECTS_PATH}    c:\\QA\\TestProjects\\
-${TEST_PROJECT_NAME}    Test-Project_1
+${TEST_PROJECT_NAME}    Test-Project_C
 
-${test_project_dir}    c:\\QA\\TestProjects\\Test-Project_1
-${backup_dir}    c:\\QA\\Backup\\Test-Project_1
+${test_project_dir}    c:\\QA\\TestProjects\\Test-Project_C
+${backup_dir}    c:\\QA\\Backup\\Test-Project_C
 
 *** Test Cases ***
 Fidelix Tab
@@ -44,7 +44,7 @@ Fidelix Tab
     # [Argument] 1= connect, other=disconnect
     Fidelix Tab Left Panel Backup PLC Argument-1    5
     Fidelix Tab Left Panel Watchdog
-    Fidelix Tab Left Panel Add Files Argument-1    C:\\QA\\TestProjects\\Test-Project_1\\Log.txt
+    Fidelix Tab Left Panel Add Files Argument-1    C:\\QA\\TestProjects\\Test-Project_C\\Log.txt
     
     # Fidelix Tab Left Panel FX Folder Upload Argument-1    www
     # Fidelix Tab Right Panel FX Folder Copy Argument-1    www

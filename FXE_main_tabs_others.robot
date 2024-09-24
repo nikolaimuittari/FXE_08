@@ -26,7 +26,7 @@ Resource            resources/st_edit_tab.resource
 *** Variables ***
 #${FXEditor_app}     c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe
 ${TEST_PROJECTS_PATH}    c:\\QA\\TestProjects\\
-${TEST_PROJECT_NAME}    Test-Project_1
+${TEST_PROJECT_NAME}    Test-Project_C
 
 *** Test Cases ***
 Preparations

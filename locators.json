@@ -5,6 +5,24 @@
         "source": null,
         "type": "image"
     },
+    "FXE_group_close_changed_form": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_group_close_changed_form-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_group_upper_menu": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_group_upper_menu-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_group_upper_menu_file_menu": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_group_upper_menu_file_menu-path.png",
+        "source": null,
+        "type": "image"
+    },
     "FXE_main_ACCESS_VIOLATION_form": {
         "confidence": 50.0,
         "path": ".images\\fxe_main_access_violation_form-path.png",
@@ -222,7 +240,7 @@
         "type": "image"
     },
     "FXE_main_documents_tab_new_folder_form": {
-        "confidence": 80.0,
+        "confidence": 50.0,
         "path": ".images\\fxe_main_documents_tab_new_folder_form-path.png",
         "source": null,
         "type": "image"
@@ -588,7 +606,7 @@
         "type": "image"
     },
     "FXE_main_history_tab_new_group_form": {
-        "confidence": 50.0,
+        "confidence": 30.0,
         "path": ".images\\fxe_main_history_tab_new_group_form-path.png",
         "source": null,
         "type": "image"
@@ -1014,7 +1032,7 @@
         "type": "image"
     },
     "FXE_main_points_tab_LOOKUP_edit_form": {
-        "confidence": 30.0,
+        "confidence": 20.0,
         "path": ".images\\fxe_main_points_tab_lookup_edit_form-path.png",
         "source": null,
         "type": "image"
@@ -1067,8 +1085,14 @@
         "source": null,
         "type": "image"
     },
+    "FXE_main_points_tab_XML_save_form": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_main_points_tab_xml_save_form-path.png",
+        "source": null,
+        "type": "image"
+    },
     "FXE_main_points_tab_add_btn": {
-        "confidence": 80.0,
+        "confidence": 50.0,
         "path": ".images\\fxe_main_points_tab_add_btn-path.png",
         "source": null,
         "type": "image"
@@ -1433,9 +1457,27 @@
         "source": null,
         "type": "image"
     },
+    "FXE_main_project_tab_comm_settings_subtab_default_password_form": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_main_project_tab_comm_settings_subtab_default_password_form-path.png",
+        "source": null,
+        "type": "image"
+    },
     "FXE_main_project_tab_comm_settings_subtab_disconnect_btn": {
         "confidence": 80.0,
         "path": ".images\\fxe_main_project_tab_comm_settings_subtab_disconnect_btn-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_main_project_tab_comm_settings_subtab_form": {
+        "confidence": 30.0,
+        "path": ".images\\fxe_main_project_tab_comm_settings_subtab_form-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_main_project_tab_comm_settings_subtab_password_already_form": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_main_project_tab_comm_settings_subtab_password_already_form-path.png",
         "source": null,
         "type": "image"
     },
@@ -1668,7 +1710,7 @@
         "type": "image"
     },
     "FXE_main_st-edit_tab_clean_unused_found_form": {
-        "confidence": 40.0,
+        "confidence": 21.0,
         "path": ".images\\fxe_main_stedit_tab_clean_unused_found_form-path.png",
         "source": null,
         "type": "image"
@@ -1704,7 +1746,7 @@
         "type": "image"
     },
     "FXE_main_st-edit_tab_new_file_form": {
-        "confidence": 30.0,
+        "confidence": 20.0,
         "path": ".images\\fxe_main_stedit_tab_new_file_form-path.png",
         "source": null,
         "type": "image"
@@ -1728,7 +1770,7 @@
         "type": "image"
     },
     "FXE_main_st-edit_tab_right_panel_program_icon": {
-        "confidence": 30.0,
+        "confidence": 50.0,
         "path": ".images\\fxe_main_stedit_tab_right_panel_program_icon-path.png",
         "source": null,
         "type": "image"
@@ -1784,6 +1826,12 @@
     "FXE_main_st-edit_tab_toolbar_start_stop_close_btns": {
         "confidence": 40.0,
         "path": ".images\\fxe_main_stedit_tab_toolbar_start_stop_close_btns-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_main_st-edit_tab_toolbar_start_stop_close_form": {
+        "confidence": 20.0,
+        "path": ".images\\fxe_main_stedit_tab_toolbar_start_stop_close_form-path.png",
         "source": null,
         "type": "image"
     },
@@ -1844,6 +1892,12 @@
     "FXE_main_template_exhaust_1_icon": {
         "confidence": 50.0,
         "path": ".images\\fxe_main_template_exhaust_1_icon-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_main_template_filter_form": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_main_template_filter_form-path.png",
         "source": null,
         "type": "image"
     },
@@ -1961,6 +2015,18 @@
         "source": null,
         "type": "image"
     },
+    "FXE_main_upper_file_open_project_form_open_btn": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_main_upper_file_open_project_form_open_btn-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_main_upper_file_open_project_new_wndw_form": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_main_upper_file_open_project_new_wndw_form-path.png",
+        "source": null,
+        "type": "image"
+    },
     "FXE_main_upper_menu": {
         "confidence": 30.0,
         "path": ".images\\fxe_main_upper_menu-path.png",
@@ -1976,6 +2042,12 @@
     "FXE_main_upper_points_menu_list": {
         "confidence": 30.0,
         "path": ".images\\fxe_main_upper_points_menu_list-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_main_upper_search_replace_form": {
+        "confidence": 30.0,
+        "path": ".images\\fxe_main_upper_search_replace_form-path.png",
         "source": null,
         "type": "image"
     },
@@ -2504,6 +2576,24 @@
     "FXE_system_file_open_form_btn": {
         "confidence": 25.0,
         "path": ".images\\fxe_system_file_open_form_btn-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_system_filename_prompt": {
+        "confidence": 30.0,
+        "path": ".images\\fxe_system_filename_prompt-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_system_open_cancel_btns": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_system_open_cancel_btns-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_system_save_cancel_btns": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_system_save_cancel_btns-path.png",
         "source": null,
         "type": "image"
     },

@@ -95,6 +95,12 @@ Close Opened ST File
     RPA.Desktop.Wait For Element    alias:FXE_main_st-edit_tab_toolbar_start_stop_close_btns    timeout=10    # Close button
     RPA.Desktop.Click With Offset    alias:FXE_main_st-edit_tab_toolbar_start_stop_close_btns    x=50    y=0    action=click    # Close button
 
+    ${changed_file_form_exists}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_st-edit_tab_toolbar_start_stop_close_form    timeout=25
+    # File is changed form
+    Run Keyword If    ${changed_file_form_exists}    RPA.Desktop.Click With Offset    alias:FXE_main_st-edit_tab_toolbar_start_stop_close_form    x=50    y=65    action=click    # Cancel
+
+
+
 
 ST-Edit Tab New ST Function Block Random Name
     RPA.Desktop.Wait For Element    alias:FXE_main_st-edit_tab    timeout=10    # ST-Edit tab

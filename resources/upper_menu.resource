@@ -12,6 +12,7 @@ Library             OperatingSystem
 Library             RPA.FileSystem
 
 Resource    common.resource
+Resource    points_tab.resource
 
 *** Variables ***
 
@@ -19,62 +20,457 @@ Resource    common.resource
 
 *** Keywords ***
 Upper Menu File Submenu Walkthrough
+    # Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    # RPA.Desktop.Click With Offset    alias:FXE_main_upper_menu    x=-85    y=0    action=click    # File submenu
+
+    # Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+
+    # Upper Menu File Submenu New Project
+
+    # Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    # RPA.Desktop.Click With Offset    alias:FXE_main_upper_menu    x=-85    y=0    action=click    # File submenu
+
+    Upper Menu File Submenu New Group Project    Test-Group
+    # ${PROJECTS_PATH} =    Set Variable    "c:\\QA\\TestProjects\\Test-Project_1\\Test-Project_1.fxp"
+    # Upper Menu File Submenu Open Project    ${PROJECTS_PATH}
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,-290    # New project
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,-250    # New group project
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,-210    # Open group / project
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,-170    # Load template
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,-120    # Save
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,-90    # Save As
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,-50    # Save selected points
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,0    # Load points from file
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,30    # Make template
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,70    # Import
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:100,70    # Import point text file
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,120    # Close project
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,160    # Settings
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,200    # Explore programdata
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,250    # Print
+
+    # Move Mouse    alias:FXE_main_upper_file_menu_list
+    # Move Mouse    offset:0,280    # Exit
+
+    # Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    # RPA.Desktop.Click With Offset    alias:FXE_main_upper_menu    x=-85    y=0    action=click    # File submenu
+    
+
+
+Upper Menu File Submenu New Project
+    Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+    
+    RPA.Desktop.Click With Offset    alias:FXE_main_upper_file_menu_list    x=0    y=-290    action=click    # New project
+    Wait For Element    alias:FXE_main_upper_new_project_form    timeout=10
+
+    # New project form
+    # 0    -20    New window
+    # 0    +20    Existing
+    # 0    +100    Cancel
+
+    RPA.Desktop.Click With Offset    alias:FXE_main_upper_new_project_form    x=0    y=-20    action=click    # New window
+    Splash Screen Check
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    # Project wizard
+    Wait For Element    alias:FXE_new_wizard_close_wizard_btn    timeout=30
+
+    RPA.Desktop.Click    alias:FXE_new_wizard_close_wizard_btn    action=click
+    Current Window System Force Close X Button
+    Splash Screen Check
+
     Wait For Element    alias:FXE_main_upper_menu    timeout=30
     RPA.Desktop.Click With Offset    alias:FXE_main_upper_menu    x=-85    y=0    action=click    # File submenu
 
     Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
-    
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,-290    # New project
+    RPA.Desktop.Click With Offset    alias:FXE_main_upper_file_menu_list    x=0    y=-290    action=click    # New project
+    Wait For Element    alias:FXE_main_upper_new_project_form    timeout=10
 
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,-250    # New group project
+    RPA.Desktop.Click With Offset    alias:FXE_main_upper_new_project_form    x=0    y=20    action=click    # Existing window
+    Splash Screen Check
+    # Project wizard
+    Wait For Element    alias:FXE_new_wizard_close_wizard_btn    timeout=30
 
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,-210    # Open group / project
+    RPA.Desktop.Click    alias:FXE_new_wizard_close_wizard_btn    action=click
+    RPA.Desktop.Wait For Element    alias:FXE_start_right_down_logo    timeout=40
 
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,-170    # Load template
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,-120    # Save
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,-90    # Save As
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,-50    # Save selected points
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,0    # Load points from file
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,30    # Make template
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,70    # Import
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:100,70    # Import point text file
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,120    # Close project
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,160    # Settings
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,200    # Explore programdata
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,250    # Print
-
-    Move Mouse    alias:FXE_main_upper_file_menu_list
-    Move Mouse    offset:0,280    # Exit
+    Current Window System Force Close X Button
+    Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
 
     Wait For Element    alias:FXE_main_upper_menu    timeout=30
     RPA.Desktop.Click With Offset    alias:FXE_main_upper_menu    x=-85    y=0    action=click    # File submenu
+
+    Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+    RPA.Desktop.Click With Offset    alias:FXE_main_upper_file_menu_list    x=0    y=-290    action=click    # Cancel
+    Wait For Element    alias:FXE_main_upper_new_project_form    timeout=10
+    RPA.Desktop.Click With Offset    alias:FXE_main_upper_new_project_form    x=0    y=100    action=click    # Cancel
+
+
+Upper Menu File Submenu New Group Project
+    [Arguments]    ${group_name}
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    RPA.Desktop.Click With Offset    alias:FXE_main_upper_menu    x=-85    y=0    action=click    # File submenu
     
+    Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+
+    # Move Mouse    offset:0,-250    # New group project
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_file_menu_list    
+    ...    x=0    
+    ...    y=-250    
+    ...    action=click    # New group project
+    
+    Sleep    3s
+
+    Wait For Element    alias:FXE_start_create_a_new_group_name_form    timeout=10
+    RPA.Desktop.Click    alias:FXE_start_create_a_new_group_name_form    action=click
+    RPA.Desktop.Type Text    ${group_name}
+
+    Wait For Element    alias:FXE_start_create_a_new_group_project_save_btn    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_start_create_a_new_group_project_save_btn    
+    ...    x=0    
+    ...    y=0    
+    ...    action=click    # Save
+
+    Wait For Element    alias:FXE_start_create_group_select_all    timeout=10
+    RPA.Desktop.Click    alias:FXE_start_create_group_select_all    action=click
+
+    Wait For Element    alias:FXE_main_ADD_form_btn    timeout=10
+    RPA.Desktop.Click    alias:FXE_start_create_group_select_all    action=click
+
+    Wait For Element    alias:FXE_group_upper_menu    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_group_upper_menu    
+    ...    x=20    
+    ...    y=0    
+    ...    action=click    # File menu
+
+    Wait For Element    alias:FXE_group_upper_menu_file_menu    timeout=10
+        
+    #	x		y		FXE_group_upper_menu_file_menu
+    #	0		-70		New project
+    #	0		-45		Open project
+    #	0		-25		Save group
+    #	0		0		Scan for project
+    #	0		+20		Explore FX editor
+    #	0		45		Close group	
+    #	0		75		Exit
+    
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_group_upper_menu_file_menu    
+    ...    x=0    
+    ...    y=75    
+    ...    action=click    # Exit
+
+    Wait For Element    alias:FXE_group_close_changed_form    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_group_close_changed_form    
+    ...    x=-20    
+    ...    y=50    
+    ...    action=click    # Yes
+
+    Splash Screen Check
+    Log To Console    Group ${group_name} has been created, saved and closed
+
+
+Upper Menu File Submenu Open Project
+    [Arguments]    ${PROJECTS_PATH}
+
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_menu    
+    ...    x=-85    
+    ...    y=0    
+    ...    action=click    # File submenu
+    
+    Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_file_menu_list    
+    ...    x=0    
+    ...    y=-210    
+    ...    action=click    # Open group / project
+
+    Wait For Element    alias:FXE_start_create_a_new_group_name_form    timeout=10
+    RPA.Desktop.Click    alias:FXE_start_create_a_new_group_name_form    action=click
+    
+    RPA.Desktop.Type Text    ${PROJECTS_PATH}
+    Sleep    2s
+    Wait For Element    alias:FXE_main_upper_file_open_project_form_open_btn    timeout=10
+    RPA.Desktop.Click    alias:FXE_main_upper_file_open_project_form_open_btn    action=click
+    
+    # Open in new window
+    Wait For Element    alias:FXE_main_upper_file_open_project_new_wndw_form    timeout=10
+    # RPA.Desktop.Click With Offset    
+    # ...    alias:FXE_main_upper_file_open_project_new_wndw_form    
+    # ...    x=-25    
+    # ...    y=40    
+    # ...    action=click    # Yes button
+    RPA.Desktop.Press Keys    tab
+    RPA.Desktop.Press Keys    enter
+    Sleep    2s
+    Splash Screen Check
+    Sleep    5s
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    Log To Console    Project is opened
+
+
+
+Upper Menu File Submenu Open Template
+
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_menu    
+    ...    x=-85    
+    ...    y=0    
+    ...    action=click    # File submenu
+    
+    Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_file_menu_list    
+    ...    x=0    
+    ...    y=-170    
+    ...    action=click    # Open template
+
+    ${filter_form}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_template_filter_select_form    timeout=10
+    IF    $filter_form == ${TRUE}
+        RPA.Desktop.Click With Offset    
+        ...    alias:FXE_main_template_new_modify_form    
+        ...    x=50    
+        ...    y=40
+        ...    action=click    # OK button
+    END
+
+    Wait For Element    alias:FXE_main_template_browser_form_filled    timeout=10
+
+    Log To Console    Template form visible
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_template_browser_form_filled    
+    ...    x=370    
+    ...    y=-270    
+    ...    action=click    # Windows Close Cross 
+
+
+Upper Menu File Submenu Save
+
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_menu    
+    ...    x=-85    
+    ...    y=0    
+    ...    action=click    # File submenu
+    
+    Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_file_menu_list    
+    ...    x=0    
+    ...    y=-120    
+    ...    action=click    # Save
+
+
+Upper Menu File Submenu Save As
+    [Arguments]    ${save_as_name}
+
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_menu    
+    ...    x=-85    
+    ...    y=0    
+    ...    action=click    # File submenu
+    
+    Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_file_menu_list    
+    ...    x=0    
+    ...    y=-90    
+    ...    action=click    # Save As.. button
+
+    Wait For Element    alias:FXE_system_filename_prompt    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_system_filename_prompt    
+    ...    x=0    
+    ...    y=0    
+    ...    action=click    # Filename prompt
+
+    RPA.Desktop.Type Text    ${save_as_name}
+    Wait For Element    alias:FXE_system_save_cancel_btns    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_system_save_cancel_btns    
+    ...    x=-30    
+    ...    y=0    
+    ...    action=click    # System Save button
+
+    Splash Screen Check
+    ${folder_exists}=    Run Keyword And Return Status    
+    ...    Directory Should Exist    ${TEST_PROJECTS_PATH}\\${save_as_name}
+    
+    IF    ${folder_exists}
+        Log To Console    Folder exists: ${TEST_PROJECTS_PATH}\\${save_as_name}
+    ELSE
+        Log To Console    NO folder: ${TEST_PROJECTS_PATH}\\${save_as_name}
+    END
+
+Upper Menu File Submenu Save Selected Points
+    [Arguments]    ${save_as_name}
+
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    Points Tab Select
+
+    # Wait For Element    alias:FXE_main_points_tab_add_btn    timeout=10
+    # RPA.Desktop.Click With Offset    
+    # ...    alias:FXE_main_points_tab_add_btn    
+    # ...    x=0    
+    # ...    y=55    
+    # ...    action=click    # points table
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_points_tab_add_btn    
+    ...    x=0    
+    ...    y=55    
+    ...    action=rightclick    # points table rightclick
+
+    Wait For Element    alias:FXE_main_points_tab_RIGHT_BTN_menu    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_points_tab_RIGHT_BTN_menu    
+    ...    x=0    
+    ...    y=0    
+    ...    action=click    # Select All points table
+
+
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_menu    
+    ...    x=-85    
+    ...    y=0    
+    ...    action=click    # File submenu
+
+    Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_file_menu_list    
+    ...    x=0    
+    ...    y=-50    
+    ...    action=click    # Save selected points
+
+    RPA.Desktop.Type Text    ${TEST_PROJECTS_PATH}\\${save_as_name}\\saved_points.xml
+
+    Wait For Element    alias:FXE_system_save_cancel_btns    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_system_save_cancel_btns    
+    ...    x=-30    
+    ...    y=0    
+    ...    action=click    # System Save button
+
+    Wait For Element    alias:FXE_main_points_tab_XML_save_form    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_points_tab_XML_save_form    
+    ...    x=150    
+    ...    y=50    
+    ...    action=click    # OK button
+
+    ${file_exists}=    Run Keyword And Return Status    
+    ...    File Should Exist    ${TEST_PROJECTS_PATH}\\${save_as_name}\\saved_points.xml
+    
+    IF    ${file_exists}
+        Log To Console    File exists: ${TEST_PROJECTS_PATH}\\${save_as_name}\\saved_points.xml
+    ELSE
+        Log To Console    NO file: ${TEST_PROJECTS_PATH}\\${save_as_name}\\saved_points.xml
+    END
+
+Upper Menu File Submenu Load Points
+    [Arguments]    ${save_as_name}
+
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    Points Tab Select
+
+    Wait For Element    alias:FXE_main_upper_menu    timeout=30
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_menu    
+    ...    x=-85    
+    ...    y=0    
+    ...    action=click    # File submenu
+
+    Wait For Element    alias:FXE_main_upper_file_menu_list    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_upper_file_menu_list    
+    ...    x=0    
+    ...    y=0    
+    ...    action=click    # Load selected points
+
+    # RPA.Desktop.Press Keys    delete
+
+    Wait For Element    alias:FXE_system_filename_prompt    timeout=10
+    RPA.Desktop.Click    alias:FXE_system_filename_prompt    action=click
+    
+    RPA.Desktop.Type Text    ${TEST_PROJECTS_PATH}\\${save_as_name}\\saved_points.xml
+
+    Wait For Element    alias:FXE_system_open_cancel_btns    timeout=10
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_system_open_cancel_btns    
+    ...    x=-30    
+    ...    y=0    
+    ...    action=click    # System Open button
+
+    Wait For Element    alias:FXE_main_upper_search_replace_form    timeout=10
+    Wait For Element    alias:FXE_main_CANCEL_form_btn    timeout=10
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_CANCEL_form_btn    
+    ...    x=0    
+    ...    y=0    
+    ...    action=click    # Cancel button
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Upper Menu Edit Submenu Walkthrough

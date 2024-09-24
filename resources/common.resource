@@ -669,10 +669,12 @@ Copy Test Project Folder From Backup
     # Check if the Test-Project_1 folder exists in the TestProjects directory and delete it if it exists
     ${exists}=    Run Keyword And Return Status    Directory Should Exist    ${test_project_dir}
     Log To Console    ${test_project_dir} folder exists: ${exists}
-    Run Keyword If    ${exists}    Remove Directory    ${test_project_dir}    recursive=True
+    Run Keyword If    ${exists}    RPA.FileSystem.Remove Directory    ${test_project_dir}    recursive=${True}
     # Ensure the Backup folder exists
     Directory Should Exist    ${backup_dir}
     ${backup_exists}=    Run Keyword And Return Status    Directory Should Exist    ${backup_dir}
     Log To Console    ${backup_dir} folder exists: ${backup_exists}
     # Copy the Backup folder to the TestProjects directory
-    Copy Directory    ${backup_dir}    ${test_project_dir}
+    RPA.FileSystem.Copy Directory    ${backup_dir}    ${test_project_dir}
+
+
