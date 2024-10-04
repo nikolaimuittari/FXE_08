@@ -31,7 +31,7 @@ Resource            resources/graphics_tab_objects.resource
 *** Variables ***
 #${FXEditor_app}     c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe
 ${TEST_PROJECTS_PATH}    c:\\QA\\TestProjects\\
-${TEST_PROJECT_NAME}    Test-Project_1
+${TEST_PROJECT_NAME}    Test-Project_C
 
 ${test_project_dir}    c:\\QA\\TestProjects\\Test-Project_C
 ${backup_dir}    c:\\QA\\Backup\\Test-Project_C
@@ -53,7 +53,7 @@ Graphics Tab Features
 
     Graphics Tab Select
 
-    # Graphics Tab Detach Attach
+    Graphics Tab Detach Attach
 
     Graphics Tab Editor Upper Buttons Hovering
 
@@ -104,14 +104,12 @@ Graphics Tab Features
     ...    text=123-value-Text
     ...    left=100
     ...    top=100
-    Sleep    3s
 
     Graphics Tab Text Create    
     ...    pointname=POINT_02_DI
     ...    text=456-value-Text
     ...    left=100    
     ...    top=200
-    Sleep    3s
 
     Graphics Tab Valuebox Create    
     ...    pointname=POINT_01_AI
@@ -128,13 +126,11 @@ Graphics Tab Features
     ...    text=Text_BUTTON
     ...    left=300
     ...    top=100
-    Sleep    5s
 
     Graphics Tab Bar Create    
     ...    pointname=POINT_01_DI
     ...    left=400
     ...    top=100
-    Sleep    5s
 
     Graphics Tab Right Panel Settings Symbols Folder    2023
 
@@ -142,13 +138,9 @@ Graphics Tab Features
     ...    pointname=POINT_01_ALM
     ...    left=500
     ...    top=400
-    Sleep    3s
-
-    
 
     # Graphics Tab Close All HTMLs
     Graphics Tab Close HTML    save=1
-    Sleep    1s
 
     # Graphics Tab Close HTML    save=0
     # Sleep    1s
@@ -159,9 +151,6 @@ Graphics Tab Features
 
 
     # Check And Close Connection Fail Form
-
-    
-
 
     Log To Console    FXE_main_tabs_graphics_tab.robot is completed
     Close Opened Project Without Saving

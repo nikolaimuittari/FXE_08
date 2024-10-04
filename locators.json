@@ -168,7 +168,7 @@
         "type": "image"
     },
     "FXE_main_browser_tab_FX3000C_html": {
-        "confidence": 80.0,
+        "confidence": 10.0,
         "path": ".images\\fxe_main_browser_tab_fx3000c_html-path.png",
         "source": null,
         "type": "image"
@@ -725,9 +725,21 @@
         "source": null,
         "type": "image"
     },
+    "FXE_main_history_tab_toolbar_history_x_btns": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_main_history_tab_toolbar_history_x_btns-path.png",
+        "source": null,
+        "type": "image"
+    },
     "FXE_main_history_tab_toolbar_report_btns": {
         "confidence": 80.0,
         "path": ".images\\fxe_main_history_tab_toolbar_report_btns-path.png",
+        "source": null,
+        "type": "image"
+    },
+    "FXE_main_history_tab_update_x_form": {
+        "confidence": 50.0,
+        "path": ".images\\fxe_main_history_tab_update_x_form-path.png",
         "source": null,
         "type": "image"
     },

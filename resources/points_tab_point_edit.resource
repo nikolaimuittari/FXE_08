@@ -203,8 +203,8 @@ Points Tab Point Edit Form History Section Arguments-6
 
     IF    ${edit_history_section_exists}
         RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_DO_edit_form_history_section
-        RPA.Desktop.Click With Offset    x=-200    y=-10    action=click    # Samples Max field
-        RPA.Desktop.Press Keys    ctrl   a
+        RPA.Desktop.Click With Offset    x=-200    y=-10    action=doubleclick    # Samples Max field
+        # RPA.Desktop.Press Keys    ctrl   a
         RPA.Desktop.Type Text    ${Sample_Max}
         RPA.Desktop.Press Keys    tab
 
@@ -541,10 +541,10 @@ Points Tab Left Panel ALARM Right Button Edit Argument-1
     #RPA.Desktop.Click    alias:FXE_main_OK_noicon_form_btn
 
     RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_ALARM_edit_form    timeout=10    # ALARM point edit form   Dims: 968*555  center: 484*277
-    RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_ALARM_edit_form    # ALARM point edit form
-    RPA.Desktop.Click    
+    # RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_ALARM_edit_form    # ALARM point edit form
+    # RPA.Desktop.Click    
     RPA.Desktop.Press Keys    ctrl    a
-    RPA.Desktop.Type Text    ${pointname}  # Point name field
+    # RPA.Desktop.Type Text    ${pointname}  # Point name field
     RPA.Desktop.Press Keys    tab
     RPA.Desktop.Press Keys    tab
     RPA.Desktop.Press Keys    tab
@@ -620,6 +620,148 @@ Points Tab Left Panel ALARM Right Button Edit Argument-1
     Points Tab Point Edit Exit Form Keep-Rename-Cancel Argument-1    2    # 1=Keep, 2=APPLY, other=Cancel
     
 
+Points Tab Left Panel ALARM Right Button Edit
+
+    [Arguments]    ${pointname}
+    #	Alarm point edit form
+		
+	#	x		y
+	#
+	#	-400	-170	Pointname
+	#	-130	-170	View
+	#	-70		-170	Manual
+	#	-20		-170	Prog	
+	#	-400	-125	Text
+	#	-400	-75		Picture
+	#	-240	-75		Auto
+	#	-170	-75		History point
+	#	-70		-75		Modbus point
+	#	-360	-15		Port Module	/ Remote PLC
+	#	-20		-15		Point / Remote PLC pointname
+	#	-455	20		Global Point
+	#	-455	70		Include to label list
+	#	-190	70		Physical point
+	#	-80		70		Multi24
+	#	-455	115		Bacnet server
+	#	-130	115		Multi state value
+	#	-30		115		Class
+	#	260		-170	Alarm group name
+	#	285		-170	Alarm group button
+	#	380		-170	Priority
+	#	440		-170	Alerta
+	#	260		-125	Overriding point
+	#	440		-125	Override to off
+	#	260		-90		Help of alarm
+	#	55		-60		Save to log
+	#	230		-15		State text
+	#	255		-15		State text button
+	#	200		35		Start delay
+	#	200		70		Stop delay
+	#	415		35		Normally closed
+	#	240		125		Alarm Mode
+	#	
+	#	-440	-230	OK button
+	#	-330	-230	Apply button
+	#	-230	-230	Cancel button
+
+
+
+    Points Filter Name Filter Field Select Argument-1    ${pointname}
+    Points Tab Left Panel First Line Right Button Menu
+
+    RPA.Desktop.Click With Offset    x=0    y=195    action=click     # Edit feature
+    # Sleep    1s
+    ${error_message}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_points_edit_property_missing_error_form    timeout=10    # Message if state text is missing
+    IF    ${error_message}
+        RPA.Desktop.Press Keys    enter    # Error message
+    END
+
+    RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_ALARM_edit_form    timeout=10   
+    # ALARM point edit form   Dims: 968*555  center: 484*277
+    # RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_ALARM_edit_form    # ALARM point edit form
+    # RPA.Desktop.Click    
+    RPA.Desktop.Press Keys    ctrl    a
+    # RPA.Desktop.Type Text    ${pointname}  # Point name field
+    RPA.Desktop.Press Keys    tab
+    RPA.Desktop.Press Keys    tab
+    RPA.Desktop.Press Keys    tab
+    RPA.Desktop.Press Keys    tab
+ 
+    #RPA.Desktop.Press Keys    ctrl    a    # Point text field
+    RPA.Desktop.Type Text    ${pointname} text Field    
+    RPA.Desktop.Press Keys    tab    # Picture field
+    RPA.Desktop.Press Keys    tab    # Auto checkbox
+    RPA.Desktop.Press Keys    space    # Auto checkbox select
+   
+    #RPA.Desktop.Press Keys    tab    # History point checkbox
+    Points Tab Point Edit Form History Point Select    # Select checkbox
+    Points Tab Point Edit Form History Section Arguments-6   3000    15    "Seconds"    0.6    "Day"    "Consumption"
+    # Sleep    3s
+    Points Tab Point Edit Form History Point Select    # Checkbox deselect
+   
+    Points Tab Point Edit Form Modbus Point Select    # Select checkbox
+    Points Tab Point Edit Form Modbus Section Arguments-13    "6"    "10"    "247"    "40001"    "100"    ${FALSE}    16    Group_1234    ${TRUE}    ${TRUE}    ${TRUE}    ${TRUE}    3
+    # ${Register_Type}=3    ${Port}=4    ${Address}=20    ${Register}=1    ${Multiplier}=100    ${Bitmask}=${FALSE}    ${Size}=16    ${Group}=Group_1234    ${Float}=${TRUE}    ${Byte_Swap}=${TRUE}    ${Word_swap}=${TRUE}    ${Unsigned}=${TRUE}    ${Access}=3
+    Points Tab Point Edit Form Modbus Point Select    # Checkbox deselect
+
+    #RPA.Desktop.Press Keys    tab    # Modbus point checkbox
+
+    RPA.Desktop.Press Keys    tab    # Port module drop-down
+    RPA.Desktop.Press Keys    tab    # Point connect drop-down
+    RPA.Desktop.Press Keys    tab    # Global point checkbox
+
+    RPA.Desktop.Press Keys    tab    # Include point to label list checkbox
+    RPA.Desktop.Press Keys    tab    # Physical point checkbox
+    RPA.Desktop.Press Keys    space    # checkbox select
+
+    RPA.Desktop.Press Keys    tab    # Multi24 checkbox
+
+    RPA.Desktop.Press Keys    tab    # Alarm group drop-down
+    RPA.Desktop.Press Keys    down    # A-ALARM line
+    RPA.Desktop.Press Keys    tab    # Priority drop-down
+    RPA.Desktop.Press Keys    down
+    RPA.Desktop.Press Keys    down    #  0->1->2
+    RPA.Desktop.Press Keys    tab     # Alerta
+
+    RPA.Desktop.Press Keys    tab     # Save to log (activated by default)
+    RPA.Desktop.Press Keys    tab     # Name of overriding point drop-down
+    RPA.Desktop.Press Keys    tab     # Override to off state
+    RPA.Desktop.Press Keys    tab     # Help of alarm drop-down
+    RPA.Desktop.Press Keys    down    # text
+    RPA.Desktop.Press Keys    tab     # Text field
+    RPA.Desktop.Type Text    Alarm help text
+    
+    RPA.Desktop.Press Keys    tab    # Alarm settings (Normal)
+    RPA.Desktop.Press Keys    tab    # Start delay
+    RPA.Desktop.Type Text    123
+
+    RPA.Desktop.Press Keys    tab    # Stop delay
+    RPA.Desktop.Type Text    321
+    RPA.Desktop.Press Keys    tab    # Normally closed contact
+    RPA.Desktop.Press Keys    space     # Select checkbox
+
+    RPA.Desktop.Press Keys    tab     # State text drop-down
+    RPA.Desktop.Press Keys    up     # select another state text
+    RPA.Desktop.Press Keys    up 
+   
+    RPA.Desktop.Press Keys    tab    # BACnet server object
+    Points Tab ALARM Point Edit Form Alarm Settings Argument-1    3
+
+    #RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_point_edit_form_btns    timeout=10    # Edit form "OK-Apply-Cancel" buttons Dims: 296*29
+    #RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_point_edit_form_btns    
+    #RPA.Desktop.Click With Offset    x=-100    y=0    action=click    # OK button click
+    
+    # Sleep    3s
+    Points Tab Point Edit Form OK-Apply-Cancel Buttons Argument-1    1    # 1=OK, 2=APPLY, other=Cancel
+    # Sleep    3s
+    Points Tab Point Edit Exit Form Keep-Rename-Cancel Argument-1    2    # 1=Keep, 2=APPLY, other=Cancel
+    
+
+
+
+
+
+
 Points Tab Left Panel DI Right Button Edit Argument-1
 
     [Arguments]    ${pointname}
@@ -638,9 +780,9 @@ Points Tab Left Panel DI Right Button Edit Argument-1
     #RPA.Desktop.Click    alias:FXE_main_OK_noicon_form_btn
 
     RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_DI_edit_form    timeout=10    # DI point edit form   Dims: 520*697  center: 260*299
-    RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_DI_edit_form    # DI point edit form
+    # RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_DI_edit_form    # DI point edit form
 
-    RPA.Desktop.Click    
+    # RPA.Desktop.Click    
     RPA.Desktop.Press Keys    ctrl    a
     RPA.Desktop.Type Text    ${pointname}  # Point name field
     RPA.Desktop.Press Keys    tab
@@ -724,8 +866,8 @@ Points Tab Left Panel AI Right Button Edit Arguments-2
     #RPA.Desktop.Click    alias:FXE_main_OK_noicon_form_btn
 
     RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_AI_edit_form    timeout=10    # AI point edit form   Dims: 959*578  center:480*290
-    RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_AI_edit_form    # AI point edit form
-    RPA.Desktop.Click    
+    # RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_AI_edit_form    # AI point edit form
+    # RPA.Desktop.Click    
     RPA.Desktop.Press Keys    ctrl    a
     RPA.Desktop.Type Text    ${pointname}  # Point name field
     RPA.Desktop.Press Keys    tab    # View
@@ -1115,9 +1257,10 @@ Points Tab Left Panel TIMETABLE Right Button Edit Argument-1
     END
 
     RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_TIME_edit_form    timeout=10    # TIMETABLE edit form Dims: 707*713  center:354*357    
-    RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_TIME_edit_form
-    RPA.Desktop.Click
-
+    # RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_TIME_edit_form
+    # RPA.Desktop.Click
+    RPA.Desktop.Press Keys    ctrl    a    # Pointname
+    RPA.Desktop.Type Text    ${pointname}
     RPA.Desktop.Press Keys    tab        # view 
     RPA.Desktop.Press Keys    tab    # Text field
     RPA.Desktop.Type Text    ${pointname}_textfield    # Value
@@ -1178,7 +1321,9 @@ Points Tab Left Panel LOOKUP Right Button Edit Argument-1
 
     RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_LOOKUP_edit_form    timeout=10    # TIMETABLE edit form Dims: 843*660  center:422*330    
     RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_LOOKUP_edit_form
-    RPA.Desktop.Click With Offset    x=0    y=-300    action=click    # Edit form click on free space. If clicking on center, right value table is activated 
+    # RPA.Desktop.Click With Offset    x=0    y=-300    action=click    # Edit form click on free space. If clicking on center, right value table is activated 
+    RPA.Desktop.Press Keys    ctrl    a    # Pointname
+    RPA.Desktop.Type Text    ${pointname}
 
     RPA.Desktop.Press Keys    tab        # view 
     RPA.Desktop.Press Keys    tab        # Manual

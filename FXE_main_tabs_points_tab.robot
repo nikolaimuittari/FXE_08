@@ -19,6 +19,7 @@ Resource            resources/history_tab.resource
 Resource            resources/fxonline_tab.resource
 Resource            resources/st_edit_tab.resource
 
+Suite Setup    Set Global Timeout    10
 
 #Resource            ${CURDIR}\\resources\\common.resource
 #Test Teardown        RPA.Desktop.Close Application    ${FXEditor_app}
@@ -65,26 +66,36 @@ Points Tab
     Points Tab Left Panel ALARM Right Button Edit Argument-1    TE01_H
     Points Filter Name Filter Clear And De-Select
     
+    Log To Console    *** Alarm Ok ***
+    # Sleep    30s
+
     Points Tab Left Panel AI Right Button Edit Arguments-2   TE01_M    1
     Points Filter Name Filter Clear And De-Select
-         
+    Log To Console    *** Measurement Ok ***
+
     Points Tab Left Panel DI Right Button Edit Argument-1    TE01_I
     Points Filter Name Filter Clear And De-Select
+    Log To Console    *** Indication Ok ***
 
     Points Tab Left Panel DO Right Button Edit Argument-1    TE01_O
     Points Filter Name Filter Clear And De-Select
-    
+    Log To Console    *** Digital Output Ok ***
+
     Points Tab Left Panel AO Right Button Edit Arguments-2   TE01_A    1
     Points Filter Name Filter Clear And De-Select
+    Log To Console    *** Analog Output Ok ***
 
     Points Tab Left Panel CONTROL Right Button Edit Argument-1    TE01_C
     Points Filter Name Filter Clear And De-Select
-    
+    Log To Console    *** Control Ok ***
+
     Points Tab Left Panel TIMETABLE Right Button Edit Argument-1    TE01_T
     Points Filter Name Filter Clear And De-Select
+    Log To Console    *** Timetable Ok ***
 
     Points Tab Left Panel LOOKUP Right Button Edit Argument-1    TE01_L
     Points Filter Name Filter Clear And De-Select
+    Log To Console    *** Lookup Table Ok ***
 
     # Points Right Panel Import Filter Edit Form
     # Points Right Panel Button Bar Add Filter Button

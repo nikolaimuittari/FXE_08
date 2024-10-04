@@ -45,6 +45,8 @@ History Tab New History Group Create Agrument-1
     RPA.Desktop.Wait For Element    alias:FXE_main_modules_tab_AI_icon    timeout=10    # AI point icon
     RPA.Desktop.Click With Offset    alias:FXE_main_modules_tab_AI_icon    x=0    y=0    action=click    # AI point select
     
+    # X history if condition
+    
     RPA.Desktop.Wait For Element    alias:FXE_main_history_tab_toolbar_history_btns    timeout=10    # History Toolbar buttons Dims:  150*47
     RPA.Desktop.Click With Offset    alias:FXE_main_history_tab_toolbar_history_btns    x=-50    y=0    action=click    # Add group button
     
