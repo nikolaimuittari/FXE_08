@@ -166,32 +166,57 @@ Graphics Tab Right Panel Settings Subtab
     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab_right_settings_ctrls    timeout=5    
     Log To Console    Settings subtab visible
     
-    # 	Settings
+# 	Settings
     # x        y
-    # -160    -160  Pin icon
-	# -20	-80		resolution ddwn
-	# 150	-80		background color ddwn
-	# 150	-35		background image ddwn
-	# -135	-35		640*480 chkbx
-	# -135	-15		800*600 chkbx
-	# -135	15		1024*768 chkbx
+    # -165    -200  Pin icon
+	# -30	-110		resolution ddwn
+	# 140	-110		background color ddwn
+	# 140	-65		background image ddwn
+	# -140	-70		640*480 chkbx
+	# -140	-45		800*600 chkbx
+	# -140	-20		1024*768 chkbx
 	
-	# 125	15		CSS ddwn
-	# 140	15		CSS button
-	# -20	50		Codepage ddwn
-	# 150	50		Font ddwn
+	# 120	-20		CSS ddwn
+	# 140	-20		CSS button
+	# -25	50		Codepage ddwn
+	# 140	25		Font ddwn
 
-	# 40	120		Symbol folder ddwn
-	# -60	170		Grid ddwn
-    # 40   170    Snap ddwn
+	# -140	70		User level
+	
+	# 40	150		Symbol folder ddwn
+	# -60	190		Grid ddwn
+    # 40   190    Snap ddwn
 
     # Graphics Tab Right Panel Settings Subtab Resolution Select    ${screen_type}
     # Sleep    ${sleep_local}
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
-    ...    x=150    
-    ...    y=-80    
+    ...    x=-165    
+    ...    y=-200    
+    ...    action=click    # Pin icon
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
+    ...    x=-165    
+    ...    y=-200    
+    ...    action=click    # Pin icon
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
+    ...    x=-30    
+    ...    y=-110    
+    ...    action=click    # resolution ddwn
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Press Keys    esc
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
+    ...    x=140    
+    ...    y=-110    
     ...    action=click    # background color ddwn
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    ${background_color}
@@ -200,8 +225,8 @@ Graphics Tab Right Panel Settings Subtab
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
-    ...    x=150    
-    ...    y=-35    
+    ...    x=140    
+    ...    y=-65    
     ...    action=click    # background image ddwn
     Sleep    ${sleep_local}
     RPA.Desktop.Click
@@ -209,29 +234,29 @@ Graphics Tab Right Panel Settings Subtab
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
-    ...    x=-135    
-    ...    y=-35    
+    ...    x=-140    
+    ...    y=-70   
     ...    action=click    # 640x480
     Sleep    ${sleep_local}
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
-    ...    x=-135    
-    ...    y=-15    
+    ...    x=-140    
+    ...    y=-45    
     ...    action=click    # 800x600
     Sleep    ${sleep_local}
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
-    ...    x=-135    
-    ...    y=15    
+    ...    x=-140    
+    ...    y=-20    
     ...    action=click    # 1024x768
     Sleep    ${sleep_local}
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
-    ...    x=125    
-    ...    y=15    
+    ...    x=120    
+    ...    y=-20
     ...    action=click    # CSS ddwn
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    f
@@ -240,7 +265,7 @@ Graphics Tab Right Panel Settings Subtab
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
     ...    x=140    
-    ...    y=15    
+    ...    y=-20    
     ...    action=click    # CSS button
     Sleep    ${sleep_local}
 
@@ -248,7 +273,7 @@ Graphics Tab Right Panel Settings Subtab
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls_css_form    
     ...    x=350    
-    ...    y=275    
+    ...    y=280    
     ...    action=click    # Cancel button
     Sleep    ${sleep_local}
     # x=250 y=275 (OK button)
@@ -256,7 +281,7 @@ Graphics Tab Right Panel Settings Subtab
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
-    ...    x=-20    
+    ...    x=-25    
     ...    y=50    
     ...    action=click    # Codepage ddwn
     # UTF-8 default
@@ -267,8 +292,8 @@ Graphics Tab Right Panel Settings Subtab
     Sleep    ${sleep_local}
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
-    ...    x=-20    
-    ...    y=50    
+    ...    x=-25    
+    ...    y=50
     ...    action=click    # Codepage ddwn
     # UTF-8 default
     Sleep    ${sleep_local}
@@ -277,8 +302,8 @@ Graphics Tab Right Panel Settings Subtab
     Sleep    ${sleep_local}
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
-    ...    x=150    
-    ...    y=50    
+    ...    x=140    
+    ...    y=25    
     ...    action=click    # Font ddwn
     # Helvetica default
     Sleep    ${sleep_local}
@@ -288,7 +313,7 @@ Graphics Tab Right Panel Settings Subtab
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
     ...    x=40    
-    ...    y=120    
+    ...    y=150    
     ...    action=click    # Symbol folder ddwn
     # 2023 default
     Sleep    ${sleep_local}
@@ -326,7 +351,7 @@ Graphics Tab Right Panel Settings Subtab
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
     ...    x=-60    
-    ...    y=170    
+    ...    y=190    
     ...    action=click    # Grid ddwn
     # None default
     Sleep    ${sleep_local}
@@ -362,7 +387,7 @@ Graphics Tab Right Panel Settings Subtab
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
     ...    x=40    
-    ...    y=170    
+    ...    y=190    
     ...    action=click    # Snap ddwn
     # None default
     Sleep    ${sleep_local}
@@ -415,7 +440,7 @@ Graphics Tab Right Panel Settings Symbols Folder
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_right_settings_ctrls    
     ...    x=40    
-    ...    y=120    
+    ...    y=150    
     ...    action=click    # Symbol folder ddwn
     # 2023 default
     Sleep    ${sleep_local}

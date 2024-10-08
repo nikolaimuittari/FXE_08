@@ -53,7 +53,7 @@ Graphics Tab Features
 
     Graphics Tab Select
 
-    Graphics Tab Detach Attach
+    # Graphics Tab Detach Attach
 
     Graphics Tab Editor Upper Buttons Hovering
 

@@ -404,7 +404,8 @@ Project Tab Hardware Configuration Subtab New Module
     RPA.Desktop.Move Mouse    ${mouse_position}    # Project -> Hardw Conf -> Modules -> Form -> Central point  
     # RPA.Desktop.Move Mouse    alias:FXE_main_project_tab_hardware_conf_modules_form    # Project -> Hardw Conf -> Modules -> Form -> Central point  
     # RPA.Desktop.Click With Offset    x=-128    y=-218    action=click    # Module type drop down
-    RPA.Desktop.Click With Offset    x=-80    y=-240    action=click    # Module type drop down
+    # RPA.Desktop.Click With Offset    x=-80    y=-240    action=click    # Module type drop down
+    RPA.Desktop.Press Keys    tab
 
     # Module type select (MBUS requires port 0 or 6..10)
     ${repeats}    Set Variable    1    # Module type drop down(empty -> MBUS 17 down keys) 6=DI16C 1=Combi36
