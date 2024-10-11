@@ -14,8 +14,8 @@ Library             RPA.FileSystem
 Library             Collections
 Library             BuiltIn
 Library             String
-Library    RPA.RobotLogListener
-
+Library             RPA.RobotLogListener
+Library             DateTime
 
 *** Variables ***
 ${FXEditor_app}             FxEditor.exe    # c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe
@@ -37,6 +37,9 @@ ${LOWERCASE_LETTERS}      abcdefghijklmnopqrstuvwxyz
 ${DIGITS}                 0123456789
 ${UNDERSCORE}             _
 
+${RESOLUTION}    1366x768
+${FRAMERATE}     25
+${OUTPUT_DIR}    c:\\QA\\Video
 
 *** Keywords ***
 
@@ -677,4 +680,17 @@ Copy Test Project Folder From Backup
     # Copy the Backup folder to the TestProjects directory
     RPA.FileSystem.Copy Directory    ${backup_dir}    ${test_project_dir}
 
+Stop Screen Recording
+    Terminate Process    ffmpeg_process
+    ${result} =    Wait For Process    ffmpeg_process
+    
+    Log To Console   Wait For Process ffmpeg_process: ${result.stdout}
+    # Terminate Process    ffmpeg
+    Sleep    1s  # Give time for FFmpeg to finalize the video
 
+Get Current Timestamp
+    ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+    [Return]    ${timestamp}
+
+Get Current Suite Name
+    [Return]    ${SUITE NAME}
