@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.14 on win32)" generated="20241011 11:22:30.220" rpa="false" schemaversion="4">
-<suite id="s1" name="FXE-start-stop" source="c:\QA\FXE\FXE_08\FXE-start-stop.robot">
-<test id="s1-t1" name="Start Stop" line="20">
+<robot generator="Robot 6.1.1 (Python 3.10.14 on win32)" generated="20241015 17:11:53.935" rpa="false" schemaversion="4">
+<suite id="s1" name="FXE start menu items" source="c:\QA\FXE\FXE_08\FXE_start_menu_items.robot">
+<test id="s1-t1" name="Start Menu Items Walkthrough" line="18">
 <kw name="Check Projects Common Folder Exists" library="common">
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${folder_exists}</var>
@@ -11,11 +11,11 @@
 <kw name="Directory Should Exist" library="OperatingSystem">
 <arg>${FXE_TEST_PROJECTS_FOLDER_PATH}</arg>
 <doc>Fails unless the given path points to an existing directory.</doc>
-<msg timestamp="20241011 11:22:33.755" level="INFO" html="true">Directory '&lt;a href="file://c:\QA\TestProjects"&gt;c:\QA\TestProjects&lt;/a&gt;' exists.</msg>
-<status status="PASS" starttime="20241011 11:22:33.751" endtime="20241011 11:22:33.764"/>
+<msg timestamp="20241015 17:12:03.095" level="INFO" html="true">Directory '&lt;a href="file://c:\QA\TestProjects"&gt;c:\QA\TestProjects&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20241015 17:12:03.088" endtime="20241015 17:12:03.110"/>
 </kw>
-<msg timestamp="20241011 11:22:33.766" level="INFO">${folder_exists} = True</msg>
-<status status="PASS" starttime="20241011 11:22:33.744" endtime="20241011 11:22:33.767"/>
+<msg timestamp="20241015 17:12:03.118" level="INFO">${folder_exists} = True</msg>
+<status status="PASS" starttime="20241015 17:12:03.077" endtime="20241015 17:12:03.120"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>${folder_exists}</arg>
@@ -25,185 +25,122 @@
 <kw name="Log To Console" library="BuiltIn">
 <arg>*** Test projects common folder exists OK</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20241011 11:22:33.773" endtime="20241011 11:22:33.775"/>
+<status status="PASS" starttime="20241015 17:12:03.133" endtime="20241015 17:12:03.141"/>
 </kw>
-<status status="PASS" starttime="20241011 11:22:33.769" endtime="20241011 11:22:33.776"/>
+<status status="PASS" starttime="20241015 17:12:03.126" endtime="20241015 17:12:03.146"/>
 </kw>
-<status status="PASS" starttime="20241011 11:22:33.740" endtime="20241011 11:22:33.777"/>
+<status status="PASS" starttime="20241015 17:12:03.068" endtime="20241015 17:12:03.151"/>
 </kw>
-<kw name="Start Screen Recording" library="common">
-<kw name="Get Current Timestamp" library="common">
-<var>${timestamp}</var>
-<kw name="Get Current Date" library="DateTime">
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20241011 11:22:33.795" level="INFO">${timestamp} = 20241011_112233</msg>
-<status status="PASS" starttime="20241011 11:22:33.791" endtime="20241011 11:22:33.799"/>
+<kw name="Open FXE" library="common">
+<var>${app_instance}</var>
+<kw name="Windows Run" library="RPA.Windows">
+<arg>"c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe"</arg>
+<tag>window</tag>
+<doc>Use Windows Run window to launch an application.</doc>
+<msg timestamp="20241015 17:12:03.169" level="INFO">Sending keys '{Win}r' to element: &lt;module 'uiautomation' from 'c:\\ProgramData\\robocorp\\ht\\281e05d_b1f3c24_09529949\\lib\\site-packages\\uiautomation\\__init__.py'&gt;</msg>
+<msg timestamp="20241015 17:12:03.741" level="INFO">Sending keys '"c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe"' to element: &lt;module 'uiautomation' from 'c:\\ProgramData\\robocorp\\ht\\281e05d_b1f3c24_09529949\\lib\\site-packages\\uiautomation\\__init__.py'&gt;</msg>
+<msg timestamp="20241015 17:12:05.030" level="INFO">Sending keys '{Enter}' to element: &lt;module 'uiautomation' from 'c:\\ProgramData\\robocorp\\ht\\281e05d_b1f3c24_09529949\\lib\\site-packages\\uiautomation\\__init__.py'&gt;</msg>
+<status status="PASS" starttime="20241015 17:12:03.163" endtime="20241015 17:12:08.579"/>
 </kw>
-<msg timestamp="20241011 11:22:33.801" level="INFO">${timestamp} = 20241011_112233</msg>
-<status status="PASS" starttime="20241011 11:22:33.788" endtime="20241011 11:22:33.802"/>
-</kw>
-<kw name="Get Current Suite Name" library="common">
-<var>${robot_file}</var>
-<msg timestamp="20241011 11:22:33.805" level="INFO">${robot_file} = FXE-start-stop</msg>
-<status status="PASS" starttime="20241011 11:22:33.803" endtime="20241011 11:22:33.806"/>
-</kw>
-<kw name="Set Video File Name" library="common">
-<var>${video_file}</var>
-<arg>${robot_file}</arg>
-<arg>${timestamp}</arg>
-<kw name="Replace String" library="String">
-<var>${clean_robot_file}</var>
-<arg>${robot_file}</arg>
-<arg>' '</arg>
-<arg>'_'</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20241011 11:22:33.815" level="INFO">${clean_robot_file} = FXE-start-stop</msg>
-<status status="PASS" starttime="20241011 11:22:33.810" endtime="20241011 11:22:33.818"/>
-</kw>
-<msg timestamp="20241011 11:22:33.821" level="INFO">${video_file} = c:\QA\Video\FXE-start-stop_20241011_112233.mp4</msg>
-<status status="PASS" starttime="20241011 11:22:33.807" endtime="20241011 11:22:33.823"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${ffmpeg_path}</var>
-<arg>c:\\ffmpeg\\bin\\ffmpeg.exe</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20241011 11:22:33.827" level="INFO">${ffmpeg_path} = c:\ffmpeg\bin\ffmpeg.exe</msg>
-<status status="PASS" starttime="20241011 11:22:33.825" endtime="20241011 11:22:33.828"/>
-</kw>
-<kw name="Create FFmpeg Command" library="common">
-<var>${ffmpeg_command}</var>
-<arg>${video_file}</arg>
-<kw name="Set Variable" library="BuiltIn">
-<var>${ffmpeg_path}</var>
-<arg>c:\\ffmpeg\\bin\\ffmpeg.exe</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20241011 11:22:33.841" level="INFO">${ffmpeg_path} = c:\ffmpeg\bin\ffmpeg.exe</msg>
-<status status="PASS" starttime="20241011 11:22:33.839" endtime="20241011 11:22:33.841"/>
-</kw>
-<kw name="File Should Exist" library="OperatingSystem">
-<var>${ffmpeg_path_exists}</var>
-<arg>${ffmpeg_path}</arg>
-<doc>Fails unless the given ``path`` points to an existing file.</doc>
-<msg timestamp="20241011 11:22:33.845" level="INFO" html="true">File '&lt;a href="file://c:\ffmpeg\bin\ffmpeg.exe"&gt;c:\ffmpeg\bin\ffmpeg.exe&lt;/a&gt;' exists.</msg>
-<msg timestamp="20241011 11:22:33.848" level="INFO">${ffmpeg_path_exists} = None</msg>
-<status status="PASS" starttime="20241011 11:22:33.842" endtime="20241011 11:22:33.848"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>File Should Exist: ${ffmpeg_path_exists}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20241011 11:22:33.852" endtime="20241011 11:22:33.861"/>
-</kw>
-<msg timestamp="20241011 11:22:33.893" level="INFO">${ffmpeg_command} = c:\ffmpeg\bin\ffmpeg.exe -y -video_size 1366x768 -framerate 25 -f gdigrab -i desktop c:\QA\Video\FXE-start-stop_20241011_112233.mp4</msg>
-<status status="PASS" starttime="20241011 11:22:33.832" endtime="20241011 11:22:33.894"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>robot_file: ${robot_file}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20241011 11:22:33.897" endtime="20241011 11:22:33.902"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>video_file: ${video_file}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20241011 11:22:33.905" endtime="20241011 11:22:33.915"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>ffmpeg: ${ffmpeg_command}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20241011 11:22:33.917" endtime="20241011 11:22:33.923"/>
-</kw>
-<kw name="Start Process" library="Process">
-<var>${handle}</var>
-<arg>c:\\ffmpeg\\bin\\ffmpeg.exe</arg>
-<arg>-y</arg>
-<arg>-video_size</arg>
-<arg>1366x768</arg>
-<arg>-framerate</arg>
-<arg>25</arg>
-<arg>-f</arg>
-<arg>gdigrab</arg>
-<arg>-i</arg>
-<arg>desktop</arg>
-<arg>c:\\QA\\Video\\FXE-start-stop_20241011_110559.mp4</arg>
-<arg>alias=ffmpeg_process</arg>
-<doc>Starts a new process on background.</doc>
-<msg timestamp="20241011 11:22:33.937" level="INFO">Starting process:
-c:\ffmpeg\bin\ffmpeg.exe -y -video_size 1366x768 -framerate 25 -f gdigrab -i desktop c:\QA\Video\FXE-start-stop_20241011_110559.mp4</msg>
-<msg timestamp="20241011 11:22:33.946" level="INFO">${handle} = &lt;Popen: returncode: None args: ['c:\\ffmpeg\\bin\\ffmpeg.exe', '-y', '-video...&gt;</msg>
-<status status="PASS" starttime="20241011 11:22:33.925" endtime="20241011 11:22:33.951"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>handle : ${handle.stdout}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20241011 11:22:33.958" endtime="20241011 11:22:33.974"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20241011 11:22:35.007" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20241011 11:22:33.977" endtime="20241011 11:22:35.008"/>
-</kw>
-<status status="PASS" starttime="20241011 11:22:33.778" endtime="20241011 11:22:35.010"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>10s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20241011 11:22:45.030" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20241011 11:22:35.012" endtime="20241011 11:22:45.031"/>
-</kw>
-<kw name="Stop Screen Recording" library="common">
-<kw name="Terminate Process" library="Process">
-<arg>ffmpeg_process</arg>
-<doc>Stops the process gracefully or forcefully.</doc>
-<msg timestamp="20241011 11:22:45.038" level="INFO">Gracefully terminating process.</msg>
-<msg timestamp="20241011 11:23:15.063" level="INFO">Graceful termination failed.</msg>
-<msg timestamp="20241011 11:23:15.064" level="INFO">Forcefully killing process.</msg>
-<msg timestamp="20241011 11:23:15.172" level="INFO">Process completed.</msg>
-<status status="PASS" starttime="20241011 11:22:45.036" endtime="20241011 11:23:15.172"/>
-</kw>
-<kw name="Wait For Process" library="Process">
-<var>${result}</var>
-<arg>ffmpeg_process</arg>
-<doc>Waits for the process to complete or to reach the given timeout.</doc>
-<msg timestamp="20241011 11:23:15.175" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20241011 11:23:15.176" level="INFO">Process completed.</msg>
-<msg timestamp="20241011 11:23:15.177" level="INFO">${result} = &lt;result object with rc 1&gt;</msg>
-<status status="PASS" starttime="20241011 11:23:15.174" endtime="20241011 11:23:15.177"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Wait For Process ffmpeg_process: ${result.stdout}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20241011 11:23:15.178" endtime="20241011 11:23:15.185"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20241011 11:23:16.205" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20241011 11:23:15.187" endtime="20241011 11:23:16.207"/>
-</kw>
-<status status="PASS" starttime="20241011 11:22:45.033" endtime="20241011 11:23:16.208"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>FXE_start_stop.robot is completed</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20241011 11:23:16.211" endtime="20241011 11:23:16.221"/>
-</kw>
-<status status="PASS" starttime="20241011 11:22:33.737" endtime="20241011 11:23:16.227"/>
-</test>
-<doc>FXE start menu item walkthrough</doc>
-<status status="PASS" starttime="20241011 11:22:30.239" endtime="20241011 11:23:16.242"/>
-</suite>
-<statistics>
-<total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
-</total>
-<tag>
-</tag>
-<suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="FXE-start-stop">FXE-start-stop</stat>
-</suite>
-</statistics>
-<errors>
-</errors>
-</robot>
+<kw name="Wait For Element" library="RPA.Desktop">
+<arg>alias:FXE_start_right_down_logo</arg>
+<arg>timeout=40</arg>
+<doc>Wait for an element defined by locator to exist, or
+raise a TimeoutException if none were found within timeout.</doc>
+<msg timestamp="20241015 17:12:08.608" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:08.881" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:10.288" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:10.294" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:10.538" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:11.312" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:11.314" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:11.446" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:12.125" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:12.127" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:12.236" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:12.876" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:12.880" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:13.164" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:14.102" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:14.107" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:14.357" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:15.262" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:15.267" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:15.509" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:16.408" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:16.413" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:16.664" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:17.606" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:17.612" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:17.880" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:18.789" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:18.796" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:19.056" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:19.976" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:19.986" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:20.245" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:21.166" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:21.171" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:21.417" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:22.353" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:22.358" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:22.603" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:23.528" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:23.532" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:23.794" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:24.765" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:24.768" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:24.936" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:25.625" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:25.628" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:25.800" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:26.387" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:26.389" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:26.502" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:27.173" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:27.176" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:27.266" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:28.027" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:28.032" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:28.231" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:29.032" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:29.038" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:29.157" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:29.742" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:29.746" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:29.927" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:30.445" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:30.447" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:30.561" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:31.075" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:31.078" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:31.234" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:31.816" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:31.819" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:31.952" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:32.503" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:32.506" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:32.623" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:33.165" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:33.168" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:33.313" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:33.846" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:33.849" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:33.968" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:34.450" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:34.454" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:34.621" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:35.126" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:35.130" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:35.286" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:35.846" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:35.850" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:36.037" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:36.671" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:36.693" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:37.105" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:38.012" level="INFO">Found 0 matches</msg>
+<msg timestamp="20241015 17:12:38.017" level="INFO">Resolving locator: alias:FXE_start_right_down_logo</msg>
+<msg timestamp="20241015 17:12:38.183" level="INFO">Searching for image 'c:\QA\FXE\FXE_08\.images\fxe_start_right_down_logo-path.png' (region: display, confidence: 50.0)</msg>
+<msg timestamp="20241015 17:12:38.839" level="INFO">Found 1 match</msg>
+<msg timestamp="20241015 17:12:38.866" level="INFO" html="true">&lt;img alt="screenshot" class="rpaframework-desktop-screenshot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAACJCAIAAACNc/l8AABTgklEQVR4nO2dd5gUVdaHzw1V1dVhejIzQ84ZkaAIgqCAYhZzXLPrrmHNaVU+c1pdc8CcA6JEEVBBMQuSc87D5JkOVXXT90cN4zCxJzLD9vv04yPT3VW3qqt+de45556DlFIQJ06cOK0BfLAHECdOnDixEhesOHHitBrighUnTpxWQ1yw4sSJ02qIC1acOHFaDXHBihMnTqshLlhxDgJCCM65EKLeW2CMSyEbcUhxWgX0YA8gzv8cVtSa/sXsooIiv99/9oUTCcUIUOxf55xv37x92tTZPXr1HHfiGF2nSgGqwwbitGJQPHE0TnNiRa2ZX8wOh6MIIc656fWdfcFphBBUm+QopRBCe/dkz/1qvmSKanokEsrKyhp/0jjdIHHN+h8hLlhxmg/LsqZPnR0NR8v+oqSkunbCSccnJgcordbed9Vq+7adMz+fFUxOEFwppTDB4VCkS7dOxx0/GiGEcdy/cegTF6w4zYTg4otPp4XLqZULQsi27eTUxFMnnqJp1WrW9q07ZkydnZicyBkv+yMmOBKKdO3RZfTYkQghQkhTjT5OyyD+UIrTTEilCgpKEK44c1NKGYZRmF/8xafTmcOg0gOUMb5j267pU2dVUCsAkEL6/L4N6zZ+/+0PhJCGePHjtArighWnmVBKGR5d8Co0RSmlaTRUEvr8k2m2YzuOU/ZWfl7B7Blffz1rXjAYZA6r/F3OOSHY5/M24dDjtBjiU8I4zUdhftHML79ijFXtb0KAAEUtq22HrLHjxyCAvLz8zz/6Mik5SUpZzYWKbNsZcHi/YSOGCCHiU8JDnrhgxWlu3nvzY84YJrjy7A8AMMZSSuYwhBDCSNM0KavOt1JKOQ477PB+R44YyjmvwWcf55AhLlhxmhWlFCD04VsfOw4jhFR9+SHACLsfru76VEo5tjNgUL9hI47gXFAat63+J4gLVpzmxr3kPnjrE844JrgeV6BSijms/+H9hsVtq/8x4k73OM2NmyN64WXnajoVQtSaMnrgd0tngv0G9hk2YijnIq5W/1PEBStO4xMJR8LhSA0fcEXq/L+do2maFDJ2zZJSMcb6H9b3qKOP5JzXMBN0HFZSHOJcAEB8FnHIEJ8SxmlkigqKPn3/CwnqvIvODCYl1PBJpZSS6r03PnLT1mu9FF3bqv9hvY8aOaw6v5WbE19UWPLT9z+vXL76yBFDh488khAKUMvaHQWusCGoMhZQCVdklYIDP18nexEqHXLdvl77Bg/cXs3vtgrighWnMSksKP7soykewwQAy7LOvuDMxNo0qyCvcNaXczjnhFbjgwdACKRUjsP6DegzfNSRNfutigpLfvr+113bd/iC/vzcgv4D+gw/ZlgsmhWn5RMXrDiNg23bVtT67KPPdc3jXlQIIcdxzj5vom7qpump4bt5OQVzZs61bZtSWuUFqZRijPfu2/3o0SNqUCspVe6+vCV/LNu+dZvX6+Wca5pWVFjU/7C+R40aVt380TXKcgtDJaEwIlipWlQNISQ5z2qT6NGNXTn5jiNcIUQIKc7aZaVqJFa32pbduQdsGVSnrLQYv1sZm/Hde/NRme5LZXr0jBS/AowQClv2vn0FSNOUUgiBEiLgN1MTA0q1JksrLlhxGop7w8+ZMW/71h2m1yyfNoUxjkajqakpE04d7zE9Vd4Y7teFEB+/85nNGD0w18F9izPRu1/vo0cfyRmnldcbKlCglIJlS5Yv/GZRSmpy+XwISmlxUUmvPr2GjRxiGDpGuEIxG8thHl07757Jn7z6BWSkQFW5+AdgaLBz37dfPzNmSK8Op96xY8k6CPhAKdApZBdsWPxmt3Zp7kHVeNIAIUD9LgJWqncgFXg0tfxdqRSuo4K4X/l5xabho6+DdulgM8AY8ouPPPmoX16/KxSx/F7PJ/N/P+/Mf0OnDLAZUAJ788695oyPH77KPfw67e4gEo+wxGkccnLyTa+nQpKnlNI0zZKikq9nzjv9nFOVkghVjPMghJRSGONzLzn74/c+d2yrvJ0lpeSc9+nfa8QxRzLGNK3irVXmRVq2ZMWiBT+1yUgvv7IHADjngQT/+nXrU9ISBxzeTwqJyQFjcLUhMWDq6Ul6WiKrTbA8uhZ1mK5RAEhPCmSnJxG/Vyqla9RWQEkdtMabmsh5aZxUSeUxGiQcGqV6epKZmmg5jGDMKUkN+mG/q8pjaHpG6bsaJY6SiQEToC6lyFoA8ShhnMahW69ODrMrG+xSSsAoFIoW5RcjVLVnHSGEECIEn3fRGR5N55zvv4clY7x3n94jjjmKMV5ZrQBKb7jlS1YsWvBjSlqKbdsV3ieEFBUVDR46aMDh/VzvfpXj50I6jFd4MS6qe7kHYjPu2MyymW0zy2aOzeo0Y6m8xzp8uRJKqcrjL3tXSOVY5YZqsVqluQUSF6w4DcU1kY4afmR6WjpjVaxPBgDO2GeffFFYWOJ+uLrtEErPvuQsw/BIKQAQ56J3355HjxnGGKuy8oySSnK+/M+V33/3Y2paqmM7FSZibu0an88bCJrVL0is9sCk5chwVIYtGY6WvSIRS4WiQkoAwAgBRhgjjBHBCCrVojhgtKqhCRYN2QICAIxIuaG2ItdVGfEpYZxGACEkpTzlzJNmTJ2dsy+38iJkhJGG6ecffnHWeacHkxOqd/EgSsk5F57+4bufOI7Tq0/Po0cfVeVMEFznF0ZbNmxbMO+H9Iw027Yrq5UQQik1YtTw7r26Vp4M1nxEwJz2HdICXrNCOVNNI05qMMFnAsDpow/r27Wtz6MrpTRCckoi3tLwAto/SCjLeygbnlJKqliNhTKRReUUpvwfYzoWgPYZKaecc1zb5ATGOcU4pyR81MDuAIBxlWbvARuuzi6O7Qgak7hgxWkcMMZSyFMmnvjJ+59HI9Eqr2aqaZ9/8sXE889ITKw618GNtlFNGzfhuFUrVo8cU61aAQBCqLgotGXz9oTEAGOsslpxzqVQo44b2b1XV8EFqct6Q49OI7tz3nv9rlEDe9Twsf+76vTqDwT263LpwIrDlpQy4PcShGL0dJUP4QkpisM2wTjB91f4IhYPPcYIAIb07DD98Wsrbh9Aqy54Ws691XJssbhgxWk0MMFCyOGjjpw9c56pG1U9liWhdOrHX55x1qmah/r9/ipNLYRQVtusrLZZUsrq1EoptXdP9splqzdv3OL1eitXdFBKKSVHHTu8R6+u9VhvqBQAITkFIZtxISSpYJopRSkhGK/ZuicSsRHGAAohJLno36O96493D60wFN2ZnS+Vsiz2yvTvbcs58rAeowd0QpjqGq11focQLF+7DWvU4WzhknW/rt7qNc1xh3ft172jkjwh4O+UmSpkLUsFlAIFUFAS2bJ1N9Z1d2CSi+TkQOfMlN05Bbv35HkCfikEAoQQKMYz2iSlJgW4BIoRgNqxr6CgIIQpUQpACYTB4apr2/Sgv6L52dTEBStOY0IIbt+hXdvMjL27s7VqguWU6h9/8FmbrPTxE8b6/b4qP+PmJVRXpl2BWrF01TdzF6SkJFapVoSQkuKioUcN7dG7B2OsnusNlaIE65QIhCoIFkLIsjkx8Ak3Pr39NzetQYKuQXb+hqVvd2uXLqUEhNZs2fPIu1998PF8cDhQDF4PIPTh59+5aQc4NQlq1BoFsPCPVWNOvwv8PpACdAM0DIDeen8uOAwcu23fTt9Nvrt7u3QmBK6+FpiUEgF8/euqCybeDR0ywHZAo7A79/SrT/7iietn/bjy6pufB10DKUEp0DTYkX3D/13+7M3nc8aooa3cuOOc219e88saSDBBSKAYCkKJ/TvNevrGo/p1lVJVVPOmJC5YcRoZpdTJZ0yozpkFAEqJQCBQlFc896v54ycc5/X6cCVfNSrvsKnE8qUrF3z7fWZmhuM4ldUKIWxZdjAxMTklSUpJKa3njEYpj6EhhKrMOHU3mZmanJ2VRvweqZROqU0IJQQAmJCGRvtfMEkWhczURIUQKOX66ZHXxLj0n9UFBd0iPK989t0/bn/R172j4AIQ2p9bppAPEEYI4917Code/OBv7/67a9v0Wo/Ga2hGZqrZJtliTKPEQSgjJQkArjp9VIipm2/7b2L3jpblEEKk37Ns9bY1W/b07JgBAC9+uWjNkg3BPh1tmyGMdAVtMlLefuamo/p14ULQ5i2aGI8SxmlkXFf3KRNP9FZftlgIgQktyi+eP28BxqhOtdiXL125cP4P6WmplmVVkxYvKSWHDx3YpVvnWhM4q0MpBZRu25O/ZXfuhu3Zm3fluK9Nu3K3781j+5OnHMZth9kOtx1uM247zB2SodEvvvktyeehAZ/lfoZxIZWUSkjBOHe4ELLqCSFGgBB66ZNv/3H3K76OmZGIZTPuMGaXRJzCEqc4LJS0HW5ZDvWZJQXFR131WFEoAtW4xsuQUrnDKB2twxiX7iG0DXoyM9OK80uYEGHLVqax8KufX5/5PcZoxaZd6zbsIIm+cMS2GUcYFa3f/sB9lx7Vr4vtsGZWK4hbWHGaArcfxIhjjvpmznfV64UEgGhxtCC/MCk5MYbUcMW5WLdm/XfzF6SntbGtihkMZbsuLCgaetTg3n171uCwrxWHcUhJvPfVaU++N4dx6e4KI8QVtEsNvP/AlZ2rWUPjqsamnTnn3DuZRxg2dTdIiBCSEQvcbtVIgaYjveq7Twjxw58brrvnFbNtesSyASElpbLtLl3apSUGorazfOk6khiUUgohwGPYIeueFz9/6c6LmRAAqK5pD5bDzxl/JDGMS/7xlPTqSgrBBU1PXrJsSyhifTr/9++mLfL06GDZDqU4kleQ1buDl+pcyINSNDEuWHGaBExw+w5t909uqlYijHEkan352cwTTx2fmp6CMa7uk66cZe/NnjP96/ad2kUjFTMYyhBcBIIBr98rpWxIiXcFAFjlFBTty3crOLhpTEhKoYRwbZMqcbMxJ97xkhICeYgqUyvGu3Zrl5rkRwoUgh17C7LziqWqYjuWzcaccZe3a7uo5bgHr1E8fMhhL950Tt/uHRzGhpx577qcAoWQe1rChcWLVmxyM0tKB1oXNEo4FyP7dZ5w2qjPP5prtE+3baYHzAVzfr7rpQ6apuGgXwpBMKZSZgYC7zzzrzEDu3N+cCroxwUrTtPgRsWRQjW6HSjBjLElvy+dcOp4WVu0yzTNrHZZoZKIrutVFnp3l1tntc/o1r1zNelFdQApKG3Puj/CjxEChEmN2aEuBSUR6SjkKY0DIowoRtOe+Effrm3dD8z/Y924Sx8Cv1H5/DCJjaw0xyl1cCnG09NSF7x0q/tPXdOWT38MdT/XyExxHI4AgGhCQkFxmBICqs4Wlns06SnBC8YOWrLozz1MYIwdm9HObV94dw4IAclBhwuf1xNeteXO124fM7C77XCjGvOwqYn7sOI0CQih7L37QNWkGkopx7a79+zsqlUNrZtdIUtJTR57whjdoLbtVPlhpZTH9GzZuO37bxZFItE6p7ZX2l6pMqGyV6zmC8V/CQfGSDB2w0XjenTMsBxmOcyy7bFDeo4Z1R8dWHsLY6QAXvx0rqOULHsL4bDNvv1j7XeL1/24bOOPyzZ+MOdXMHTFpXvIyKOt27zrqQ/mpiclAOf18NhRSizGJx475OYbz7U27dR1ihASDtMSfDQxAIITSsN5xW27t0sPeBkXzRkWrDjUg7XjOIc2e/dkf/7JNL+v6qwFKK3G5/To1f2Y40bGmCellErPSB93wtgF33xfUhzyeCqutQYAIUQwMbht24426zYMPHxAvSu+KwCEQISjwEVZVT+BMQie7zFENY18AAAhbDuMM1aW4I4REhb7z/XnKlBlWZqcy29ful0bcRXnZc475U7r/v3w2yQjVYr9uew6KSwKH3f+/X8VFySYpiYKKQnGCoAiJIpCPy7fdO2Zo+u9codizLgIej2d+nTeHYkSQgQgt14rIYRy0T7RN/m/N44d1JNzQeOCFeeQwfWOT/3ky2BCsLrwn1LgOKxXn56jjq2pvlUF3Ps5I6vNyaefOOPzWeFw1DB1KSpqh5QSFMrdmxeJRLxeb/0ChQQhYbF+/bqkBP2wPzkSI1BKpSUl+E1P1SnmSuka3padG7YFYPyXeiCcU1icVq6WISHYchgAdoMP5TFSUnl52XEnpD6z/F54XnFZHrpACIrDjuOg/R+vB5Rg22EXTxgWdti11z9tdsoU++ekuq5FN+148sNJYwf1jNrMbFhJiQYSF6w4jYmrDkt+X5ZQk1opx2E9e/eoQa3KSgBW+LvbtdAf8J1y5knTp86OhMIe0xAHapZSyus1163dwBz7mLGjvL76aJaha5HdOa/cefGIAV2r/IBlc49RxcilVAFfgFAM6oByy5VzzXSNVlncxS4pIUmB8seja2TY4F4EKiWVK5BKYoRVNDpkQGfbYYBR+Wmmqi3XoTwYY6nUrn2FQLXyGRdCCBzwfrNgyRE9OmSmJtajXFcjEhesOI0JQmjP7j0rl64klFSnEcxhvfp0r9m22l8xvQqh+Uuzzpgwc+pXoXDYrKRZnPPExOCWTdup9suIMUcZuoFx3RbEKaWAkL15RZbDKizNQQjplFSzdhtxLjKT/YamgSqnWFKkBANSKTcdVikQUlY5sUIIte2Qtrso8tfyaYenpiUtfOmWWsf8y/LNUF4EldIpQQhxIWVtsiWk1ChZtXXv/B+W4YC3/MPGYcJsk/LK0x93697hlvPHOYzrVVXOaB7iTvc4jYZSqqQkNG3KDF3Xqysu6thOj149Rh17NGc1dejavnVHfl6Bm4Na+V1XswIJ/pMnTvD5fLblVKzJhxBjLCExYcuWbZs2biEEV9c+uubj0Sjx6FqFl6HVlDrvGjWUonKbUUijX8xf7GZtCCkRAkrw9B+WHWj+ICkVRujlf/8Ni3JWDMHhcHj+72sAQCkIR+2IXVqhkAs545vFq7bsDEVsh3GqkQN8WBTvzSvanVsU9JsYIVlNnqqLlIpxMXnGD798+4ee6HOTWjFGbhEazoSnc9ulyzYWhKK6RsXBK1McF6w4jYOUCiH0w4Iffb6EKtOLAMBxWM/e3Y8ZO0JwQbWqVu1IBQDbt+74+L3P58yYl5eTRwipMthXTrOOp5rm2E7l5X7uGro92/ZEItFqu0w3AQih3MISkNK1dYRUxOuZeNkjn3+zGAAIxrbD5v22+rTLH6mwbtkd4fHDBoq84jI1RxopKgyPu/qJ+b+t3ro312caXkPfuCP7659WTJ72w6ln3XPPqzP8XkPXKIBC+4OnUinwm4tXbrzm8ffmLlq2avNur0eHqjQLAXAuNUpWbNk995vFWtt05nAAwJSIsCUiFhDMBYME3/vvf33LEx9s35svRQPDr/UnLlhxGgGlFMZo98492Xv2ClH1Cjnbtnv27jHquKN59ZVeEEa7d+/97efFbdtnRqPR2dPn5uXkuwmlVWqWUiohIWHchGN1Xbcsq4KdpZQyTXPDho0L5y9yK940w23mWkZnHDNI8+iwP79UMO7rlnXWZQ8/++l3c35e+X9vzBx/wf8ZGcmoKh+Ww9jY44fYOQWlqeQKsMfQTH3cBff//fH35/y84rNvFl90/+snnHvvP+6d7OnV+c/VW35dtRkAmGDKYX9VtgGENX3mt4uPP/6me1+bnpEcBFaFucqlohTvyy9+9s1Za1ZuQgYRUhJKRU5hzx7t+vbpBOEoxtSynITeHd96fsrXv6/RKHGq2lQzEBesOI3D7p17Znw+C6Oqp0u25fTq0+OY40ZU10/QZcO6jT/98EtJcYlgQtd123a+njVv98494XC4Srlx/5jVLmPs8WP8gQQrYlVIv+acJyYFt2za8v13i4qLi8s3p2giNI0AwLuTrujQLk0JuT+TC0Uittk581//fnXChZMefWGK0Talujma32vMe/n2ccccznKL3HOllBIKjMy0uQuWTrhg0jlXP/7rsk1ml3ZGUsBBavuWvRdPmgwAlGjJGYmu6wzA/Z70+ExP56w2KQEuRJX125VS+UWhu1+d9u5bX3k7ZDCbEYKxZXdJC3z80FW3XjBe5Ze4Hkk7Ynvat1mxYlNhOGrotFa/WFMQF6w4DcV1jX/24RfeQBVZVwghy7J69e0x6tija1arlSvWzJ42N1oSIYQoUFJKXddsm03/fPaS35dGo1Z1miWEyGyXMeGUcf4EfzQSLa9ZCCHm8OSU5LWr1q9ZtbaG9HeMEMG4wqtWNz3GFb/lbj5qs+vPGaM4V1JSQhBCgMCymdEm2WzXxpuaKLlieUWVdwoAQimHibmv3jZ+zCCWW6hplGAMoBzGNZ/HbJ/haZtKDd12mATASkFxRCkMAD07tLn+qtOiW/eYXoNgjBEGwFwIy7Y54xgjfOC+3MClzzR+W7vtw6kLvb07OJZDCNV0zckrvPGm8wb27JSeEug+vK9TUKxrlEmFUoPPv/T57U9+uCunsMF5ufUhLlhxGgGl1KChh0XDVRQataJW7769Rh1bi221avmab+cuTG+TKssZQUopQojX5924bvMfvy4OhyNV+s7dtdbBxIQJp4z3B3zR6AGaRSkpLirJapfZvkP7GvIbwpYjikLR4hAvDvPicKg4LIpCtU58ikNRURRyisO8OBwpDouikGt3UIJvPHfcleccq0JRlp0vhSAEU4KFlFyISE4B25d/6ikjREnE3R0vDovicLg4DAAIQNeIw/jXL996/JjBTnYuLyiRQlKCFQAXQggJCKTtsL353LLHjBtyysjDlJIJPvPyk44edmSf8LZsXhQSlk0wooQQhBQoxoUsCoWKw7w4HC0Oi6JQSdgCgDVb9rzxybfRvXmRwhJeHOHhqLUtu9ewfoO7trcZP3H4gJvOORYcZheGZCgazc6HDhmTH3lvyjeLKSE1JNA2EfG0hjgNxXVvjxwzQim1euU6r9csy6KKRKJ9+/caOaYWtVq5Ys23Xy9ITUuxK3WRUEoCAMZ43eqNHo9n6LDBVSZDuJqVmBSccOr4r2bMCxWHTK/JOaeURKO2YWpHjRya1TazygVArqO6T5esoUf315MT3ACZTmmkY2Z6UgJUUyAYYQQAw/p2STI0YnoUKI0Qu6DE0DUA0CiJ2M7key6VCBfkFs38bSXLKQR3YaVgE04a4aFk6pPXjSwKM1HW5gsMjcD+rARdQ4yJOS/fOvHG/yjDnPHjcpZTWFZ6GQjO7Jo1bPSgtLTgq3ddAgBSCqVUh4zkWW/fc8W/nidpCX+s2bZt3Q4uBYSjCKHUxMCgUYf526U7nFNC7LyiXh0zAODH5RuXLV1/zOkjrYiNEFBCeG7RzVedOmJgd8tmXMiThg+45spTFi/dYHhNoSQlGHXKDJh61HYMXY/1Kmkk4o1U4zQOQghCyMJvFq1Ztc7rNQGgTK3ctyp/xbV3Vq1YO3/ud2mpKZV73pSBEGJMBIOB0eNGpqalVLfw0N1RQX7hnBlzQyVhn98XDocNj3bs+NHt2rerdhgACKA4aoUsW0e47H6wJaQFvEZV0cyyb+UXhx0hCKCygGBK0K/t9/3bTukt/cg7s5es2Q4ICEbCtqc8dQMAWA4riVjlN4hBpf5V7V4pQA4T7gAefHv2snXbCUKuBUopOXPsEWePHggAQkghpZsbJZXEAIAwAMz7fc3bM3+xbYto5ILxR5428rBtOYXe/YfDpPIbeoLPY3NRFIkiUer6kkoRTQsYGiWYYOymiTLGc4rD7nEpBYTiPTmFWamJyQm+elccqx9xwYrTaLiK8P23i9asWAcAvfv3HHXs0TWr1c4du6Z+NC2tTWpl26oCGONo1AoEAuNOHFOrZuXnFXw9a35+bkFicsLo445u275dzSZe02EzrpSq0FqZC8mFiLHfsuUwjLBelW5aDsMIaQfm6EqlHIdjXPErdVKW8h0opFKoxfShiAtWnMakTLOUgmOOq0Wt9u7Zt2jhT1bUErF19CSERCO2P8EcP2FsSlpydRsvs7MWLfz5iKMGtcloE0vLnIrxQwSgANXmdpdug4dyVF6CAwAO41LJMsUoSz2tHCis8ut/baHc2hxKcM0FP7mQXEg3154SQgmW8oDlQgiVhlkragACVKnNV2WdqLGKdVMRF6w4jUzZQpYqms0AwF9qlb1owY8lxeE6pXQSgqNROxDwj50wJjUtBaoxHMr/sebCNXFaF3HBitP4uOtparCt1q5ev2rF6uKCIqpVXYrPzT+o8uIkhEQi0cTE4JEjhqSkp/h9vio7TSml3M6pLWQuE6dRiAtWnOaj1Mu+fM238xYmJPgRqiIryp2kRCNRTJBpequSLYUJYQ5jDus7sPfAQYeZpolbZ+P1OHUlVsFSADw2R0MDKctnK92vAnFgfhqJJZ+vMWAHHm91DXJr+EqzUeGkNRtcVF1yoAZWrVi9YO4PicmJbhP5Cu/uX+2MevTqFrXC61dvMgxDN3SxP/b/1ycxAgDHdoYOG3zYoP6xF9VyU4dIfJLYOok1DwvFdsc2Ou669ubfr1KqHsd7UE7RQYQSXJ2jqjJSyjUr1303/4ek5ETOq1hv6KoV5/zIo4YOGNRPSmnonuKiku1bdyQEExjjB7iBpUIYAaDN6ze3bZeVmp4SSxRMShmXqlZNrBZW2HI+nPEj8Wg1F6loCBhjEY4efli3wb07SSkxwghBQUl04dINeXkFCmOMsAhFhh/Zt3fnTFDVxlMajpRSAbw3+xfGuXsPEIzPHz/YY3hq+JblWO/N+AXrVDXZKaoMxiDCkaGDeg/s0aE5vcuuOsxctPTkowfGqFmM8VeffzMpKVilWmGMbcsGUEcMHzrg8H5lHboKC4t+/uGXrZt3BIMBxip+ERMcCUeSk5JGHjsiPSOt5varjHFNo7+t32GFo6MO7+GWvqvjccc5yMRQSBsAAeQVha6++nFIDULTzXo0Dbbvve6hq4f07sS51DXEhbIdcf+rXy7/bB50bgcKwaYd7858sm+XLIuxGNNY6gHjwtC1y25/EUJRIAQIht25Z++bCUZN3yoOWVdf8yQk+ZvwFFVGo7A9+47/XD+wRwfGpaE30x0opKIEXTLpjX9fNPbmS0/jQlKiAGoxMKtcyuc6rcLhUGpaao/e3QYM7McZ1zRNKSWESEwMjj9x3JyZc7ds3urz+iil5Z30gotAIJCTm7vszxXHnzS2hmQrt+zcxl05F1/z2HETho86vAfj0tDigtXKiHVKSAk2OmboyQHGBQKkUVI+taxR0DTiGDQtKQB/ZYjIjBT/k9edcVtJaP3OPE9SgAU8879dPH5Y3zaJASlVUxhZUilD1576YG4gPYmlJCCMo/sKb3joar/frPmLBGtGxzZa0Nc8zj4XXaM2xskJXqhDS5dGg1J6y92vKqLfcvEELpya04Iwxv0P67Ny2apAQqCsLB9CiHOhpDh8yGEdOnfMzGzDuaAadd9y5YkQfMLJ4xZ8u6govzh7T3ZCMMAYK7V8CQmFQskpif0G9K7OwFRKOYwZur5+Z87V97y8/ve1N/zjbGjsqzdO8xCrYCkFtsOUw5mQiotoQXHjj0XTYPvevMIQ7E9t0yixbT5+WP9tV556y/+9GYlY4DXe/XBeiWU/dNN53du3AdTIDnilFOPi3Vk/3/bg2xDwIko0rC49f+yzN59b+3dB2Q6TDm9OwXJ/F16pEUPzIKQwunS49Z5XAcgtF48XUiJA1T1FCMEjxwxXoFYuXZ0Q9EsJCAHnHBE05IjBAwb1BwApK/YTdo0yQshx447ZuWPPyqUrt2zaGkwMcs4xIVY0ani0YSOObNu+rZSy8q7d1jKGrv++ZutNj77346+rSIeM4ki0iU5InKam7oufGU9M9F9y/lgpBcaN6WOmBPPC0PhhfZT6K4ij68RynJOG9X33iD6LZv6ktW+T0KfzF+/MOff00X06ZzHOcb2aOFWHzYRHp1ffN1lL9HFABGNn17637rvMZtw4eHWsWyxKgR1lZpd2t97zigJ168XHQ42hQynlqDEjQKkVy1bpusaZ8AcDRwwf1LNnD845IaRKE8mdM0op27XPbJOROnfWN1s2bTU8umPzQII56rhRnTp3rDJKWDaSLxcuveu5z9Yu35jYOatw/Y6D2EMhTgOp202IEFIOy0xJfPbm85poQACg1F+RQYQQwTgrLenO88fftzd/1Y5sGymzW7vZc34Z0r1dp7apjeVpVgBKKo9OX/lsfkJyQknUQgjzaPS6f55h2cxzUFsbtWgQWJbj7Zxx272vRSznlovH+zxGdQE7t67xqGOPppRGItGEYCApNbl79y61JiUghNxayZqmjT/xuF9++t3Q9eKikm49O1enVowLjZLc4vCjb818ccpCuzBkZKVGI9ZBmDnHaTzqbjUgxDi3He5wrjeqdQMIQClCSIXns0ZpJOqcNHLAtJ+XL/lxud6zIwR8706eNuDw7recN5ZJ2SiOUyWlw8Wcn5Zfe/8b4PUijQJC6enJz992UWNs/hAnanOzY8b9j769eU/uZScPHzWop6gmgcDVrOGjhllRx2PqUDoNjOlCcqeHmq6NHD287I9SVPF1LqRGyfacgpseenvq3N8gGNCCPsdyjCYL1MRpHuqjOAghQ6cIQbN1+9F1ajt83OCei0cNXLl5Dzc0s1enj6d8d864oe33t8Bt4C6kUB5du/aJ92lCQCCEEQjbef72v1u27TFqjA7GAQAAy2aetmnvfDTv+z/Xbpj6OMGYcabRKgTC1SyPWZoOWicDuWx6iDFyk3JwpemnwznFZMOOnOsnvf71giXedum261iM21atn9YR1qUES6XOPm7oYYf3cHbnEJ0yjP5Yuv5fD7y5avMupaCB5aXdtm3Pf/ptcYkjhASlKCWaTs45dmBcrWLHZlJPCW7Zvu+6pz5csXGHRjWnUuaUS5krvR7TeXd6iBCuUuy4EDqlEsG9r077es6v/k4ZEYsdlOrjcZqC1iFYAKBTYjnsxGF9uw/qbuUWSSkTumRNfWvW1n0FlGAhGnRFcsE1jdzwxIeRcAQIJhTb2/c+e9sFdjX3W5zqYFwQw3jl9RlXPvzO+3N+1TVa3TlsiqV/jAtKyO78kqv//drsn5ZpndpEInbcrjqUaDWRL0KwEPKsYwfnR+27Hnk3JKUVYWb3Th9NWdC5TUqPDm3qnZbFpdQ17ZG3ZgcDZnHYwghxi9/6r3OvnTim0Y/ifwEppZ6W+NsfGy5du23Xvrw7LjmxeWKsrpd9e27h1be/9PWCJSQzRR3Ehp9xmoZWY2EBgKaRqM3OPubwHv06O3vyFMYo6P3g1ekb9+S45f3rsU2lFGNi7fa99zz/WVFhCWCs61Qn6sl/nXuwkpsOARgXNGAKqe6c9Naj735tVG9nNeIeNUp25BVdfutLX3+3xNcps/bu7HFaIa1JsBBClJBEn3HPJRN69O3CC0sE597eHd95b252XpFGST3WOXIhTUO74/nPPaYOuk4IRLfsePbOCyOWc1AWXR8yCCkxJnpm6t0PvvXo27MMjdpOU2mWq1Y780ouu+XFb75fanbKCoctiMvVoUirmRK6aBRbDjt5xICNl514/1MfRbhApjF1xg++rNRHrj4lIzUJ1aUivpRKCPnfj+fPXPCnUopoVFPq9tsu+PsZxzblQfyFW5C7IYucNI2CTltmBQKlFBNcT0+8+6G3JaB7Lj2RcanRCs2ZwWEcodrlBQEoBRijCiUx3AyGXfnFl9303Dc/Ljc7tYmGIqhFnpA4DaeVCRa4/Zds57xjB78z88elC/9EbdM9PTq+9+6cm849rl2bFC4ljXkJvuUwr0e/59UvJOPYo+uGFl2z9eHrz2uUPInaQUg4TOzNL19mu65YOoXt2QUlEQBokVMgxITU0lP+/fA7Uqp7Lz9JKEXKPVIQAkOv/0UopKIE79qXf9ntL8//YanZKTMatuJqdQjT+gQLY6QRkpGc8Mg1p/876qzYsFMB0k3jkRemPHDzud07ZLiNiWrdDhfS69Gf+uDrANUKNE4IjmYX3HPfpSVhK+CrqYxMo4AQkpbTuVPG1TeczYTQalw2XAOEYF4SOeboAQBAaQu9UbmSWmrifU9+MHpQjxGHdXPz4F27sihsPf7aNOL11OqCxAjJqN21a9srTj3aXXPjdnPZnp1/09Mfzft2sbdbu0jctjrUaX2CBQAaJeGoNeGofi99sXDJzyuNzplaanDKO7Ovuezk3p0wEwLXdv9LpRwuflmx/ranPwahiGloBA0e0v2hf57VPIeAEIDtdGuXfuffJjTWNhtoFSoFQgpRzg9IMMKoMWqZKmBSetOT5v++euTA7q7QuBSFIo8+9DakJkKtXnlCIL/osAlHXXHq0YxLSrBSimC8eVfOrEUraMd0K9KibSshpZTqr0iAAoxRs5XPPWRolYIFAB5di9rOVScPX/Ln+t3b90GbJG/Pjs++NGXIf29M9HlrTXGwHe41tH+/Ol0jhOsIUxpZt/0/L97sVk1qpmNAyHKYw7jFuKf+O0UAihBcP7XiQgihAIFSytAIJVV0w3IYV1B6gzWkpCrjItHvrfBHirHeLk1PTmC8FguLYMy9RkZKEA4spOPz6MkpwT178+rUfacZYFyURoH2t/aqMopTPn6qUdIo+qUUKKVi94zW2naQCynEgUsFlKKUNL/ztLUKFiFEAzh11OHex8w7Hnt/+aZdKOCdOf/3i295/ok7LurRIVMqqO6350KYhvb4O7N+WbqJSyCUUM7vnXT58H7dVPM+7hBCukalUs2nkvvhQgghDf0ACZr+/Z8/Ld/MuEAY6xiO6N9l+IBubrt2F8aFlLLeK/Iqz/sUgMMEMFFrOXyCMWeclxbSUrDfZ5dbHCnYla15jAYmDzcWDheglFIVfXN/rt/25/rta7fsFhIpwFg6g/t0OWnEYQkH1llz9auByoVQ4+TlKqW4kO4v3kKC5q1VsACAElIStsYO7pXaNoX/vAq8ZkK3jjM//Ob+m88nBHMhManiN3MrXq3bnn3ny9PAcpBp6IYWWbH53mvPaP5DOCi4T0tD1yghXy78c+FvaxRBiNDc/KJvfl+zZ8MuEAIwBqzadGt3WPf2PTpk6gRLKXt2zvr7GaMACOPCZtxvtohFSyWhqJVT6O3clgt2cEdSQc3fnf3zn2t3AAIFCiO0YMnaddv2RnbtA4UAEEie2KXtqIF/dGmfDiARKIToA1ef6tt/Vm2HI4z0epi0CmwmorZDcEzRHA7g1aihaxWi1VzI/Z0cyFc/r5o771ea6OdSAkIUE14YuvCsMUN6d2zmto+tWLAAwOuhlsOuO3NMbnbB8nU7LSW9PTs8+t+PXnzgmozUxCq974wL09Dve3WaAeAYGsE4kp3/wMNXF4WiCX7zkHcnuHNeSvDkGT+sWLZp6q+rd63YBO7DkxLwe/U2SQiB2884e2/+3K3Zcx0GCIEQWlbKig3bCZfP3X2JRonDeEuYglGMgGoHdyDlpIo888n8TVv2EJ2+OfOn0NZsKI0uKPB5waPrGeluCodCqLA4Ov2rn8F2AACwAgWbdu7tkJ5Mde3eS09ICiYAQJ0WCbh7kqBm/bjsjU+/NQLe/QZptRCC7cKS004Yfs3EUZyLMnvbdrhrIb78+YI1a7fN+GPt1p9WQILXLcMEhgFbdvfu12VI745SqeY0vVq3YBFCbM5OGTnwmU+/4z+v1tqnS58xdeoPvQb2vPW8cQl+ExCUf2xwIYWUD7w+feaCJYwLpFEdq379u9x7zWlQ/9SC1oHbwUHX6Juzflryx9oPFi0tXLMNMtP09m1AAYBUAFKq8lMzbOjY9GAEgBAocBh76Y2ZEHHCErwmff6WC5qurH7s/DU5jBEEXEjb4Q7jVX2vigJHNWM53KNTAPLgGzOyswtenPEj7M0DgiA5qGelICh1JgkplQJWrgEHoQQnBZB7iSKElJg282ewHSBozeadXdu26dw25ZYLT7Ad5roOYh6RWr111+zpP8QUyqAEdudmdMi8ZuIoIZRGQUjJuPDo2qLlm15+c+bM5RuLN+yENkl6zw4glVu43KPrUcZ93oNgYrduwQJAhkYtm91y3thtW/ds3rJXBb3enp1fmjz92omjk7BPSlXeXGVCmIb+wtQFTjiCA35KSGT9jieevt5hXNPoIWxeuQ/Mgoj1wntf/eftr4o274GsJL1LFmeyciuaMpQCIWSZgGFMSGoSIujN92aD4Jzx4ojdkgNzlUEIgMvUoM/QaUPyv1wYFw7jPtN45tN5GzbsennqQsgtRpmpWrt0UEoIWbNjTiolD/C7IS05iBACJebMWwwWgyTf3vziJ68/B+pmaiGvYdDkoJEUqK5aRhkaJY7NAl4DADBGbgMkouPXpy166vUZ65ZtxG1T9M6ZgglWbqECwYJx0Zzdocpo7YIFBGOG+Ekj+q8497jHXv4yzAUHHnH43++Z/ORdF/fs0Kas+iUXEhTcP/lLZXNsmgSAOOyxh68dO6Q3QvgQNq8iUcdr6h/M++ODT+Z9tXQ9COXp0tZhDnN4nXLslVJcCBCgpSZiBK+8PhOSE1qXYDEuUaL/7Zk//7lhp5SSHBhKJpjwcGTs6EGnjxpIMaq50aGrIBolD7wx48FXpvLcYpKRQjq04ZzX8AyoEVU2g9OSAghhx2FPvfxldk5xZpvkx/85MRy1PboWS0c1qRQXgghZ63pYhBAXpdFMxrluGmu27H7w7a+mLfgzkltodMl0LIc5rOW07Gj1ggUAOqVRy7ny5BGTpy8q+nM9bZPsTU2e9cn8J++6EGMkZWnoz2bM5zFem/ZD7u5clBjwes2iP9ddf/FYhLBSh2xxt4jleE39o2/+uO7frxbmFNKMFAVgOw4A1PsqdG8DPSOF85YRmYsZLiX2m7/8vvqX7/+sYoGBRiG7QJrmqSMPq/nkhKO2zzSeeP+rdet2vDn7F1DKaNfGYUI20hpvLiSAxATjpIT33p8Dmq6UeuK6M6GOXq06gTHeuDP7rsnTpn36HaQEaVLAidqAUMtRKzg0BAtjrGvU9Giv3X7htQ++tWnzHp6APN3b3fnfT5++9bzOWW0UAOfC5zEmvT6Th2zk92oaLVq98ZHH/sEYV7p+sNRKKmU5rB6rghEgpRSltXhbGOdej/7x/N+vu/e1wqhltG/j2KyxnHW1JiK0QBCAkpIGTBz0Vr4PdY3YBCf7PahGp1goYvu9xn8+nHvHkx9BUYhkpimEap181QOllJBKz0oTjD/58hfFJSUTjx06/si+UcsxPXoj7ggjJKU0De3PTbunf/GDNzPVEUK0yBqtrcmerwFCcNRmxw3pdfJxQ3RTF5Jjnzn9w3khh2OMOBdSqhUbdz7+7pzcvGJdQ9Syn3zgmruuOiXo9x6kHwWBlKZBPboW9JseXavTy9Cpp7pMxP1wLoRQ73/1y/UPvp1fEtWCAceyD8XQQp0XjwupGJeMiypfsppFQu6JC0Utv9d46qN5tz/xPqLUaJ8plVL1Km0UEwoYFwpjkuB99a3Zf3/grTtf+tL06DbjjfhTRh2GMV60cvMjT36kGbojpTgY/qlYOBQsLBc39/2Gs8ZMmffrjrXbeUaa2bntLf/31tQXb3Vz8x58c6ayLOzzGKaneMnaK88fq5RSSjVnFkkZSinkNVZs3Pm3B96WUtQ1Y5gSzApKTjlx+FnHDuJCVNnB1GbcZxpf/74qd9seo0OWbTtNUeSzBdCAteN13E04avlNz9Mfz7vjsfclJcSjO6w5kr+UUgqBlp6yZce+x1/4REn2+HVn19pqKFakSgr4fl6x6Yqbnlm/I09vk8Rt1mIvlUNHsBBCGqWdslLfm3TljY9/uGL9Npzg/+b7Zdc89cHLt1ww/7c1039caTNhBIziDbsee+p6kAoADopaAYBSCnR9777Cd9+bU587TqewPTsxK+2sYwcJqSpnFzLGfabx8fw/fly4VE9PZoy11Cuw1WAz5jM9//lw3p1PfiAJJh5DNmeJRwWcCxrwikjkvx9/c/05Y1MSfJQ01L+EEALGurZNDkWt9b+s9g/rFw5ZLVat4FASLACgBIei1jGDeyFTl6Go8Pu8nTI/fmvWR5OufPern+38Yi3BRxz2z6tPveOKUw72YAGUwppG0pPq8VW3VnrQ74GqrlgupFDqw9m/3PbEBzn7CkhSQNWWQBinZjiXQqj/fDrvzv9+wgERs3nVaj9CSGSYmMtbnp/yyYNXub7/hmyQCwEpSS9NXZDk85JuHaIRu7GG2kQcUoIFAKahR2321PVnXp6Tv31HDgoGUIL/tNte/HnFZqRTquHI6s3XfvIAuJOyg/0kKU0UqDtljrkq32Wcm4b+66qtOZt2ebpkWZZ90I+0tRN2nKDX8+UPy3hRSEtP5vzgdSdBYDHx6ayfOqUnPX79Waxceno9EFIhn7ls+VbgHCX6FZct/Eqpj2AppdwyA41RNRuBUpRg2oCTXh6CMcHyuCG9b/zbhEkvTC2JOjjonz7jR/Cbutdj5xY8/eyNHdOTWoJaNRGMc4Lxq198P2/er1qbZObU2R+hVbMKnwvxv1nn3mYs6PU88e5XG9ZspUG/qPszxtC16n4DBapOYWKlFNaotNkT73zVq3PGeeOOwBjVu2oCAoW4TbyaAl0K0fJviroLllKUUjdW1QTjaQQ0SqMOu/TEEe/P/uXPJWuRRmhKgpSKIORE+QWnjvKbRktYBNdECCE9hr50/Y6NKzYZ3dtzpw5eYSWl4dHsghCEovujbwqUAkxAKQj6zaDfdtghfPYqI6RUUi1csv6xD+YW5BaSxLrNrw2NIoKiO/aBVO5KP0AKFAbEATAgBIiYbVPtuizMVEphQ5NR+8XPF1x28tGWw4leb1csUgjJ0n23dLWCugqWUgoZ+s59+RPveFmqRqgjTDDmBcUnTxh2+akjG2jcloEQSCmSA96UgAlMAoAQ0h08ELxrT35a0NcKfpl6wYXQNW32z8vnL16DM1PrNHNRUvn83vD6rRdcftJZxw51/wQIAyghBcHaC1O+/XbOL1pqUKCWVXmqSWFceAz9jZmLivfk1cm8Ukp5PIa1JwdKwm+/fmeCz7c/uqIAFKjSKjB7cgr+eftLuE1KnUIvbguCNet23vD0x09cd2Z1TbZjo/ZlHhWMbo+uCV1rhMqOdafuFhYloXD0iy+/b5xoskZh177kdumXnzrSXXvZcISUGOGp3y5euWUvmB4FytAo4wIBgFBd2idjhGQdqpu1JoRUVENfLVq5cfE6LTOVx57bKUVC0F+8avNjD159xZmjUxMDlT/Sr2vbdeeNPeW6pzUDC9wyS8jHgFIaJZTgypeATinyUFpuwQ4TQqPk1c+/nfHdEkEprosR5PN5wmu3vzX5jiTTOO3YwTV8uG160nn3TpZC1S0XV6ORwpLp3y977ubzoo7TFPMdSgihGCEUzSmEsAUYgVIAKGposDvHcutMNC/1mRISQrxZqY1yuWqUOAglB/0AjZZV6xaQeXfOr3u37EUJXk3XrN05kOBzsKGlJEy89j9TXrg5ORg4JN1YCkApIBjhutj3Sil/gr941eZHJl3hxk8r+KrcgjPd26d3b58+/427x176MDYIaHqrEy2lAFHiFIWccLTyEzeqU8jOLygqLnuDc0kJ/uzbxYW780hqMMbIoALQDS28btubL9166UnDwV3nLBWUyxlD+z9JCT5t1OFznv3X6AsmmWnJsauAlBL5zKLi0MNvzb7r0glcCFLfzgCVD4BQrOlaNL+YhULgsMuvPev0kYdxISnFSgIheNW67f27dwSotkxmE1F3wUJIcF6yNQcQBtXgsWoEdu7LyS+CRmr6YnMBAHe9+NmCRcux19A9mrV8y3Ov3vr2zJ/+XLaJJpjfLVg6ZeGyC8cN9Tbq4oaWgFKgUyKF2FNUIimN0QBWCjweI7Rmy8P3X3HX1aeDAgmqyhx6pRQT8rjBPee/dfcJ1/+HM44aKVTSbOgacXKLLr1wfJUJtxgjafNundq4dz5CCEBplCQkBAAAK4gx4qBhjELWS0/987LTR7nLayjBVZaTdBFCHjOwx6zX7jzpwvvMDm0sFuudgDRSuK/w/Tm/3PW3CUKoxtErJalHZyVRvm7rudee8bcJR9k2Gz20T+KBlVFPGtHfXUjazJmMdRMshJCyWduslMnP/Ytx2XCXE0YgLKdTxwwA0LVGON+OwwNeY/7idUX78sy26VAUefLJf1x/9rFPfThPWY7weTydMu974sPLTj4KoVqW47c6GBe6Rv475buvv/qNJgVijOhpFKvi8O03n3/XNacDlJbHrPKTCCGdEofx44b0uuTkEe/N+omJVnYCCUIQdQb37HDSiAG1ftjhwtDo/ZOnL1q0nCT4Yu17rxTSiJ1vX3T6aKUUIESrl6rSUREspDrx6AFfvnP/6Vc8RNJTY4y/IwUII9PQMUaNY+sqZZpmZPPOk8897p+njOjfq2Pb9GT3HSFkqX2IAAAIxrUeV1NQdwuLi4DXM+Go/o0+lIb78GyHB7zGpMkzNq/dSZKDmOLw5p3jxxwOAB9MuuJv90/eujVb+DzZYWvMxfd98NRNHTJSDiXNch3ha7fuLsrO0ztmitiW4+qUhnftOu34IxFArc07AEDXqMP5o/8488uFy/Lzi6FVGVkKADAqidpCyqobjihAGLmSLaTUqfbd4rU5u3JoZqqMzd2uadTJLfzoxZt0QmL3cxCMhFSnjT78xaduvuHxtxHCsYQ1FChFcHZB8R9rtgzq1UkI2ZDK60opwzQju3POmDj6hTsuzkoNwn6dwghVKGvTkO6/DaHuh4dASCWkjNqOkLIRXm4pxgbDuFBKPfXB1w9PnpYfjuoej70n/9kXbu6QlmQzfvRh3dpmpSuKhQQz6P1x/pLU5KCU6lCKdilQAOD1GEjXYpxgE4KtkujxZx7TKSM59h0hQOlJAQwcWuoS2ZrBCBGMq36V67vl9poO+r3IiPV8IgAuVXpW2sSRAw2d1ulRSDCSUv799BEi6mAUkzgqBdjQ9+7ce/9r0zBC9UgQK7cpZXoNe+uOE8YNeWXSFVmpQcaFUuA2ZKr8UD9YD/l66nG1v3c9Xo3Umi1q2x5D+2bJel4YogleroTymaeOH5oY8BKMorbz6h0Xml5TFhc7XHi6dhj/twcJwRhjpQ5aMiRGqK51Gv56VarWgAABgFR18AZqhIiSkusuOT4rNVGp2s0rF0oIF3LOszf7gz51sFNJm+6Jo5RCoFBddkEpkUUl7z58DaCaS9RUDcaYc9a5awehUIyGP0JIMrl1Tz4A1PvBrwB0XY9u2X3ChKPeeODK9ES/EFKjpAXOPQ6RpTk24wk+76TXpv/200qaGNAwie7cO/m//0oLBqSUlBCEUO+OGT+8dvt5d724cVsONz0/Ldsw7Nz7pjx3U9v0xINTwA8h4bBodn5pEK4uRHUNtmfnF4eh4XesEKkBr7udGE+C+7HBvTsbGgkdbBO1iX44pcDQtAhXhSELcMwFaTHCCgb3yNI1N1WtzoPTKJ3y6NWDz59EPCRWrxnCHkOH2noL1rRTgkVRyfETjn7joSuyUoKcyxbbRfxQECwmhFLq5c8XPvLu1yxiEb9XSad993bHH9HH5ylNaicYR21nUK+OhRZTUUt6dG9G8q8/LEtLCZQm+TavYGGMRCh62IBuz91yXj26tyKEpM06tk+Hhgcr6lt8TkoFsjGrMrUouBAaJZ/N+nH5xu1g6jG6DjAo6djFETs1Eeo3bUIIDerZHiQHqENmlTu8ev8SGCNWFOrVs31WStByHI/ecgPoh4JgcS5MQ/9m8Vq2L19LS6Qaja7c+sC7/05PTijvRfboms347Gf+df7dL2/ets8GMDpljrrg/kUf/p9G6UFwInKREvSNOrxHAzfT0KCBQqhengGMkUQNrm/SUhFSakBm/7S0aHc2SUysbp15eRBCjiN69u/s93gA6n9iiiMW1CtXANVXIh2bJXdpN7RXR6WA4BYdRWmhhl/s2IwTgu9+8fNvvltME30YkMoveun5Wy4cd6Sh0fI3s5vHMKRXx4JwVDGmAARCvy3ddP3TnxSWlBwEQwEhJoSUKmI5Uqq6v2TjRAxQ/a5z96sH//pp0impxQBkrO4kjJBk4oiBvbymAQ0QcoJxfa/G+nyNEKyKQqccN/j00QOrKwbZcjj4F1wDoZjolH6/fGNhTqHSqO6h1rbdh/XvomlUiIq1MgyN2g6b9/wtgeQEGballEZGyuT3ZycGAgfFv4gAYVzvVxWxm2amJcRYm/QcSKnqluAkVdBnNjCXspl/VAQATKQFvT6PXtaxpcXSugXLZkwqeduzHy9fso6mJumElGzd/d8Xb+vTKUNIiSvlpCCEKCWH9+jw/B0XpaUnKS44Y+DxDDr7zr25hQf/5mttHKIrMgH2T7S7d8qCgF/wmOquKKVAw4vX77FsBg3x7an62o31XnmCsePmrbf437N1C5YQSqNk2ebdJQUlWCNSyN4Duk08/ohEv7c61w7B2Haci08YFrEtEEIhrHk8f/62PiM1sSXYC60LpA7ZQqZuqs2gXh2CyQHFeSw3slRK07Q/fl8ZjloA9VcsJurdrqY+u0QIgAvOJarnBpqVVixYlsO8Hn3S61/+umg5TU2iGrXX77j1ytMykhKElDXkkGgalVL9+tY9/oApIxbnQm+XPvCsu+rb/7KlUceLDqn61WK0Wd36sLYuKCUO46ePHDC4R3uIxtq/g2DFItGw5ZYMq+fdH/SbAEo1i3hghByHe9ul9u+aBc2+krketFbBchhDCN3+4pTHnv+iGIim686u7OefvfHCcUMprSUTFSOsAPp2bffo9WcnpQQlFwrQsuUbX5q2KBI9CBUzDiJu6/bMtGA9rlRDo6gBC0FaOAhAKuU3Db+pQ+xdvBAGgA4ZSfV2LxaHrX5n34MMI5a4ZOk+ESpNi6n7PhECZbP2WaWChQ5Gias60VovOIdLQ6MbdubaJVHD1AUolJgwYmhvQ6dS1r48kBJsM3716aPCDleWI6TU01Lvf/ojr9lyM1BiBCN3PhHTlWc5XM9IOu2qx39fsxnc1KoYcBdUjbrmiaKCktanWUgJLkTMhWKQAoRwjFrgMKEnBYeefff2vXlQL09Ugs+zavkmQmL+JkKK2XtyC6D+MRCElXRn9y1drlqpYNmM+U3j/16f8d3c32h6ItaIs377f267sFeHNlzGWgdVp4QSvOz9e9u2S1MO40qVMN7nzLvyi8JNPf6mAgEAOEwoEZPPBdzClaZn47LNpmnGvvhcKmXo9Lc12wSTLbA5cC1I0E2dEByLOCOAkOMoWYcqo1inq//cmJqUUI81smHL6X/efSQpIcYdIoRkxO7cq/P8F27lQtY1/Rj2t/lql5HWrWPcwmoaGBcI0NPvf/Xoa9OKhKS6JnIKnnjkmr+fPtI0tNirNiOEGBe9OmbYUmKElVK6x1izdIOp01baasGd1g3u3THQPsNxYnW72BYzu7U97YpHl6zdBqh2I0tIIaUaee1T0mFIbwGJx0rEbhk4XBiZSY8/9eGUhX96dBq27BqsEvdaOve4ocnt0kXMvUUdxo32GYefcQchRKrYV4dLhzGfR1+5fAOgWFMpEABIkZyU0L19uhCynukUSnl0zWt46vPdZqf1CRYXQtfoqu05dm6h5jcxwc7u3B492mmUCCHr9IDQKLUd/ssbdxFdU7bDhdTTUwacdVdDanTUCamUzbjDuN2wl8O4lIpS4jBx7tgjzhx3hCoMxXgUSinQ6ebV24Uq7TlR04Clsm1haHTJ6k3MYS1jClGHQSilOML5AFfd+N/PF/zp8xhcSPcEOoy7rerdkwluOVzGL55w1NABXcGyY5wWKqUYqPW783pMuIkSLNx0gRphXDhM6JrWY+JdODExdsNMIaS4zMkramDVEamUjN1Pd1BpZYJlO0yj9O6Xpk75fIHWJpmA5HvzXnzl9mMH9eJ1f8IgBBrFXdumTXninykpQcmFQGjj9twJNz1bFI400SH8hVKGRg2NJvhM93/q/dK10kCDAuX16GmJPlKL8hyAbTueblkTr3h0d34RRsjt4VbhFmBc2IxjjLymfszfH3ciDmqUCvwNBhNCSB0qzEupkMcoBHTV/7150q3P78wpcE+grlGNEo0S92RKAAUgpDR0Gg7ZKuJAzNMlJRXxmhv35Hc9805KiRDSfSaV70GplHL/6Dhco0TXtF5n371h867Ya4cghJTtdOredsqj1yAEektdrty4tIhrLkaUW49ViT/WbSsuCtM2SdRjhHJ3ZmWmBLweVimvPRYwxg4TpxzdrzBiAROKIC3gmTN/cfCZG3nDyqHVjJQK+b2/rNjY+5x/S1X/9YAYISGk1zQe++fE44f15VwYGt1XEBYRmxAEsblClAIm1S7bGnbKnb9Of9yt3CaV2p/ngQCU6x+Z/sPSe1+ZvnzlJqTrLcR7FbWZKAmjdukQc1aKFBKZRkFRaPbCJces2+b3eoTDMzPTOmWk+r108ZpND1971rFD+gghDV3jgn/88FXnSv7z72uxz4zR/JFSUtPcvDWn6/H/2vT1f2H/heRw4WqrK5HuH2975uPpP61ev24X9pl1MJUQUpbDpBrap7PtcEOnLT6JqhFoTYLlOMzQtXtfn73o2yVaehKlNLR2+1NPXzd2cK+GiItGsZRyw2cPDb/i4eycYkEJ9vm6nXT7xllPNO74K0JQOOqsXbejQRtBCIREXk9hSRQAdI3YTDx5/ZmK8w+mLKBJ/hj9cVII4vHsLI4ceemDiQGvlVPw05RH0xL9ZR8Yfe1/du3JLYzaudn5yGO0hMmga1CfOmrgDbee9/xbs7XkYB26zrit/aTasTPXLSG2fvu+7zVqGlpky659554AAAqAIOQI2TY9SWAqwxYN+CDmInlCSWJom3fldZl4t06IEOy0MYOfuv5s992tO/eeeOsrjFmAtW279rKwg32e2NUKIaQsu0v39nNeuEUqqdEW8Hs0C61GsGwmMMZ3vzT16Ze/ZKahYeBF4auvnvDPc0Z7DI9U9e+HgRDiXHbOSs0pCrmdLjGSm3Zkn/3vV9+973Kz6frFKkAYI2+DnJ2uheX3ely9RggpodKSAppBRVEJSUmAmAMIQkgcMHfuyt2pALgYdPEDHl1TAAAKAdq4dS8wDjrFpt5CVgRgBEJIv2mMGtz7xVenEYRZjCYlAJTW/0LIY+z/p1JKCaEA0/K+BUPTLMf6/NFrzr9LLfplNfabMuZZm5QSB7xbNu922xE+l/3Nl9/96VrTEcvevSvX7ZoFBsXeOqgVAABCyuFRxru3S7UZN1rG9LwZaDXHqaTSDJofDtslYT3RjzGyd+8dPqSvxzAbPnejlDAhN099rNc590XDltIIDZhTZv/62UPXNNb4q6OB64HU/jut7C+GThgXj/3zrKKSyBczfqJBP4/Zn6qkwu4NjGDnzpzyjiHk0ZFOoYXVlHbHErWZKImidkjVPQxQ/ngQQhhXrF2BEAKFs1KDmqFJJShFUIde2qCUwmapJjLGN23eXfoGRtjU3YhBhV+wVhBCKmp17d5uwau324zrraqsfgNpHY46h3FK8T0vf/Hhh99qmakEBN+b99yzN51z3FAuJGmwpwkhwBh1yEi5/4qTvQFTuUETQq58+J2oFW2UQ2g2EEJSqtREv8/rFUUlqI4Xs3vzKKmwR8OmUfYqfatJhlx/KMFKqTPGDLpn0pUsp8homlvX0HXLYR89eFXffp15TmFdYztqPwjjv06poSlVZ6kq3SAoRGmHtunt0pNQwwuitSpah2BJqSjBewtLSgqKgRBENWZZmRkpplsZtjF2QRBiQt50wbioZQEXChCl8Nb0H0yPWfuXWxi6Rm3HefpfZ1946ckir6R+5mfZ7VS/m6rZEFL6PHrPTm3YvhxMmsTxjBAYGk1LCix49Y5hw/urklC9Ozw1/IxijJHNg4mBKY9cXY9ata2dViBYtsM9hvbw21998uE3elaaRlRk/dYnHrrmxOH9uRCNGMijBOuU7pz5VHJyUDmWUEgCanfizTZrZQsM3RrxyQk+RJEIRyglTVTmriU82QkhXMizxgx+7rmb+J48T2N0t6wMQsiyWWrQrxuaVIoelJ58bis82woEvWs/fSA5wdfwxqCtjpYuWIxzQvDzH89/4KXPwjpBhDh5oRv+deFNFxzvNXTcqOVcEQAXMis1saC4hBIDADDGu3bklkREHcJPLQN3FvP8LRecPHFMdFeubjRJW/mWsJLDHYHp0dPSkpgdJbipLA5D1yyHf/H4P/r06WpvyyYEN/PhY4zBZqZP3zD10fSkwKHUUjN2WrpguW2+N+zOcXKLdNNDNcTzCvr3bE8J5kI0+gVDKeZS7vnqaa4cJYRSiviN3mfd0eoeZe4sJuAzP3rk7xNOGmbvydN1vXELlhAMXtNAMa8jaToowVzI00ce/vaLt4RDJRrFDXdrVgYhMDSSnOD74fU7V3/3bHIwoCIMN1dBYUow2MxM8G2e/p+0/1W1ghYuWDbjHl179J1Zr78+U89IIwSFN+15/PF/XHTCkYw3VfFpinGb5IR9c59LCPiUkFKh3NzCzBNvZQ3oUnlQQAghBH6Tfvb4P44dO9jel6/ptLE0y2NofG/h+k8fTA54oQWYn5RgQ6eXnDzi7QeudEqi3GFNMRF21Tk5wdurc9bqjyd17dpGlhQ1tGtRDGiEsJKIJ2Bu+fLRtMT/XbWClixYjHNK8Aufzp/04hdRnwdhZOeXnHP+uKvOGO3RtaZ4hJbBhUxLSiguCYFbc8Pw7N2TgxBiolF6VDcfGCGlkEfTpz19w7jxg53sfN1o8IxJgceg0V05K+c9k5ESjD1noslBCAG65MQR2QtfvOyMMWxPvulr/IDJfp1ASQHf7+/c17lLO3t3LqWkiRQEY4URciLh2y4/Ydv0x1OD/v9ltYKWLFhSAcF4d0HIySk0PAbCSBaHjhnaOyngZVw0aWlEQrCUKnf+c/6EgJISAJChZZxwi0ZafkXGiiCEEFKmrn355A1jxw61d+d5DK3eVzxCyGPq0V15K+c927drW2gZfShc3ENCCKUn+l669bwH7r4osmoLQYhS2ug/G0IIQCX6zcXv37f2m2cTTF1ZtnZgl6YGQgkhBIviqEYhd8FLk/5+ZkqCL5Zab4c2LVSwHMY0Qh58c8Yzz31qZKVJKVnYGjr68GMO7w776340He4VkRL0h0IhjEApAYDzcouG/O2h1lh5BmOMMdI1Ou3p6y84f1x0b75SUqvjXYwQIhQjQNFte9bMfaZv58z9p6LF3T9KgUend/7txNy1H159xki2ZZcARAkmGJHGazXkbifR7+/eMXPjF4+2bZ/m7C1QSlGCaQMebBgjDWOCgRUXc9t+7eF/7p79TErQ7/W4UaAWd7abmTrc+YTg0lcT64VSStM0jNHWPQUW44Riw9BFdv55JxzVp3Mm46IZfjaMkZCy4JsXFCYEU0ow9ehL1++oOYvir1PU7K+a70OEEMHI69FfuvOi/N9fH3l4L2d7DgJEKCEE13A+EUIEY0owKMHzSs47fujuX9/o1SUL9gtVwwdZpy3EkrTp7kWjJCUp8MT1Z+av/uDBK05ku7O5zXnUcjWlbIOuvpD9/43lZFbeXaLfu/T9SfmLXz92cE9WHGYlEXAlMratYYTKBiAc7hSHuFBrZz2dP//5y089KingrasR626wLme11ehgrB4NpZQIRSMeA0LRkNsUpMlgXOgave+1aW+++iWkJUUiFuzMefiRq68/e4yQqtkCdhjhxID30b+ffuczHwnpZjcJc9Q/ot+/pFQVpQqUBBGKCkqANaMTGiEQskgph9dSq8C9bYI+DwB8+cTf0ePXnnTLcz/NXwyJfsAYGwRhfEDAT0kFSArOmYSoc+HZxzxx/TkpQb/xV9E+CYBLwpYIRaHWH0UpQYm07Up/liJkRQ2t1pPGMYZQ1LLrdu35TNNnwp2XnXTt2WMooWu27Lnq8fdW/r4WvAZIDkBKqyC7XZMVhDwCQtb+LJaYhKLUHk/wAcCMp68PRW2NkoEXT9q2fidgDShCmkY0dwlOqeXlXj8IJCisEHCHg8NACSD0jqtPv/OicQAqMeCvsItYUeA4vPRudWpZRsQJhlA0YjkN6ZrRnKAYfRBSqVDYclMSMcZe02hqUQ5bjuMw4oYCpfT5PE1t2VWJ4Dxs//WrM85SgglVflIpURx263wehC7SHp3WNek5ajuRqKNp9PNvf7/+6U/COYVAy20BY7Cc48cPnXzXJUGfR9c1T6X6ogogFLZir7zloVg3jPJ/kZKHIgxiPGkKKCVeT4Pq7kcshzMBuNT7VsH8UYCQkqbHaOBzMRS1hZBKCUfARfe9Om/hCgAAJEGVNqpw5d5dZnP7FRPuueIUV5dMQ2/4I9lh3LLrcFYJJabh+ghauqkVq2DFOYRRSkUsp4oIqAJdo0ZLqIPcmrEd5tSY+WEaWgtvEN9yiAtWnDhxWg0tNEoYJ06cOJWJC1acOHFaDXHBihMnTqshLlhx4sRpNcQFK06cOK0G+s477x7sMcSJEydOTKDW0vE1Tpw4cdCwbmcf7DHEiRMnTkz8P6lmwJ+5FBojAAAAAElFTkSuQmCC" &gt;

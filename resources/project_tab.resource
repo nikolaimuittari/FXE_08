@@ -679,11 +679,12 @@ Project Tab Settings Subtab
 
     RPA.Desktop.Press Keys    tab    # "minutes" textbox - 5 min is default
     RPA.Desktop.Type Text    10    # Changing to 10 min
-    RPA.Desktop.Press Keys    Tab    # "prompt before save" checkbox
-    RPA.Desktop.Press Keys    space    space     # activate/deactivate -> return in previous position
+    # 20241014
+    # RPA.Desktop.Press Keys    Tab    # "prompt before save" checkbox
+    # RPA.Desktop.Press Keys    space    space     # activate/deactivate -> return in previous position
 
-    RPA.Desktop.Press Keys    tab    # "Auto import points" checkbox
-    RPA.Desktop.Press Keys    space    space     # activate/deactivate -> return in previous position
+    # RPA.Desktop.Press Keys    tab    # "Auto import points" checkbox
+    # RPA.Desktop.Press Keys    space    space     # activate/deactivate -> return in previous position
 
 
 Project Tab Communication Settings Subtab Arguments-6
