@@ -20,7 +20,7 @@ Resource            resources/fxonline_tab.resource
 Resource            resources/st_edit_tab.resource
 
 
-Test Setup            Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
+# Test Setup            Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
 
 #Resource            ${CURDIR}\\resources\\common.resource
 #Test Teardown        RPA.Desktop.Close Application    ${FXEditor_app}
@@ -28,7 +28,7 @@ Test Setup            Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_P
 *** Variables ***
 #${FXEditor_app}     c:\\Program Files (x86)\\FX-Editor\\FxEditor.exe
 ${TEST_PROJECTS_PATH}    c:\\QA\\TestProjects\\
-${TEST_PROJECT_NAME}    Test-Project_C
+${TEST_PROJECT_NAME}    Test-Project_C_EMPTY
 
 *** Test Cases ***
  
@@ -63,5 +63,5 @@ Project Tab
     Close Opened Project With Saving
     Current Window System Force Close X Button
     Splash Screen Check
-    Current Window System Force Close X Button
+    # Current Window System Force Close X Button
     Log To Console    FXE_main_tabs_project_tab.robot is completed

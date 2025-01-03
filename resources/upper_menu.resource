@@ -320,7 +320,7 @@ Upper Menu File Submenu Save As
     Wait For Element    alias:FXE_system_filename_prompt    timeout=10
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_system_filename_prompt    
-    ...    x=0    
+    ...    x=30    
     ...    y=0    
     ...    action=click    # Filename prompt
 

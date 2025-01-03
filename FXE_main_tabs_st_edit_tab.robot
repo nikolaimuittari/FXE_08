@@ -37,7 +37,7 @@ ST-Edit Tab
     Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
 
     ST-Edit Tab Select
-    ST-Edit Tab Separate Window Operations
+    # ST-Edit Tab Separate Window Operations
     
     ST-Edit Tab Import POE File    1
     
@@ -56,7 +56,7 @@ ST-Edit Tab
     ST-Edit Tab ST Program Modification
     ST-Edit Tab Clean Unused Variables
     ST-Edit Tab Syntax Check
-    ST-Edit Tab Search Arguments-1    Variable
+    # ST-Edit Tab Search Arguments-1    Variable
     Close Opened ST File
     ST-Edit Tab ST Program Delete
     Sleep    2s

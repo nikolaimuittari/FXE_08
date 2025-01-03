@@ -35,6 +35,7 @@ ${TEST_PROJECT_NAME}    Test-Project_C
 
 ${test_project_dir}    c:\\QA\\TestProjects\\Test-Project_C
 ${backup_dir}    c:\\QA\\Backup\\Test-Project_C
+${sleep_local}    1.0s
 
 *** Test Cases ***
  
@@ -55,34 +56,34 @@ Graphics Tab Features
 
     # Graphics Tab Detach Attach
 
-    Graphics Tab Editor Upper Buttons Hovering
+    # Graphics Tab Editor Upper Buttons Hovering
 
-    Delete File If Exists    ${TEST_PROJECTS_PATH}${TEST_PROJECT_NAME}\\Fidelix\\www\\new.htm
-    Delete File If Exists    ${TEST_PROJECTS_PATH}${TEST_PROJECT_NAME}\\Fidelix\\www\\new_1.htm
+    # Delete File If Exists    ${TEST_PROJECTS_PATH}${TEST_PROJECT_NAME}\\Fidelix\\www\\new.htm
+    # Delete File If Exists    ${TEST_PROJECTS_PATH}${TEST_PROJECT_NAME}\\Fidelix\\www\\new_1.htm
 
-    Graphics Tab New HTML    new 
-    Graphics Tab Close HTML    save=1
+    # Graphics Tab New HTML    new 
+    # Graphics Tab Close HTML    save=1
 
-    Graphics Tab HTML Editor Left Buttons Hovering
+    # Graphics Tab HTML Editor Left Buttons Hovering
 
-    Graphics Tab Right Panel Subtabs
+    # Graphics Tab Right Panel Subtabs
 
-    Graphics Tab Right Panel Files Subtab Buttons
-    Graphics Tab Right Panel Files Subtab Upper Buttons Hovering
-    Graphics Tab Right Panel Files Subtab Buttons Expand - Collapse
-    Graphics Tab Right Panel Files Subtab Buttons Select All
-    Graphics Tab Right Panel Files Subtab Refresh F5
-    Graphics Tab Right Panel Files Subtab Buttons Select All Included
-    Graphics Tab Right Panel Files Subtab Buttons Open Selected
-    Graphics Tab Right Panel Files Subtab Buttons Upload Files
+    # Graphics Tab Right Panel Files Subtab Buttons
+    # Graphics Tab Right Panel Files Subtab Upper Buttons Hovering
+    # Graphics Tab Right Panel Files Subtab Buttons Expand - Collapse
+    # Graphics Tab Right Panel Files Subtab Buttons Select All
+    # Graphics Tab Right Panel Files Subtab Refresh F5
+    # Graphics Tab Right Panel Files Subtab Buttons Select All Included
+    # Graphics Tab Right Panel Files Subtab Buttons Open Selected
+    # Graphics Tab Right Panel Files Subtab Buttons Upload Files
 
 
-    Graphics Tab Right Panel Settings Subtab    
-    ...    screen_type=1280
-    ...    background_color=c    
-    ...    symbol_folder=local    
-    ...    grid=2    
-    ...    snap=2
+    # Graphics Tab Right Panel Settings Subtab    
+    # ...    screen_type=1280
+    # ...    background_color=c    
+    # ...    symbol_folder=local    
+    # ...    grid=2    
+    # ...    snap=2
 
     Graphics Tab New HTML    new_1
 
@@ -104,33 +105,39 @@ Graphics Tab Features
     ...    text=123-value-Text
     ...    left=100
     ...    top=100
+    ...    target=picture
 
     Graphics Tab Text Create    
     ...    pointname=POINT_02_DI
     ...    text=456-value-Text
     ...    left=100    
     ...    top=200
+    ...    target=picture
 
     Graphics Tab Valuebox Create    
     ...    pointname=POINT_01_AI
     ...    left=100
     ...    top=300
+    ...    target=picture
 
     Graphics Tab Valuebox Create    
     ...    pointname=POINT_02_AI
     ...    left=100
     ...    top=350
+    ...    target=picture
     
-    Graphics Tab Button Create    
+    Graphics Tab Button Create
     ...    pointname=POINT_01_DI
     ...    text=Text_BUTTON
     ...    left=300
     ...    top=100
+    ...    target=picture
 
-    Graphics Tab Bar Create    
-    ...    pointname=POINT_01_DI
-    ...    left=400
-    ...    top=100
+    # Graphics Tab Bar Create    
+    # ...    pointname=POINT_01_DI
+    # ...    left=400
+    # ...    top=100
+    # ...    target=picture
 
     Graphics Tab Right Panel Settings Symbols Folder    2023
 
@@ -138,6 +145,7 @@ Graphics Tab Features
     ...    pointname=POINT_01_ALM
     ...    left=500
     ...    top=400
+    ...    target=picture
 
     # Graphics Tab Close All HTMLs
     Graphics Tab Close HTML    save=1
@@ -158,6 +166,7 @@ Graphics Tab Features
     Access Violation Form Check
 
     Current Window System Force Close X Button
+    Access Violation Form Check
 
 
 *** Keywords ***

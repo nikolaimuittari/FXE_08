@@ -17,70 +17,71 @@ Library             OperatingSystem
 Library             DateTime
 Library             RPA.RobotLogListener
 Library             RPA.Excel.Application
-# Library             RPA.Dialogs
-# Library             RPA.JavaAccessBridge
-
-Resource            project_tab.resource
-Resource            common.resource
-Resource            graphics_tab.resource
+Resource            resources/project_tab.resource
+Resource            resources/common.resource
+Resource            resources/graphics_tab.resource
 
 *** Variables ***
 
 ${current_date}=    Get Current Date    result_format=%d.%m.%y
 ${button}    
-${sleep_local}    Set Variable    0.5s
+# ${sleep_local}    Set Variable    0.5s
 
 *** Keywords ***
 
 Graphics Tab Text Create
-    [Arguments]    ${pointname}    ${text}    ${left}    ${top}
+    [Arguments]    ${pointname}    ${text}    ${left}    ${top}    ${target}
 
     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab    timeout=5
     Graphics Tab HTML Editor Left Buttons Text Object Click
 
     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab_editor_text_form    timeout=5
 
+    # Changes below are started in 2.0.6.4b for form with header/footer
     # x        y
-    # -200    -235    pointid
-	# 55	-235	point ID ddwn
-	# -210	-210	show point value checkbx
-	# 90	-235	limit field
-	# 100	-190	Option
-    # -210    -95    plus
-    # -170    -95    delete
-    # -200    -55    line 1 value
-    # -150    -55    line 1 text
-    # 30      -55    line 1 color
-    # -200    -40    line 2
-    # -200    -25    line 3
+    # -200    -255    pointid
+	# 60	-255	point ID ddwn
+	# -210	-230	show point value checkbx
+	# 85	-255	limit field
+	# 150	-210	Option
+    # -210    -120    plus
+    # -170    -120    delete
+    # -200    -80    line 1 value
+    # -150    -80    line 1 text
+    # 30      -80    line 1 color
+    # -200    -60    line 2
+    # -200    -40    line 3
 
-    # 110    -80    text size
+    # 110    -100    text size
 
-    # -200    100    position left
-    
-    # 150    80    border color
-    # 150    120    background color
+    # -200    80    position left
+    # -150    125    target ddwn
+    # 150    30    border ddwn
+    # 150    110    border color
+    # 150    150    background color
+    # -150   190    CSS ddwn selector
+    # -90    190    user level
+    # -30    190    Group input
+    # -150    235    Link input
+    # 30    235    Link btn
 
-    # -200   170    CSS selector
-    # -90    170    user level
-
-    # -30    290    OK
-    # 90    290    Apply
-    # 200    290    Close
+    # -30    310    OK
+    # 80    310    Apply
+    # 180    310    Close
 
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=-200    
-    ...    y=-235    
+    ...    y=-255    
     ...    action=click    # Point ID field
-    
+     Sleep    ${sleep_local}
     RPA.Desktop.Type Text    ${pointname}
-    
+     Sleep    ${sleep_local}
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
-    ...    x=53    
-    ...    y=-235    
+    ...    x=60    
+    ...    y=-255    
     ...    action=click    # Point ID field drop-sown
     Sleep    ${sleep_local}
     RPA.Desktop.Click
@@ -89,7 +90,7 @@ Graphics Tab Text Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=-210    
-    ...    y=-210    
+    ...    y=-230    
     ...    action=click    # show point value checkbx
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    space
@@ -109,8 +110,8 @@ Graphics Tab Text Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
-    ...    x=90    
-    ...    y=-235    
+    ...    x=85    
+    ...    y=-255    
     ...    action=click    # Limit
     Sleep    ${sleep_local}
 
@@ -135,34 +136,32 @@ Graphics Tab Text Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
-    ...    x=210    
-    ...    y=-190    
+    ...    x=150    
+    ...    y=-210    
     ...    action=click    # Option
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
-    ...    x=210    
-    ...    y=-190    
+    ...    x=150    
+    ...    y=-210    
     ...    action=click    # Option
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
-    ...    x=210    
-    ...    y=-190    
+    ...    x=150    
+    ...    y=-210    
     ...    action=click    # Option
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
-
-
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=-200    
-    ...    y=-55    
+    ...    y=-80    
     ...    action=click    # line 1 value
     Sleep    ${sleep_local}
 
@@ -171,7 +170,7 @@ Graphics Tab Text Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=-150    
-    ...    y=-55    
+    ...    y=-80    
     ...    action=click    # line 1 text
     Sleep    ${sleep_local}
 
@@ -180,14 +179,14 @@ Graphics Tab Text Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=-210    
-    ...    y=-95    
+    ...    y=-120    
     ...    action=click    # plus
     Sleep    ${sleep_local}
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=-200    
-    ...    y=-40    
+    ...    y=-60    
     ...    action=click    # line 2 value
     Sleep    ${sleep_local}
 
@@ -196,7 +195,7 @@ Graphics Tab Text Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=-150    
-    ...    y=-40    
+    ...    y=-60    
     ...    action=click    # line 2 text
     Sleep    ${sleep_local}
 
@@ -205,21 +204,21 @@ Graphics Tab Text Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=-210    
-    ...    y=-95    
+    ...    y=-120    
     ...    action=click    # plus
     Sleep    ${sleep_local}
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=-170    
-    ...    y=-95    
+    ...    y=-120    
     ...    action=click    # delete
     Sleep    ${sleep_local}
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_text_form    
     ...    x=110    
-    ...    y=-80    
+    ...    y=-100    
     ...    action=doubleclick    # text size
     Sleep    ${sleep_local}
     RPA.Desktop.Type Text    18
@@ -229,6 +228,8 @@ Graphics Tab Text Create
     RPA.Desktop.Press Keys    down
     RPA.Desktop.Press Keys    tab    # Bold checkbox
     RPA.Desktop.Press Keys    space
+    RPA.Desktop.Press Keys    space
+
     Sleep    ${sleep_local}
 
     RPA.Desktop.Press Keys    tab    # Border
@@ -263,77 +264,97 @@ Graphics Tab Text Create
     RPA.Desktop.Type Text    30
     Sleep    ${sleep_local}
 
+    RPA.Desktop.Click With Offset
+    ...    alias:FXE_main_graphics_tab_editor_text_form
+    ...    x=-150    
+    ...    y=125    
+    ...    action=click    # target ddwn
+
+    IF    $target == 'footer'
+        RPA.Desktop.Press Keys    f    # Footer
+        RPA.Desktop.Press Keys    enter    # Enter
+    ELSE IF    $target == 'header'
+        RPA.Desktop.Press Keys    h    # Header
+        RPA.Desktop.Press Keys    enter    # Enter
+    ELSE
+        RPA.Desktop.Press Keys    p    # Picture
+        RPA.Desktop.Press Keys    enter    # Enter
+    END
+
     RPA.Desktop.Press Keys    tab    # User level
-    RPA.Desktop.Type Text    0
+    RPA.Desktop.Type Text    255
 
     RPA.Desktop.Press Keys    tab    # Group
-    RPA.Desktop.Type Text    0
+    RPA.Desktop.Type Text    1
     Sleep    ${sleep_local}
 
     RPA.Desktop.Press Keys    tab    # Link input field
     RPA.Desktop.Type Text    new.htm
 
-    # RPA.Desktop.Press Keys    tab    # Link button
-    # RPA.Desktop.Type Text    new.htm
-    # Sleep    ${sleep_local}
-
     # RPA.Desktop.Press Keys    space    # Open file Winodws form
     # RPA.Desktop.Type Text    new.htm
     # RPA.Desktop.Press Keys    enter
 
-    RPA.Desktop.Click With Offset    
-    ...    alias:FXE_main_graphics_tab_editor_text_form    
-    ...    x=-200    
-    ...    y=170    
-    ...    action=click    # CSS selector
-    Sleep    ${sleep_local}
-    RPA.Desktop.Press Keys    down
-    RPA.Desktop.Press Keys    enter
+    # RPA.Desktop.Click With Offset    
+    # ...    alias:FXE_main_graphics_tab_editor_text_form    
+    # ...    x=-200    
+    # ...    y=170    
+    # ...    action=click    # CSS selector
+    # Sleep    ${sleep_local}
+    # RPA.Desktop.Press Keys    down
+    # RPA.Desktop.Press Keys    enter
     
     
-    Sleep    ${sleep_local}
-    RPA.Desktop.Click With Offset    
-    ...    alias:FXE_main_graphics_tab_editor_text_form    
-    ...    x=-30    
-    ...    y=290    
-    ...    action=click    # OK button
+    # Sleep    ${sleep_local}
+    # RPA.Desktop.Click With Offset    
+    # ...    alias:FXE_main_graphics_tab_editor_text_form    
+    # ...    x=-30    
+    # ...    y=310    
+    # ...    action=click    # OK button
+
+    RPA.Desktop.Wait For Element    alias:FXE_main_OK_form_btn    timeout=5
+    RPA.Desktop.Click    alias:FXE_main_OK_form_btn    action=click
+
     Sleep    ${sleep_local}
 
+    ${result} =    Run Keyword And Return Status    Find Element    alias:FXE_main_graphics_tab_editor_text_form
+    Run Keyword If    ${result}    Fail    "Text form is still visible!"
 
 
 Graphics Tab Valuebox Create
-    [Arguments]    ${pointname}    ${left}    ${top}
+    [Arguments]    ${pointname}    ${left}    ${top}    ${target}
 
     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab    timeout=5
     Graphics Tab HTML Editor Left Buttons Valuebox Click
 
     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab_editor_valuebox_form    timeout=5
 
+
 #     x        y
-    # -120    -200    pointid
-	# 55	-125	point ID ddwn
-	# -65	-95		controller set checkbx
-	# 80	-125	limit field
-	# 205	-80		Option
+    # -120    -140    pointid
+	# 55	-140	point ID ddwn
+	# -60	-115	controller set checkbx
+	# 85	-140	limit field
+	# 205	-95		Option
 
-    # -200    30    position left
+    # -200    10    position left
     
-	# 110    -80    text size
-	
-    # 205    30    background color
-    # 205    75    front color
+    # 150    10    background color
+    # 150    60    front color
 
-    # -200   100    CSS selector
-    # -100    100    user level
+	# -150   60    Target ddwn
 
-    # -50    175    OK
-    # 75    175    Apply
-    # 175    175    Close
+    # -150   120    CSS selector
+	# -90    120    user level
+
+    # -50    200    OK
+    # 75    200    Apply
+    # 175    200    Close
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
     ...    x=55    
-    ...    y=-125    
+    ...    y=-140    
     ...    action=click    # Point ID field drop-sown
     Sleep    ${sleep_local}
     RPA.Desktop.Click
@@ -341,8 +362,8 @@ Graphics Tab Valuebox Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=0    
-    ...    y=-125    
+    ...    x=-120    
+    ...    y=-140    
     ...    action=click    # Point ID field
     Sleep    ${sleep_local}
     RPA.Desktop.Type Text    ${pointname}
@@ -352,7 +373,7 @@ Graphics Tab Valuebox Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
     ...    x=-65    
-    ...    y=-95    
+    ...    y=-115    
     ...    action=click    # controller set checkbx
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    space
@@ -366,8 +387,8 @@ Graphics Tab Valuebox Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=80    
-    ...    y=-125    
+    ...    x=85    
+    ...    y=-140    
     ...    action=click    # Limit
     Sleep    ${sleep_local}
 
@@ -392,33 +413,32 @@ Graphics Tab Valuebox Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=205    
-    ...    y=-80    
+    ...    x=205
+    ...    y=-95
     ...    action=click    # Option
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=205    
-    ...    y=-80    
+    ...    x=205
+    ...    y=-95
     ...    action=click    # Option
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=205    
-    ...    y=-80    
+    ...    x=205
+    ...    y=-95
     ...    action=click    # Option
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
 
-
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=-200    
-    ...    y=30    
+    ...    x=-200
+    ...    y=10
     ...    action=doubleclick    # position left
     Sleep    ${sleep_local}
     RPA.Desktop.Type Text    ${left}
@@ -435,6 +455,23 @@ Graphics Tab Valuebox Create
     RPA.Desktop.Type Text    30
     Sleep    ${sleep_local}
 
+    RPA.Desktop.Click With Offset
+    ...    alias:FXE_main_graphics_tab_editor_valuebox_form
+    ...    x=-150    
+    ...    y=60    
+    ...    action=click    # target ddwn
+
+    IF    $target == 'footer'
+        RPA.Desktop.Press Keys    f    # Footer
+        RPA.Desktop.Press Keys    enter    # Enter
+    ELSE IF    $target == 'header'
+        RPA.Desktop.Press Keys    h    # Header
+        RPA.Desktop.Press Keys    enter    # Enter
+    ELSE
+        RPA.Desktop.Press Keys    p    # Picture
+        RPA.Desktop.Press Keys    enter    # Enter
+    END
+
     RPA.Desktop.Press Keys    tab    # User level
     RPA.Desktop.Type Text    0
 
@@ -445,8 +482,8 @@ Graphics Tab Valuebox Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=205    
-    ...    y=30    
+    ...    x=150
+    ...    y=10
     ...    action=click    # background color
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    up
@@ -457,8 +494,8 @@ Graphics Tab Valuebox Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=205    
-    ...    y=75    
+    ...    x=150
+    ...    y=60
     ...    action=click    # front color
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
@@ -468,28 +505,33 @@ Graphics Tab Valuebox Create
     RPA.Desktop.Press Keys    enter
 
 
-        RPA.Desktop.Click With Offset    
-    ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=-200    
-    ...    y=100    
+    RPA.Desktop.Click With Offset
+    ...    alias:FXE_main_graphics_tab_editor_valuebox_form
+    ...    x=-150
+    ...    y=120
     ...    action=click    # CSS selector
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
     RPA.Desktop.Press Keys    enter
 
 
-    
     Sleep    ${sleep_local}
-    RPA.Desktop.Click With Offset    
-    ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
-    ...    x=-50    
-    ...    y=175    
-    ...    action=click    # OK button
-    Sleep    ${sleep_local}
+    # RPA.Desktop.Click With Offset
+    # ...    alias:FXE_main_graphics_tab_editor_valuebox_form    
+    # ...    x=-50    
+    # ...    y=200    
+    # ...    action=click    # OK button
+    # Sleep    ${sleep_local}
+
+    RPA.Desktop.Wait For Element    alias:FXE_main_OK_form_btn    timeout=5
+    RPA.Desktop.Click    alias:FXE_main_OK_form_btn    action=click
+
+    ${result} =    Run Keyword And Return Status    Find Element    alias:FXE_main_graphics_tab_editor_valuebox_form
+    Run Keyword If    ${result}    Fail    "Valuebox form is still visible!"
 
 
 Graphics Tab Button Create
-    [Arguments]    ${pointname}    ${text}    ${left}    ${top}
+    [Arguments]    ${pointname}    ${text}    ${left}    ${top}    ${target}
 
     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab    timeout=5
     Graphics Tab HTML Editor Left Buttons Button Click
@@ -498,31 +540,33 @@ Graphics Tab Button Create
 
 	# 	Button
     # x        y
-    # 0    -150    pointid
-	# 55	-150	point ID ddwn
-	# -215	-105	show info checkbx
-	# 80	-150	limit field
-	# 205	-100		Option
+    # 0    -175    pointid
+	# 60	-175	point ID ddwn
+	# -210	-125	show info checkbx
+	# 80	-175	limit field
+	# 205	-125	Option
 	
-	# -100	0		text
-	#	50	0		Fixed value
-    # -200    70    position left
+	# -100	-20		text
+	#	50	-20		Fixed value
+    # -200   40    position left
     
-    # 205    0    background color
-    # 205    50    front color
+    # 210    -20    background color
+    # 210    30    front color
 
-    # -200   135    CSS selector
-    # -100    135    user level
+	# -150	90	Target
+	
+    # -200   150    CSS selector
+    # -100   150    user level
 
-    # -50    210    OK
-    # 75    210    Apply
-    # 175    210    Close
+    # -50    230    OK
+    # 75    230    Apply
+    # 175    230    Close
 
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
-    ...    x=55    
-    ...    y=-150    
+    ...    x=60
+    ...    y=-155
     ...    action=click    # Point ID field drop-sown
     Sleep    ${sleep_local}
     RPA.Desktop.Click
@@ -531,7 +575,7 @@ Graphics Tab Button Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
     ...    x=0    
-    ...    y=-150    
+    ...    y=-155    
     ...    action=click    # Point ID field
     Sleep    ${sleep_local}
     RPA.Desktop.Type Text    ${pointname}
@@ -539,8 +583,8 @@ Graphics Tab Button Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
-    ...    x=-215    
-    ...    y=-105    
+    ...    x=-210
+    ...    y=-110
     ...    action=click    # show info checkbx
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    space
@@ -549,7 +593,7 @@ Graphics Tab Button Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
     ...    x=80    
-    ...    y=-150    
+    ...    y=-155
     ...    action=click    # Limit
     Sleep    ${sleep_local}
 
@@ -575,7 +619,7 @@ Graphics Tab Button Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
     ...    x=205    
-    ...    y=-100    
+    ...    y=-105    
     ...    action=click    # Option
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
@@ -584,7 +628,7 @@ Graphics Tab Button Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
     ...    x=205    
-    ...    y=-100    
+    ...    y=-105    
     ...    action=click    # Option
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
@@ -593,7 +637,7 @@ Graphics Tab Button Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
     ...    x=205    
-    ...    y=-100    
+    ...    y=-105    
     ...    action=click    # Option
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
@@ -615,7 +659,7 @@ Graphics Tab Button Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
     ...    x=-200    
-    ...    y=70    
+    ...    y=60    
     ...    action=doubleclick    # position left
     Sleep    ${sleep_local}
     RPA.Desktop.Type Text    ${left}
@@ -632,17 +676,34 @@ Graphics Tab Button Create
     RPA.Desktop.Type Text    30
     Sleep    ${sleep_local}
 
+    RPA.Desktop.Click With Offset
+    ...    alias:FXE_main_graphics_tab_editor_button_form
+    ...    x=-150    
+    ...    y=110    
+    ...    action=click    # target ddwn
+
+    IF    $target == 'footer'
+        RPA.Desktop.Press Keys    f    # Footer
+        RPA.Desktop.Press Keys    enter    # Enter
+    ELSE IF    $target == 'header'
+        RPA.Desktop.Press Keys    h    # Header
+        RPA.Desktop.Press Keys    enter    # Enter
+    ELSE
+        RPA.Desktop.Press Keys    p    # Picture
+        RPA.Desktop.Press Keys    enter    # Enter
+    END
+
     RPA.Desktop.Press Keys    tab    # User level
-    RPA.Desktop.Type Text    0
+    RPA.Desktop.Type Text    255
 
     RPA.Desktop.Press Keys    tab    # Group
-    RPA.Desktop.Type Text    0
+    RPA.Desktop.Type Text    2
     Sleep    ${sleep_local}
 
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
-    ...    x=205    
+    ...    x=210    
     ...    y=0    
     ...    action=click    # background color
     Sleep    ${sleep_local}
@@ -654,8 +715,8 @@ Graphics Tab Button Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
-    ...    x=205    
-    ...    y=50    
+    ...    x=210
+    ...    y=50
     ...    action=click    # front color
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
@@ -668,24 +729,31 @@ Graphics Tab Button Create
         RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_button_form    
     ...    x=-200    
-    ...    y=135    
+    ...    y=170
     ...    action=click    # CSS selector
     Sleep    ${sleep_local}
     RPA.Desktop.Press Keys    down
     RPA.Desktop.Press Keys    enter
 
     
-    Sleep    ${sleep_local}
-    RPA.Desktop.Click With Offset    
-    ...    alias:FXE_main_graphics_tab_editor_button_form    
-    ...    x=-50    
-    ...    y=210    
-    ...    action=click    # OK button
-    Sleep    ${sleep_local}
+    # Sleep    ${sleep_local}
+    # RPA.Desktop.Click With Offset    
+    # ...    alias:FXE_main_graphics_tab_editor_button_form    
+    # ...    x=-50    
+    # ...    y=250    
+    # ...    action=click    # OK button
+    # Sleep    ${sleep_local}
+
+    RPA.Desktop.Wait For Element    alias:FXE_main_OK_form_btn    timeout=5
+    RPA.Desktop.Click    alias:FXE_main_OK_form_btn    action=click
+
+    ${result} =    Run Keyword And Return Status    Find Element    alias:FXE_main_graphics_tab_editor_button_form
+    Run Keyword If    ${result}    Fail    "Button form is still visible!"
+
 
 
 Graphics Tab Bar Create
-    [Arguments]    ${pointname}    ${left}    ${top}
+    [Arguments]    ${pointname}    ${left}    ${top}    ${target}
 
     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab    timeout=5
     Graphics Tab HTML Editor Left Buttons Bar Click
@@ -936,17 +1004,19 @@ Graphics Tab Bar Create
     # RPA.Desktop.Press Keys    space
     
     Sleep    ${sleep_local}
-    RPA.Desktop.Click With Offset    
-    ...    alias:FXE_main_graphics_tab_editor_bar_form    
-    ...    x=-50    
-    ...    y=250    
-    ...    action=click    # OK button
-    Sleep    ${sleep_local}
+    # RPA.Desktop.Click With Offset    
+    # ...    alias:FXE_main_graphics_tab_editor_bar_form    
+    # ...    x=-50    
+    # ...    y=250    
+    # ...    action=click    # OK button
+    # Sleep    ${sleep_local}
 
+    RPA.Desktop.Wait For Element    alias:FXE_main_OK_form_btn    timeout=5
+    RPA.Desktop.Click    alias:FXE_main_OK_form_btn    action=click
 
 
 Graphics Tab Symbol Create
-    [Arguments]    ${pointname}    ${left}    ${top}
+    [Arguments]    ${pointname}    ${left}    ${top}    ${target}
 
     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab    timeout=5
     Graphics Tab HTML Editor Left Buttons Add Symbol Click
@@ -1023,49 +1093,51 @@ Graphics Tab Symbol Create
 	#	SVG symbol form
 	#
 	#	x		y	
-	#	50		-290	point ddwn
-	#	-200	-290	point input
-	#	70		-270	limit
-	#	140		-290	hiding
-	#	200		-290	value
-	#	200		-245	option ddwn
-	#	-225	-245	show info
-	#	40		-150	symbol btn
-	#	40		-125	resize btn	
-	#	40		-25		rotate btn
-	#	200		-140	background ddwn
-	#	-200	85		left
-	#	-150	85		top
-	#	-70		85		width
-	#	-15		85		lock btn	
-	#	20		85		height
-	#	-140	150		CSS ddwn
-	#	-100	150		User level
-	#	-40		150		Group
+	#	60		-280	point ddwn
+	#	-200	-280	point input
+	#	90		-280	limit
+	#	130		-280	hiding
+	#	200		-280	value
+	#	200		-235	option ddwn
+	#	-210	-235	show info
+	#	50		-140	symbol btn
+	#	50		-110	resize btn	
+	#	rotate btn
+	#	200		-120	background ddwn
+	#	50		-60		Fixed value
+	#	-200	100		left
+	#	-130	100		top
+	#	disabled -70		85		width
+	#	disabled -15		85		lock btn	
+	#	disabled 20		85		height
+	#	-100	140		Targer ddwn
+	#	-140	210		CSS ddwn
+	#	-90		210		User level
+	#	-30		210		Group
 	#	-100	200		Link input
-	#	20		200		Link btn
-    #    -50    275    OK
-    #    50    275    Apply
-    #    150    275    Close
+	#	20		255		Link btn
+    #    -50    330    OK
+    #    50    330    Apply
+    #    150    330    Close
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
-    ...    x=50    
-    ...    y=-290    
+    ...    x=60    
+    ...    y=-280    
     ...    action=click    # point ddwn
     Sleep    ${sleep_local}
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
-    ...    x=50    
-    ...    y=-290    
+    ...    x=60    
+    ...    y=-280    
     ...    action=click    # point ddwn
     Sleep    ${sleep_local}
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
     ...    x=-200    
-    ...    y=-290    
+    ...    y=-280    
     ...    action=click    # point input
     Sleep    ${sleep_local}
 
@@ -1074,15 +1146,18 @@ Graphics Tab Symbol Create
 
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
-    ...    x=70    
-    ...    y=-290    
+    ...    x=90    
+    ...    y=-280    
     ...    action=click    # limit
     Sleep    ${sleep_local}
 
+    RPA.Desktop.Press Keys    ctrl    a
+    RPA.Desktop.Press Keys    8
+
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
-    ...    x=140    
-    ...    y=-290    
+    ...    x=130    
+    ...    y=-280    
     ...    action=click    # Hiding
     Sleep    ${sleep_local}
 
@@ -1093,22 +1168,123 @@ Graphics Tab Symbol Create
     RPA.Desktop.Click With Offset    
     ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
     ...    x=200    
-    ...    y=-290    
+    ...    y=-280    
     ...    action=click    # Value
     Sleep    ${sleep_local}
 
-    RPA.Desktop.Type Text    99
+    RPA.Desktop.Press Keys    ctrl    a
+    RPA.Desktop.Type Text    123
     Sleep    ${sleep_local}
 
 
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    ...    x=-210    
+    ...    y=-235    
+    ...    action=click    # show info
+    Sleep    ${sleep_local}
 
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    ...    x=-210    
+    ...    y=-235    
+    ...    action=click    # show info
+    Sleep    ${sleep_local}
+
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    ...    x=200    
+    ...    y=-120    
+    ...    action=click    # backgrouund
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Press Keys    down
+    RPA.Desktop.Press Keys    down
+    RPA.Desktop.Press Keys    enter
+
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    ...    x=50    
+    ...    y=-60    
+    ...    action=click    # Fixed value
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Press Keys    ctrl    a
+    RPA.Desktop.Type Text    A0 A1
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    ...    x=-200    
+    ...    y=100    
+    ...    action=click    # Left
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Press Keys    ctrl    a
+    RPA.Desktop.Type Text    400
+    RPA.Desktop.Press Keys    tab
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Press Keys    ctrl    a
+    RPA.Desktop.Type Text    400
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    ...    x=-100    
+    ...    y=140    
+    ...    action=click    # Target
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Press Keys    up
+    RPA.Desktop.Press Keys    down
+    RPA.Desktop.Press Keys    enter
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    ...    x=-140    
+    ...    y=210    
+    ...    action=click    # CSS
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Press Keys    down
+    RPA.Desktop.Press Keys    enter
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    ...    x=-90    
+    ...    y=210    
+    ...    action=click    # user level
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Press Keys    ctrl    a
+    RPA.Desktop.Type Text    255
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Click With Offset    
+    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    ...    x=-100    
+    ...    y=200    
+    ...    action=click    # link
+    Sleep    ${sleep_local}
+
+    RPA.Desktop.Press Keys    ctrl    a
+    RPA.Desktop.Type Text    new_1.htm
+    Sleep    ${sleep_local}
+
+
+    RPA.Desktop.Wait For Element    alias:FXE_main_OK_form_btn    timeout=5
+    RPA.Desktop.Click    alias:FXE_main_OK_form_btn    action=click
 
 
     # CLOSE
 
-    RPA.Desktop.Click With Offset    
-    ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
-    ...    x=150    
-    ...    y=275    
-    ...    action=click    # Close
-    Sleep    ${sleep_local}
+    # RPA.Desktop.Click With Offset    
+    # ...    alias:FXE_main_graphics_tab_editor_symbol_alarm_svg_form    
+    # ...    x=150    
+    # ...    y=275    
+    # ...    action=click    # Close
+    # Sleep    ${sleep_local}

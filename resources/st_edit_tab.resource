@@ -24,8 +24,8 @@ Resource            common.resource
 *** Variables ***
 
 ${current_date}=    Get Current Date    result_format=%d.%m.%y
-${button}    
 
+# ${SLEEP_TIMEOUT_DEFAULT}    1.0s
 
 *** Keywords ***
 
@@ -198,19 +198,29 @@ ST-Edit Tab ST Program Modification
     RPA.Desktop.Press Keys    enter
     ST-Edit Tab Add Variable Arguments-5    1    1    Variable    2.0    This is a comment
     ST-Edit Tab Add Variable Arguments-5    1    1    Unused    3.0    This is another comment
-    ST-Edit Tab Code Add Arguments-1    rVariable:=3.0;
+    ST-Edit Tab Code Add Arguments-1    code_line=rVariable:=3.0;
     
 
 ST-Edit Tab Code Add Arguments-1
     [Arguments]    ${code_line}
     RPA.Desktop.Wait For Element    alias:FXE_main_st-edit_tab_left_panel_subtabs    timeout=10    # Left panel subtabs
-    RPA.Desktop.Click With Offset    alias:FXE_main_st-edit_tab_left_panel_subtabs    x=0    y=0    action=click    # Variables subtab
-    RPA.Desktop.Move Mouse   offset:0,100    
-    RPA.Desktop.Click
-    RPA.Desktop.Press Keys    ctrl    home
-    RPA.Desktop.Press Keys    enter
-    RPA.Desktop.Type Text    ${code_line}
-    RPA.Desktop.Press Keys    enter
+    RPA.Desktop.Click With Offset    alias:FXE_main_st-edit_tab_left_panel_subtabs    x=0    y=0    action=click    # Code subtab
+
+    RPA.Desktop.Click With Offset    alias:FXE_main_st-edit_tab_left_panel_subtabs    x=0    y=150    action=click    # Code space
+
+    RPA.Desktop.Press Keys    ctrl    A
+    Sleep    2s
+    RPA.Desktop.Set clipboard value    ${code_line}
+    ${text}=    Get clipboard value
+    Log To Console   We just copied '${text}'
+    RPA.Desktop.Press Keys    ctrl    V
+    # RPA.Desktop.Paste from clipboard    ${code_line}
+    # RPA.Desktop.Press Keys    del
+    # Sleep    2s
+    # rVariable :;0.3=
+    # RPA.Desktop.Type Text    ${code_line}
+    Sleep    3s
+    # RPA.Desktop.Press Keys    enter
 
 
 ST-Edit Tab Add Variable Arguments-5

@@ -57,7 +57,7 @@ Upper Menu Walkthrough
 
     Upper Menu File Submenu Open Template
     # Upper Menu File Submenu Save
-    Upper Menu File Submenu Save As    Test-Project_Saved_As
+    Upper Menu File Submenu Save As    c:\\QA\\TestProjects\\Test-Project_Saved_As
     Upper Menu File Submenu Save Selected Points    Test-Project_Saved_As
     Upper Menu File Submenu Load Points    Test-Project_Saved_As
 

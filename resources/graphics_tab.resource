@@ -33,8 +33,7 @@ ${sleep_local}=    0.5s
 *** Keywords ***
 
 Graphics Tab Select
-
-    RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab    timeout=5
+     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab    timeout=5
     RPA.Desktop.Click    alias:FXE_main_graphics_tab
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab_right_panel_tabs    timeout=5
@@ -686,12 +685,13 @@ Graphics Tab Close HTML
     ${upper_buttons_active}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab_editor_upper_btns_active    timeout=5
 
     IF    ${upper_buttons_active}
-        RPA.Desktop.Move Mouse    alias:FXE_main_graphics_tab_editor_upper_btns_active
-        RPA.Desktop.Move Mouse    offset:250,0    # Close button
-        Sleep    ${sleep_local}
-        RPA.Desktop.Click
+       RPA.Desktop.Click With Offset    
+                ...    alias:FXE_main_graphics_tab_editor_upper_btns_active
+                ...    x=270    
+                ...    y=0    
+                ...    action=click
 
-        ${save_form}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab_editor_save_form    timeout=5
+        ${save_form}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_graphics_tab_editor_save_form    timeout=10
         IF    ${save_form}
             IF    ${save} == 1
                 RPA.Desktop.Click With Offset    

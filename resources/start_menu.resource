@@ -111,129 +111,178 @@ Start Page Settings Form
 Start Page Settings Project Tab Walkthrough
     
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_btn    timeout=10
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     RPA.Desktop.Click    alias:FXE_start_settings_btn
+
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_form    timeout=10
     Log To Console    Settings form visible
-
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+      
 
     RPA.Desktop.Press Keys    tab     # CHKBX Autosave project every
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
     RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab    # CHKBX Prompt before save
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
-    RPA.Desktop.Press Keys    space
+    # RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab    # INPUT minutes
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    12
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    tab     # CHKBX Auto import points
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
     RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
-    RPA.Desktop.Press Keys    tab     # CHKBX Prompt before import
+    RPA.Desktop.Press Keys    tab     # CHKBX Prompt before import    
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    RPA.Desktop.Press Keys    space
+    RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     RPA.Desktop.Press Keys    tab     # INPUT Delimiter
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    -
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    ctrl     a
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    _
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # DDWN Gridtype
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    down    down    down    down    # Dot2020 value
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # DDWN GSnap size
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    down    down    down    # 20 value
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
-    RPA.Desktop.Press Keys    tab     # CHKBX Show hint
-    RPA.Desktop.Press Keys    space
+    # RPA.Desktop.Press Keys    tab     # CHKBX Show hint
+    # RPA.Desktop.Press Keys    space
 
     RPA.Desktop.Press Keys    tab     # DDWN Symbol folder
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    down    down    down    down    down      # 20 value
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
-    RPA.Desktop.Press Keys    tab     # CHKBX Copy symbol
-    RPA.Desktop.Press Keys    space
-    RPA.Desktop.Press Keys    space
-    RPA.Desktop.Press Keys    space
+    # RPA.Desktop.Press Keys    tab     # CHKBX Copy symbol
+    # RPA.Desktop.Press Keys    space
+    # RPA.Desktop.Press Keys    space
+    # RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     # Settings tab
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_form_tabs    timeout=10    # Tabs locator dims: 395*45
     RPA.Desktop.Click With Offset    alias:FXE_start_settings_form_tabs    x=-70    y=0    action=Click    # Settings tab
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_form_settings_tab    timeout=10
     Log To Console    Settings tab visible
 
-    # RPA.Desktop.Press Keys    tab     # INPUT Cloud folder
+    RPA.Desktop.Press Keys    tab     # INPUT Cloud folder
     RPA.Desktop.Type Text    ${FXE_TEST_PROJECTS_FOLDER_PATH}
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # CHKBX Firmware
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # CHKBX Data Default
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # CHKBX www Default
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # CHKBX Print templates
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT Project folder
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    ${FXE_TEST_PROJECT_PATH}
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT Template folder
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    ${FXE_TEMPLATE_FOLDER_PATH}
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # CHKBX Small icons
-    # RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # DDWN Task type
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    down        # Timer value
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # DDWN Optimization
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    up    up        # normal value
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT Priority
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    2
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT Time
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    500
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # CHKBX Autoset
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    RPA.Desktop.Press Keys    space
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    space
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     # Units tab
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_form_tabs    timeout=10    # Tabs locator dims: 395*45
     RPA.Desktop.Click With Offset    alias:FXE_start_settings_form_tabs    x=-10    y=0    action=Click    # Units tab
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_form_units_tab    timeout=10
     Log To Console    Units tab visible
 
-    FOR    ${counter}    IN RANGE    1    46    1
-        
+    FOR    ${counter}    IN RANGE    1    23    1
         RPA.Desktop.Type Text    ${counter}
         RPA.Desktop.Press Keys    down     # Decimals
-        
+        Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     END
 
     # Company tab
@@ -241,40 +290,50 @@ Start Page Settings Project Tab Walkthrough
     RPA.Desktop.Click With Offset    alias:FXE_start_settings_form_tabs    x=60    y=0    action=Click    # Company tab
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_form_company_tab    timeout=10
     Log To Console    Company tab visible
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT Company name
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    Fidelix Tech Oy
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     
     RPA.Desktop.Press Keys    tab     # INPUT Company address
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    Myllynkivenkuja 1
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT Place ZIP
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    Vantaa
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT website
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    www.fidelix.com
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT support mail
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    info@fidelix.com
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT service mail
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    service@fidelix.com
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT phone
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    +358500123452
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT support phone
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    +358500123451
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # INPUT service phone
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    +358500123453
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
@@ -298,6 +357,7 @@ Start Page Settings Project Tab Walkthrough
     # Tools tab
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_form_tabs    timeout=10    # Tabs locator dims: 395*45
     RPA.Desktop.Click With Offset    alias:FXE_start_settings_form_tabs    x=130    y=0    action=Click    # Tools tab
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_form_tools_tab    timeout=10
     Log To Console    Tools tab visible
 
@@ -309,24 +369,28 @@ Start Page Settings Project Tab Walkthrough
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Click With Offset    alias:FXE_system_file_open_form_btn    x=-50    y=0    action=click
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
-    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     # Display name
     RPA.Desktop.Type Text    Test Tool 
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    tab    # INPUT Extern Program path
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    C:\\Program Files (x86)\\Foxit Software\\Foxit Reader\\FoxitReader.exe
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
 
     RPA.Desktop.Press Keys    tab    # INPUT Extern Program run parameters
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Type Text    -h
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab    # ICON folder icon
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    tab    # INPUT  FXE run constants
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Type Text    -m
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    tab    # CHKBX Visible on startpage
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
@@ -349,6 +413,7 @@ Start Page Settings Project Tab Walkthrough
     RPA.Desktop.Click With Offset    alias:FXE_Save_Cancel_btn    x=50    y=0    action=click
     RPA.Desktop.Wait For Element    alias:FXE_start_settings_save_form    timeout=10
     RPA.Desktop.Click    alias:FXE_main_NO_noicon_form_btn
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
 
 Start Page Tools Button
@@ -389,7 +454,7 @@ Start Page License Button
     # RPA.Desktop.Type Text    nikolai.zhukov@fidelix.fi
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
-    RPA.Desktop.Click With Offset    alias:FXE_start_license_form    x=150    y=160    action=click    # Renew license button
+    RPA.Desktop.Click With Offset    alias:FXE_start_license_form    x=150    y=180    action=click    # Renew license button
     RPA.Desktop.Wait For Element    alias:FXE_start_license_info_form    timeout=10
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
@@ -416,7 +481,7 @@ Start Page License Button
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Wait For Element    alias:FXE_start_license_form    timeout=10
-    RPA.Desktop.Click With Offset    alias:FXE_start_license_form    x=150    y=160    action=click    # Renew license button
+    RPA.Desktop.Click With Offset    alias:FXE_start_license_form    x=150    y=180    action=click    # Renew license button
 
     Log To Console    License operation OK
 

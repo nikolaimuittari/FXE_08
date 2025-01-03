@@ -1,31 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.14 on win32)" generated="20240830 13:19:37.009" rpa="false" schemaversion="4">
-<suite id="s1" name="Robot Interactive Console" source="c:\Users\USER\.vscode\extensions\robocorp.robotframework-lsp-1.12.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<robot generator="Robot 6.1.1 (Python 3.10.14 on win32)" generated="20241217 08:52:59.523" rpa="false" schemaversion="4">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\USER\.vscode\extensions\robocorp.robotframework-lsp-1.13.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
 <test id="s1-t1" name="Default Task/Test" line="5">
 <kw name="Interpreter Main Loop" library="MainLoop">
-<kw name="Close Opened Project With Saving">
-<msg timestamp="20240830 13:19:37.930" level="FAIL">No keyword with name 'Close Opened Project With Saving' found.</msg>
-<status status="FAIL" starttime="20240830 13:19:37.930" endtime="20240830 13:19:37.931"/>
+<kw name="Graphics Tab Select">
+<msg timestamp="20241217 08:53:01.009" level="FAIL">No keyword with name 'Graphics Tab Select' found.</msg>
+<status status="FAIL" starttime="20241217 08:53:01.008" endtime="20241217 08:53:01.009"/>
 </kw>
-<kw name="Splash Screen Check">
-<status status="NOT RUN" starttime="20240830 13:19:37.934" endtime="20240830 13:19:37.935"/>
+<kw name="Graphics Tab New HTML">
+<arg>new_1</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.011" endtime="20241217 08:53:01.012"/>
 </kw>
-<kw name="Current Window System Force Close X Button">
-<status status="NOT RUN" starttime="20240830 13:19:37.938" endtime="20240830 13:19:37.938"/>
+<kw name="Graphics Tab Text Create">
+<arg>pointname=POINT_01_DI</arg>
+<arg>text=123-value-Text</arg>
+<arg>left=100</arg>
+<arg>top=100</arg>
+<arg>target=picture</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.016" endtime="20241217 08:53:01.016"/>
 </kw>
-<kw name="Splash Screen Check">
-<status status="NOT RUN" starttime="20240830 13:19:37.941" endtime="20240830 13:19:37.941"/>
+<kw name="Graphics Tab Text Create">
+<arg>pointname=POINT_02_DI</arg>
+<arg>text=456-value-Text</arg>
+<arg>left=100</arg>
+<arg>top=200</arg>
+<arg>target=picture</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.019" endtime="20241217 08:53:01.019"/>
+</kw>
+<kw name="Graphics Tab Valuebox Create">
+<arg>pointname=POINT_01_AI</arg>
+<arg>left=100</arg>
+<arg>top=300</arg>
+<arg>target=picture</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.021" endtime="20241217 08:53:01.022"/>
+</kw>
+<kw name="Graphics Tab Valuebox Create">
+<arg>pointname=POINT_02_AI</arg>
+<arg>left=100</arg>
+<arg>top=350</arg>
+<arg>target=picture</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.025" endtime="20241217 08:53:01.025"/>
+</kw>
+<kw name="Graphics Tab Button Create">
+<arg>pointname=POINT_01_DI</arg>
+<arg>text=Text_BUTTON</arg>
+<arg>left=300</arg>
+<arg>top=100</arg>
+<arg>target=picture</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.027" endtime="20241217 08:53:01.027"/>
+</kw>
+<kw name="Graphics Tab Bar Create">
+<arg>pointname=POINT_01_DI</arg>
+<arg>left=400</arg>
+<arg>top=100</arg>
+<arg>target=picture</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.029" endtime="20241217 08:53:01.029"/>
+</kw>
+<kw name="Graphics Tab Right Panel Settings Symbols Folder">
+<arg>2023</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.037" endtime="20241217 08:53:01.037"/>
+</kw>
+<kw name="Graphics Tab Symbol Create">
+<arg>pointname=POINT_01_ALM</arg>
+<arg>left=500</arg>
+<arg>top=400</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.040" endtime="20241217 08:53:01.040"/>
+</kw>
+<kw name="Graphics Tab Close HTML">
+<arg>save=1</arg>
+<status status="NOT RUN" starttime="20241217 08:53:01.043" endtime="20241217 08:53:01.043"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>FXE_main_tabs_others.robot is completed</arg>
+<arg>FXE_main_tabs_graphics_tab.robot is completed</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20240830 13:19:37.942" endtime="20240830 13:19:37.942"/>
+<status status="NOT RUN" starttime="20241217 08:53:01.044" endtime="20241217 08:53:01.044"/>
 </kw>
-<status status="PASS" starttime="20240830 13:19:37.057" endtime="20240830 13:19:40.787"/>
+<kw name="Close Opened Project Without Saving">
+<status status="NOT RUN" starttime="20241217 08:53:01.050" endtime="20241217 08:53:01.050"/>
 </kw>
-<status status="PASS" starttime="20240830 13:19:37.056" endtime="20240830 13:19:40.787"/>
+<kw name="Access Violation Form Check">
+<status status="NOT RUN" starttime="20241217 08:53:01.055" endtime="20241217 08:53:01.055"/>
+</kw>
+<kw name="Current Window System Force Close X Button">
+<status status="NOT RUN" starttime="20241217 08:53:01.057" endtime="20241217 08:53:01.057"/>
+</kw>
+<kw name="Access Violation Form Check">
+<status status="NOT RUN" starttime="20241217 08:53:01.059" endtime="20241217 08:53:01.059"/>
+</kw>
+<status status="PASS" starttime="20241217 08:52:59.570" endtime="20241217 08:53:06.120"/>
+</kw>
+<status status="PASS" starttime="20241217 08:52:59.569" endtime="20241217 08:53:06.121"/>
 </test>
-<status status="PASS" starttime="20240830 13:19:37.011" endtime="20240830 13:19:40.789"/>
+<status status="PASS" starttime="20241217 08:52:59.524" endtime="20241217 08:53:06.122"/>
 </suite>
 <statistics>
 <total>

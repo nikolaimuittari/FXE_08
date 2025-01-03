@@ -38,7 +38,7 @@ Template Add
     Check Projects Common Folder Exists
     Copy Test Project Folder From Backup    ${test_project_dir}    ${backup_dir}
     # Recreate Test Projects folder    ${TEST_PROJECTS_PATH}
-    Open FXE
+    # Open FXE
     # New Project Wizard    Test-Project_1    FX3000C
     Open Existing Project    ${TEST_PROJECTS_PATH}    ${TEST_PROJECT_NAME}
 
@@ -50,7 +50,4 @@ Template Add
     Current Window System Force Close X Button
     Splash Screen Check
 
-    Current Window System Force Close X Button
-    Splash Screen Check
-    
     Log To Console    FXE_main_template.robot is completed

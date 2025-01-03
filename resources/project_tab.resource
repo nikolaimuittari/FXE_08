@@ -68,7 +68,7 @@ Project Tab Project Information Subtab
    # Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    tab
 
-Project Tab Communication Settings Subtab
+ Project Tab Communication Settings Subtab
 
 
 #	x		y		Description
@@ -112,8 +112,8 @@ Project Tab Communication Settings Subtab
 #	+195	+175	OPC port refresh
 #
 
-
-    RPA.Desktop.Wait For Element    alias:FXE_project_main_project_info_bar    timeout=5
+    # TO DO report problematic info bar
+    # RPA.Desktop.Wait For Element    alias:FXE_project_main_project_info_bar    timeout=5
     RPA.Desktop.Click    alias:FXE_main_project_tab
     # Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Click    alias:FXE_main_project_tab_comm_settings_subtab

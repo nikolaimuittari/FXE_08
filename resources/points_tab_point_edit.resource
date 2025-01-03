@@ -264,27 +264,27 @@ Points Tab Point Edit Form Modbus Section Arguments-13
     IF    ${edit_modbus_section_exists}
         RPA.Desktop.Move Mouse    alias:FXE_main_points_tab_DO_edit_form_modbus_section
         RPA.Desktop.Click With Offset    x=0    y=-65    action=click    # Register type drop-down
-        RPA.Desktop.Type Text    ${Register_Type}
+        # RPA.Desktop.Type Text    ${Register_Type}
+        RPA.Desktop.Press Keys    up 
         RPA.Desktop.Press Keys    enter 
 
         RPA.Desktop.Press Keys    tab     # Address field
         RPA.Desktop.Type Text    ${Address}
-        RPA.Desktop.Press Keys    tab
 
         RPA.Desktop.Press Keys    tab     # Start register field
         RPA.Desktop.Type Text    ${Register}
 
-        RPA.Desktop.Press Keys    tab    # Size drop-down
-        IF    ${Size}==32
-            RPA.Desktop.Press Keys    down
-            RPA.Desktop.Press Keys    tab
-        ELSE IF    ${Size}==64
-            RPA.Desktop.Press Keys    down
-            RPA.Desktop.Press Keys    down
-            RPA.Desktop.Press Keys    tab
-        ELSE
-            RPA.Desktop.Press Keys    tab
-        END    
+        # RPA.Desktop.Press Keys    tab    # Size drop-down
+        # IF    ${Size}==32
+        #     RPA.Desktop.Press Keys    down
+        #     RPA.Desktop.Press Keys    tab
+        # ELSE IF    ${Size}==64
+        #     RPA.Desktop.Press Keys    down
+        #     RPA.Desktop.Press Keys    down
+        #     RPA.Desktop.Press Keys    tab
+        # ELSE
+        #     RPA.Desktop.Press Keys    tab
+        # END    
         
         # RPA.Desktop.Press Keys    tab    # Float checkbox
         IF    ${Float}==${TRUE}
@@ -308,7 +308,8 @@ Points Tab Point Edit Form Modbus Section Arguments-13
         
         RPA.Desktop.Press Keys    tab    # Bitmask checkbox
         IF    ${Bitmask}==${TRUE}
-            RPA.Desktop.Press Keys    space            
+            RPA.Desktop.Press Keys    space
+            RPA.Desktop.Press Keys    space
         END
 
         RPA.Desktop.Press Keys    tab    # Access radio-button
@@ -857,11 +858,11 @@ Points Tab Left Panel AI Right Button Edit Arguments-2
     Points Tab Left Panel First Line Right Button Menu
 
     RPA.Desktop.Click With Offset    x=0    y=195    action=click     # Edit feature
-    # Sleep    1s
-    ${error_message}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_points_edit_property_missing_error_form    timeout=10    # Message if state text is missing
-    IF    ${error_message}
-        RPA.Desktop.Press Keys    enter    # Error message
-    END
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    # ${error_message}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_points_edit_property_missing_error_form    timeout=10    # Message if state text is missing
+    # IF    ${error_message}
+    #     RPA.Desktop.Press Keys    enter    # Error message
+    # END
     #RPA.Desktop.Press Keys    enter
     #RPA.Desktop.Click    alias:FXE_main_OK_noicon_form_btn
 
@@ -871,10 +872,16 @@ Points Tab Left Panel AI Right Button Edit Arguments-2
     RPA.Desktop.Press Keys    ctrl    a
     RPA.Desktop.Type Text    ${pointname}  # Point name field
     RPA.Desktop.Press Keys    tab    # View
+    RPA.Desktop.Type Text    11
     RPA.Desktop.Press Keys    tab    # Manual
+    RPA.Desktop.Type Text    22
     RPA.Desktop.Press Keys    tab    # Prog
+    RPA.Desktop.Type Text    33
     RPA.Desktop.Press Keys    tab    # Point text field
- 
+
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     #RPA.Desktop.Press Keys    ctrl    a    # Point text field
     RPA.Desktop.Type Text    ${pointname} text Field
         
@@ -883,52 +890,71 @@ Points Tab Left Panel AI Right Button Edit Arguments-2
 
     RPA.Desktop.Press Keys    tab    # Auto checkbox
     RPA.Desktop.Press Keys    space    # Auto checkbox select
-   
+
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     #RPA.Desktop.Press Keys    tab    # History point checkbox
     Points Tab Point Edit Form History Point Select    # Select checkbox
     Points Tab Point Edit Form History Section Arguments-6   3000    15    "Seconds"    0.6    "Day"    "Consumption"
-    # Sleep    3s
+
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     
-    IF    ${history} != 1
-        Points Tab Point Edit Form History Point Select    # Checkbox deselect
-    END
-   
-    # Points Tab Point Edit Form Modbus Point Select    # Select checkbox
+    # IF    ${history} != 1
+    #    Points Tab Point Edit Form History Point Select    # Checkbox deselect
+    # END
+
+    Points Tab Point Edit Form History Point Select    # De-Select checkbox
+
+    Points Tab Point Edit Form Modbus Point Select    # Select checkbox
     
     Points Tab Point Edit Form Modbus Section Arguments-13    "6"    "10"    "247"    "40001"    "100"    ${FALSE}    16    Group_1234    ${TRUE}    ${TRUE}    ${TRUE}    ${TRUE}    3
     # ${Register_Type}=3    ${Port}=4    ${Address}=20    ${Register}=1    ${Multiplier}=100    ${Bitmask}=${FALSE}    ${Size}=16    ${Group}=Group_1234    ${Float}=${TRUE}    ${Byte_Swap}=${TRUE}    ${Word_swap}=${TRUE}    ${Unsigned}=${TRUE}    ${Access}=3
     Points Tab Point Edit Form Modbus Point Select    # Checkbox deselect
 
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     #RPA.Desktop.Press Keys    tab    # Modbus point checkbox
     RPA.Desktop.Press Keys    tab    # Port module drop-down
     RPA.Desktop.Press Keys    tab    # Point connect drop-down
-    RPA.Desktop.Press Keys    tab    # Global point checkbox
 
-    #RPA.Desktop.Press Keys    space    # Global point checkbox select
+    RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_point_edit_form_globalpoint_chkbx    timeout=5    # Global point checkbox
+    RPA.Desktop.Click    alias:FXE_main_points_tab_point_edit_form_globalpoint_chkbx    action=click        # Global point checkbox select
+
     Points Tab Point Edit Form Global Point Arguments-2    PLC_1    PLC_1_TE01_I
-    #${section_exists}=    Run Keyword And Return Status    RPA.Desktop.Wait For Element    alias:FXE_main_points_tab_point_edit_form_globalpoint_chkbx    timeout=5    # Global point checkbox
-    #IF    ${section_exists}
-    #   RPA.Desktop.Click    alias:FXE_main_points_tab_point_edit_form_globalpoint_chkbx    # Global point deselect
-    #END
+
+    RPA.Desktop.Click    alias:FXE_main_points_tab_point_edit_form_globalpoint_chkbx    action=click        # Global point checkbox de-select
+
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab    # Include point to label list checkbox
     RPA.Desktop.Press Keys    tab    # Physical point checkbox
     RPA.Desktop.Press Keys    space    # checkbox select
 
     RPA.Desktop.Press Keys    tab    # Multi24 checkbox
-    
+
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     RPA.Desktop.Press Keys    tab    # Set value
     RPA.Desktop.Press Keys    tab    # Type drop-down (Analog default)
     RPA.Desktop.Press Keys    up    # Type change (Analog -> Counter)
-    ${error_exists}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_argument_out_error_msg    timeout=10    # Argument out of range error message
-    IF    ${error_exists}
-        RPA.Desktop.Press Keys    enter    # Closing error message            
-    END
+    # ${error_exists}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_argument_out_error_msg    timeout=10    # Argument out of range error message
+    # IF    ${error_exists}
+    #     RPA.Desktop.Press Keys    enter    # Closing error message            
+    # END
     RPA.Desktop.Press Keys    down    # Type Changing to Analog
-    ${error_exists}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_argument_out_error_msg    timeout=10    # Argument out of range error message
-    IF    ${error_exists}
-        RPA.Desktop.Press Keys    enter    # Closing error message            
-    END
+    # ${error_exists}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_argument_out_error_msg    timeout=10    # Argument out of range error message
+    # IF    ${error_exists}
+    #     RPA.Desktop.Press Keys    enter    # Closing error message            
+    # END
+
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     RPA.Desktop.Press Keys    tab    # Sample time
     RPA.Desktop.Press Keys    tab    # Time constant
     RPA.Desktop.Press Keys    tab    # Unit drop-down
@@ -939,6 +965,10 @@ Points Tab Left Panel AI Right Button Edit Arguments-2
     FOR    ${element}    IN    3
         RPA.Desktop.Press Keys    down     # 4 line select
     END
+
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     RPA.Desktop.Press Keys    tab    # Tolerance
     RPA.Desktop.Press Keys    tab    # Offset
 
@@ -947,8 +977,14 @@ Points Tab Left Panel AI Right Button Edit Arguments-2
         RPA.Desktop.Press Keys    down     # 26 line select (NTC10)
     END
 
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     RPA.Desktop.Press Keys    tab    # Runtime point
     RPA.Desktop.Press Keys    down     # 2 line select
+
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Press Keys    tab     # Limit #1 name
     RPA.Desktop.Type Text    Limit_1
@@ -1001,11 +1037,13 @@ Points Tab Left Panel AI Right Button Edit Arguments-2
     ## Sleep    1s
     RPA.Desktop.Press Keys    tab    # BACnet server object
 
-    # Sleep    3s
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+    Sleep    ${SLEEP_TIMEOUT_DEFAULT}
+
     Points Tab Point Edit Form OK-Apply-Cancel Buttons Argument-1    1    # 1=OK, 2=APPLY, other=Cancel
-    # Sleep    3s
+
     Points Tab Point Edit Exit Form Keep-Rename-Cancel Argument-1    2    # 1=Keep, 2=APPLY, other=Cancel
-    
+
 
 
 

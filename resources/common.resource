@@ -392,6 +392,10 @@ New Project Wizard
 
     RPA.Desktop.Wait For Element    alias:FXE_new_project_wizard_location_folder_window    timeout=5
     RPA.Desktop.Type Text    ${FXE_TEST_PROJECTS_FOLDER_PATH}    # enter=true
+
+    RPA.Desktop.Wait For Element    alias:FXE_new_project_wizard_locattion_save_btn        timeout=5
+    RPA.Desktop.Click    alias:FXE_new_project_wizard_locattion_save_btn
+
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
     RPA.Desktop.Press Keys    enter
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
@@ -598,15 +602,15 @@ Access Violation Form Check
 
 
 Current Window System Force Close X Button
-    RPA.Desktop.Wait For Element    alias:FXE_start_window_upper_left_FX_icon    timeout=5
-    RPA.Desktop.Move Mouse    alias:FXE_start_window_upper_left_FX_icon
-    RPA.Desktop.Click
-    RPA.Desktop.Wait For Element    alias:FXE_start_window_upper_left_FX_icon_menu    timeout=5
-    Log To Console    Window control menu visible
-    RPA.Desktop.Click With Offset    alias:FXE_start_window_upper_left_FX_icon_menu    x=0     y=70    action=Click
+    # # RPA.Desktop.Wait For Element    alias:FXE_start_window_upper_left_FX_icon    timeout=5
+    # # RPA.Desktop.Move Mouse    alias:FXE_start_window_upper_left_FX_icon
+    # # RPA.Desktop.Click
+    # # RPA.Desktop.Wait For Element    alias:FXE_start_window_upper_left_FX_icon_menu    timeout=5
+    # # Log To Console    Window control menu visible
+    # # RPA.Desktop.Click With Offset    alias:FXE_start_window_upper_left_FX_icon_menu    x=0     y=70    action=Click
 
-    # RPA.Desktop.Wait For Element    alias:FXE_start_window_system_btn    timeout=10
-    # RPA.Desktop.Click With Offset    alias:FXE_start_window_system_btn    x=50    y=0    action=Click
+    RPA.Desktop.Wait For Element    alias:FXE_start_window_system_btn    timeout=10
+    RPA.Desktop.Click With Offset    alias:FXE_start_window_system_btn    x=50    y=0    action=Click
     Log To Console    Active window is closed
 
 

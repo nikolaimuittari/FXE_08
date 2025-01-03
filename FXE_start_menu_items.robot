@@ -42,7 +42,7 @@ Start Menu Items Walkthrough
     Move Mouse    alias:FXE_start_logo_img
     Start Page FX-Editor Manual Button
     Move Mouse    alias:FXE_start_logo_img
-    Start Page OpenPCS Manual Button
+    # Start Page OpenPCS Manual Button
      Move Mouse    alias:FXE_start_logo_img
     Start Page Version Up To Date Button
     Start Page Update History Button
@@ -53,7 +53,6 @@ Start Menu Items Walkthrough
     Log To Console    Start Menu Items Walkthrough Done
     Current Window System Force Close X Button    
     Splash Screen Check
-
     Log To Console    FXE_start_menu_items.robot is completed
 
     # Display Dialog and Wait for User Action

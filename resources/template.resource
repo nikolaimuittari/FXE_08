@@ -156,7 +156,7 @@ Template Selection And Import AHU
     RPA.Desktop.Click    alias:FXE_main_template_manager_zoom_btn
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
-    RPA.Desktop.Click With Offset    alias:FXE_main_template_manager_points_buttons    x=-75    y=0    action=click
+    RPA.Desktop.Click With Offset    alias:FXE_main_template_manager_points_buttons    x=-55    y=0    action=click
     Sleep    ${SLEEP_TIMEOUT_DEFAULT}
 
     RPA.Desktop.Click    alias:FXE_main_template_add_active_btn
@@ -169,7 +169,10 @@ Template Selection And Import AHU
     ${unused_visible}=    Run Keyword And Return Status    Wait For Element    alias:FXE_main_template_unused_points_form_header     timeout=50
     IF    $unused_visible
         RPA.Desktop.Click    alias:FXE_main_template_unused_select_all_chbx
-        Wait For Element    alias:FXE_main_template_unused_from_SAVE_active_btn    timeout=10
-        RPA.Desktop.Click    alias:FXE_main_template_unused_from_SAVE_active_btn
+        
+        Wait For Element   alias:FXE_main_template_unused_form_CLOSE_btn    timeout=2
+        RPA.Desktop.Click    alias:FXE_main_template_unused_form_CLOSE_btn    action=click
+        # Wait For Element    alias:FXE_main_template_unused_from_SAVE_active_btn    timeout=10
+        # RPA.Desktop.Click    alias:FXE_main_template_unused_from_SAVE_active_btn
     END
     # RPA.Desktop.Press Keys    alt    F4

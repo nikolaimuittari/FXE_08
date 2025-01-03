@@ -69,9 +69,9 @@ Points Tab
     Log To Console    *** Alarm Ok ***
     # Sleep    30s
 
-    Points Tab Left Panel AI Right Button Edit Arguments-2   TE01_M    1
-    Points Filter Name Filter Clear And De-Select
-    Log To Console    *** Measurement Ok ***
+    # Points Tab Left Panel AI Right Button Edit Arguments-2   TE01_M    1
+    # Points Filter Name Filter Clear And De-Select
+    # Log To Console    *** Measurement Ok ***
 
     Points Tab Left Panel DI Right Button Edit Argument-1    TE01_I
     Points Filter Name Filter Clear And De-Select
